@@ -1,0 +1,107 @@
+.content {
+    display: flex;
+    flex-wrap: wrap; 
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    font-family: monospace;
+    gap: 120px;
+}
+
+.textProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: space-evenly;
+}
+
+.image {
+    border-radius: 125px;
+    width: 240px;
+    height: 240px;
+    border: 5px solid white;
+    box-shadow: 0 0 6px #efefef;
+}
+
+.name {
+    font-size: 40px;
+    font-weight: 900;
+    color: white;
+}
+
+.tittle {
+    font-size: 25px;
+    font-weight: 700;
+    color: #61DBFB;
+}
+
+.text {
+    font-size: 14px;
+    color: wheat;
+    margin-bottom: 40px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap; 
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+}
+
+.button {
+    display: flex; 
+    padding: 6px 12px;
+    color: white;
+    background-color: #ffffff17;
+    border: 2px solid #61DBFB;
+    font-weight: 700;
+    font-size: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    min-width: 100px;
+    max-width: 150px;
+}
+
+.button:hover {
+    background-color: #48a6be;
+}
+
+.icon {
+    margin: 0px 4px;
+    align-items: center;
+}
+
+@media (max-width: 1200px) {
+    .content {
+        gap: 10px;
+    }
+
+    .image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .name {
+        font-size: 30px;
+    }
+
+    .tittle {
+        font-size: 20px;
+    }
+
+    .text {
+        font-size: 10px;
+    }
+
+    .buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        gap: 10px; 
+    }
+
+    .button {
+        width: 100%; 
+    }
+}

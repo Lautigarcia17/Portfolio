@@ -1,0 +1,56 @@
+.content {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    transition: background-color 0.1s ease;
+}
+
+.elements{
+    border-radius: 20px;
+}
+
+.btnNav {
+    padding: 10px 15px;
+    color: white;
+    font-size: 20px;
+    border: none;
+    font-family: monospace;
+    font-weight: 900;
+    cursor: pointer;
+ 
+    background-color: transparent;
+
+}
+
+.btnNav p{
+    margin: 0;
+    border-bottom: 1px solid transparent;
+}
+
+.btnNav p:hover {
+    border-bottom: 1px solid white;
+}
+
+.backgroundNavbarTransparent{
+    background-color: transparent;
+}
+
+.backgroundNavbarSolid{
+    background-color: rgb(5 5 5 / 76%);
+    border: 2px solid white;
+
+}
+
+
+@media (max-width: 600px) {
+    .btnNav {
+        font-size: 12px; 
+        padding: 8px 10px; 
+    }
+}
