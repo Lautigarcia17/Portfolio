@@ -108,7 +108,7 @@
 
 @media (max-width: 360px) {
     .content {
- 
+        margin-left: 15px;
     }
     .name{
         font-size: 25px;  
