@@ -105,3 +105,18 @@
         width: 100%; 
     }
 }
+
+@media (max-width: 360px) {
+    .content {
+ 
+    }
+    .name{
+        font-size: 25px;  
+    }
+    .tittle{
+        font-size: 18px;
+    }
+    .text{
+        font-size: 9px;
+    }
+}
