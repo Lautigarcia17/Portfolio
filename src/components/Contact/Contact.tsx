@@ -2,10 +2,11 @@ import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css'
 import { useForm } from 'react-hook-form';
+import {toast,Toaster} from 'react-hot-toast'
 
 function Contact(){
   const form : any = useRef(null);
-  const {register, formState: { errors }, handleSubmit} = useForm( {
+  const {register, formState: { errors },reset, handleSubmit} = useForm( {
     mode: 'onChange'
   });
 
@@ -16,7 +17,8 @@ function Contact(){
       })
       .then(
         () => {
-          console.log('SUCCESS!');
+          toast.success('Enviado!', {position:'top-right'})
+          reset();
         },
         (error) => {
           console.log('FAILED...', error.text);
@@ -59,6 +61,7 @@ function Contact(){
           
           <input type="submit" value="Enviar" className={styles.submit} />
         </form>
+        <Toaster />
       </div>
     </div>
   );
