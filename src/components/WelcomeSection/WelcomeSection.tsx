@@ -1,6 +1,6 @@
-import myImage from '../../assets/me.jpg'
 import styles from './WelcomeSection.module.css'
 import {toast,Toaster} from 'react-hot-toast'
+import {Me} from '../../assets/index'
 
 
 function WelcomeSection(){
@@ -25,7 +25,7 @@ function WelcomeSection(){
     return(
         <div className={styles.content}>
             <div>
-                <img src={myImage} alt="GATO" className={styles.image}/>
+                <img src={Me} alt="GATO" className={styles.image}/>
             </div>
             <div>
                 <div className={styles.textProfile}>
@@ -55,6 +55,9 @@ function WelcomeSection(){
 
 
             </div>
+
+            
+
 
         </div>
     )

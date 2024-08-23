@@ -1,14 +1,27 @@
 import styles from './Projects.module.css'
-import gameRoom from '../../assets/gameRoom.png'
-import bmovies from '../../assets/Bmovies.png'
-import clinic from '../../assets/clinic.png'
-
-const handleRedirect = (url : string) => {
-    window.open(url);
-}
-
+import {Bmovies, GameRoom, Clinic, Airline, AirlineVideo, GeneralaVideo, Generala} from '../../assets/index'
+import { useState } from 'react';
+import ModalVideo from '../ModalVideo/ModalVideo';
 
 function Projects(){
+    const [showVideo, setShowVideo] = useState(false);
+    const [video, setVideo] = useState<string | null>(null);
+    
+
+    const handleRedirect = (url : string) => {
+        window.open(url);
+    }
+    
+    const handleVideo = (video : string | null = null)=>{
+        setShowVideo(!showVideo);
+
+        if(video != null){
+            setVideo(video);
+        }
+
+    }
+    
+
     return (
         <>
             <div className={styles.content}>
@@ -18,7 +31,70 @@ function Projects(){
 
                 <div className={styles.proyect}>
                     <div className={styles.imageContainer}>
-                        <img src={gameRoom} alt="game room" className={styles.image} />
+                        <img src={Airline} alt="Airline" className={styles.image} />
+
+                    </div>
+                    <div className={styles.details}>
+                        <h2 className={styles.tittleProject}>Airline</h2>
+                        <h3 className={styles.textProject}>Desarrollado hacer una gestion de vuelos y pasajeros, contando las cotizaciones y la cantidad de personas por vuelo, 
+                            asi como una estadistica por cada viaje.
+                        </h3>
+                        <div className={styles.technologies}>
+                            <h3 className={styles.textTechnologies}>Tecnologias utilizadas</h3>
+                            <div className={styles.iconsTechnologies}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 16 16"><path fill="#7c3aed" d="M7 5.5a2.5 2.5 0 1 0 1.81 4.225a.75.75 0 0 1 1.086 1.035a4 4 0 1 1-.01-5.53a.75.75 0 0 1-1.082 1.04A2.49 2.49 0 0 0 7 5.5"/><path fill="#7c3aed" d="M6.586.102a.75.75 0 0 1 .756 0l4.715 2.75a.75.75 0 0 1-.756 1.296l-4.337-2.53L1.5 4.806v6.388l5.464 3.188l4.337-2.53a.75.75 0 1 1 .755 1.296l-4.714 2.75a.75.75 0 0 1-.756 0L.372 12.273A.75.75 0 0 1 0 11.625v-7.25a.75.75 0 0 1 .372-.648z"/><path fill="#7c3aed" d="M12.18 5.25a.5.5 0 0 1 .5.5v4.5a.5.5 0 0 1-1 0v-4.5a.5.5 0 0 1 .5-.5m2.14 0a.5.5 0 0 1 .5.5v4.5a.5.5 0 0 1-1 0v-4.5a.5.5 0 0 1 .5-.5"/><path fill="#7c3aed" d="M10.5 6.93a.5.5 0 0 1 .5-.5h4.5a.5.5 0 0 1 0 1H11a.5.5 0 0 1-.5-.5m0 2.14a.5.5 0 0 1 .5-.5h4.5a.5.5 0 0 1 0 1H11a.5.5 0 0 1-.5-.5"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 256 256"><path fill="#512BD4" d="M0 0h256v256H0z"/><path fill="#FFF" d="M45.627 163.555q-2.715 0-4.615-1.809q-1.9-1.856-1.901-4.408q0-2.598 1.9-4.454q1.901-1.856 4.616-1.856q2.76 0 4.661 1.856q1.946 1.856 1.946 4.454q0 2.551-1.946 4.408q-1.9 1.81-4.66 1.81m72.361-1.02h-11.765L75.225 113.63a22 22 0 0 1-1.946-3.85h-.272l.047.305l.043.35l.04.393l.038.436l.049.736l.042.832l.035.93l.028 1.028l.02 1.125l.01.805l.01 2.2v43.614H62.961V96h12.535l29.957 47.743l.74 1.169l.477.768l.408.675l.34.583l.19.338l.16.296l.13.255h.18l-.034-.21l-.064-.45l-.06-.493l-.053-.537l-.024-.285l-.046-.602l-.04-.645l-.035-.69l-.042-1.114l-.03-1.212l-.018-1.31l-.006-1.407V96h10.362zm50.685 0h-36.428V96h34.98v9.373h-24.21v18.837h22.31v9.326h-22.31v19.673h25.658zm51.772-57.162H201.8v57.162h-10.77v-57.162h-18.6V96h48.014z"/></svg>
+                            </div>
+                        </div>
+                        <div className={styles.buttonContainer}>
+                            <button className={styles.button} onClick={() => handleRedirect("https://github.com/Lautigarcia17/tps_laboratorio_2/tree/master/Garcia.Lautaro.PrimerParcialLaboratorioDos")}>
+                                <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><g fill="none"><path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="#0284c7" d="M6.315 6.176c-.25-.638-.24-1.367-.129-2.034a6.8 6.8 0 0 1 2.12 1.07c.28.214.647.283.989.18A9.3 9.3 0 0 1 12 5c.961 0 1.874.14 2.703.391c.342.104.709.034.988-.18a6.8 6.8 0 0 1 2.119-1.07c.111.667.12 1.396-.128 2.033c-.15.384-.075.826.208 1.14C18.614 8.117 19 9.04 19 10c0 2.114-1.97 4.187-5.134 4.818c-.792.158-1.101 1.155-.495 1.726c.389.366.629.882.629 1.456v3a1 1 0 0 0 2 0v-3c0-.57-.12-1.112-.334-1.603C18.683 15.35 21 12.993 21 10c0-1.347-.484-2.585-1.287-3.622c.21-.82.191-1.646.111-2.28c-.071-.568-.17-1.312-.57-1.756c-.595-.659-1.58-.271-2.28-.032a9 9 0 0 0-2.125 1.045A11.4 11.4 0 0 0 12 3c-.994 0-1.953.125-2.851.356a9 9 0 0 0-2.125-1.045c-.7-.24-1.686-.628-2.281.031c-.408.452-.493 1.137-.566 1.719l-.005.038c-.08.635-.098 1.462.112 2.283C3.484 7.418 3 8.654 3 10c0 2.992 2.317 5.35 5.334 6.397A4 4 0 0 0 8 17.98l-.168.034c-.717.099-1.176.01-1.488-.122c-.76-.322-1.152-1.133-1.63-1.753c-.298-.385-.732-.866-1.398-1.088a1 1 0 0 0-.632 1.898c.558.186.944 1.142 1.298 1.566c.373.448.869.916 1.58 1.218c.682.29 1.483.393 2.438.276V21a1 1 0 0 0 2 0v-3c0-.574.24-1.09.629-1.456c.607-.572.297-1.568-.495-1.726C6.969 14.187 5 12.114 5 10c0-.958.385-1.881 1.108-2.684c.283-.314.357-.756.207-1.14"/></g></svg>
+                                Código
+                            </button>
+                            <button className={styles.button} onClick={() => handleVideo(AirlineVideo)}>
+                                <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 14 14"><path fill="none" stroke="#0284c7" strokeLinecap="round" strokeLinejoin="round" d="M5 8.5h4m-2-2v4m5.5-7h-11a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1m-2.5 0v-2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v2"/></svg>
+                                Video
+                            </button>
+                            <ModalVideo show={showVideo} handleModalShow={handleVideo} video={video}/>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.proyect}>
+                    <div className={styles.imageContainer}>
+                        <img src={Generala} alt="Generala" className={styles.image} />
+                    </div>
+                    <div className={styles.details}>
+                        <h2 className={styles.tittleProject}>Generala</h2>
+                        <h3 className={styles.textProject}>Desarrollado para simular el juego de la generala, permitiendo jugar, registrar y 
+                            calcular automáticamente los puntajes obtenidos, 
+                            así como llevar un historial de partidas jugadas.
+                        </h3>
+                        <div className={styles.technologies}>
+                            <h3 className={styles.textTechnologies}>Tecnologias utilizadas</h3>
+                            <div className={styles.iconsTechnologies}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 16 16"><path fill="#7c3aed" d="M7 5.5a2.5 2.5 0 1 0 1.81 4.225a.75.75 0 0 1 1.086 1.035a4 4 0 1 1-.01-5.53a.75.75 0 0 1-1.082 1.04A2.49 2.49 0 0 0 7 5.5"/><path fill="#7c3aed" d="M6.586.102a.75.75 0 0 1 .756 0l4.715 2.75a.75.75 0 0 1-.756 1.296l-4.337-2.53L1.5 4.806v6.388l5.464 3.188l4.337-2.53a.75.75 0 1 1 .755 1.296l-4.714 2.75a.75.75 0 0 1-.756 0L.372 12.273A.75.75 0 0 1 0 11.625v-7.25a.75.75 0 0 1 .372-.648z"/><path fill="#7c3aed" d="M12.18 5.25a.5.5 0 0 1 .5.5v4.5a.5.5 0 0 1-1 0v-4.5a.5.5 0 0 1 .5-.5m2.14 0a.5.5 0 0 1 .5.5v4.5a.5.5 0 0 1-1 0v-4.5a.5.5 0 0 1 .5-.5"/><path fill="#7c3aed" d="M10.5 6.93a.5.5 0 0 1 .5-.5h4.5a.5.5 0 0 1 0 1H11a.5.5 0 0 1-.5-.5m0 2.14a.5.5 0 0 1 .5-.5h4.5a.5.5 0 0 1 0 1H11a.5.5 0 0 1-.5-.5"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 256 256"><path fill="#512BD4" d="M0 0h256v256H0z"/><path fill="#FFF" d="M45.627 163.555q-2.715 0-4.615-1.809q-1.9-1.856-1.901-4.408q0-2.598 1.9-4.454q1.901-1.856 4.616-1.856q2.76 0 4.661 1.856q1.946 1.856 1.946 4.454q0 2.551-1.946 4.408q-1.9 1.81-4.66 1.81m72.361-1.02h-11.765L75.225 113.63a22 22 0 0 1-1.946-3.85h-.272l.047.305l.043.35l.04.393l.038.436l.049.736l.042.832l.035.93l.028 1.028l.02 1.125l.01.805l.01 2.2v43.614H62.961V96h12.535l29.957 47.743l.74 1.169l.477.768l.408.675l.34.583l.19.338l.16.296l.13.255h.18l-.034-.21l-.064-.45l-.06-.493l-.053-.537l-.024-.285l-.046-.602l-.04-.645l-.035-.69l-.042-1.114l-.03-1.212l-.018-1.31l-.006-1.407V96h10.362zm50.685 0h-36.428V96h34.98v9.373h-24.21v18.837h22.31v9.326h-22.31v19.673h25.658zm51.772-57.162H201.8v57.162h-10.77v-57.162h-18.6V96h48.014z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" stroke="#ffffff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8a2 2 0 0 1 2 2v4a2 2 0 1 1-4 0v-4a2 2 0 0 1 2-2m5 0v8h4m-8-1l1 1M3 15a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1"/></svg>
+                            </div>
+                        </div>
+                        <div className={styles.buttonContainer}>
+                            <button className={styles.button} onClick={() => handleRedirect("https://github.com/Lautigarcia17/tps_laboratorio_2/tree/master/Garcia.Lautaro.SegundoParcialLaboratorioDos")}>
+                                <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><g fill="none"><path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="#0284c7" d="M6.315 6.176c-.25-.638-.24-1.367-.129-2.034a6.8 6.8 0 0 1 2.12 1.07c.28.214.647.283.989.18A9.3 9.3 0 0 1 12 5c.961 0 1.874.14 2.703.391c.342.104.709.034.988-.18a6.8 6.8 0 0 1 2.119-1.07c.111.667.12 1.396-.128 2.033c-.15.384-.075.826.208 1.14C18.614 8.117 19 9.04 19 10c0 2.114-1.97 4.187-5.134 4.818c-.792.158-1.101 1.155-.495 1.726c.389.366.629.882.629 1.456v3a1 1 0 0 0 2 0v-3c0-.57-.12-1.112-.334-1.603C18.683 15.35 21 12.993 21 10c0-1.347-.484-2.585-1.287-3.622c.21-.82.191-1.646.111-2.28c-.071-.568-.17-1.312-.57-1.756c-.595-.659-1.58-.271-2.28-.032a9 9 0 0 0-2.125 1.045A11.4 11.4 0 0 0 12 3c-.994 0-1.953.125-2.851.356a9 9 0 0 0-2.125-1.045c-.7-.24-1.686-.628-2.281.031c-.408.452-.493 1.137-.566 1.719l-.005.038c-.08.635-.098 1.462.112 2.283C3.484 7.418 3 8.654 3 10c0 2.992 2.317 5.35 5.334 6.397A4 4 0 0 0 8 17.98l-.168.034c-.717.099-1.176.01-1.488-.122c-.76-.322-1.152-1.133-1.63-1.753c-.298-.385-.732-.866-1.398-1.088a1 1 0 0 0-.632 1.898c.558.186.944 1.142 1.298 1.566c.373.448.869.916 1.58 1.218c.682.29 1.483.393 2.438.276V21a1 1 0 0 0 2 0v-3c0-.574.24-1.09.629-1.456c.607-.572.297-1.568-.495-1.726C6.969 14.187 5 12.114 5 10c0-.958.385-1.881 1.108-2.684c.283-.314.357-.756.207-1.14"/></g></svg>
+                                Código
+                            </button>
+                            <button className={styles.button} onClick={() => handleVideo(GeneralaVideo)}>
+                                <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 14 14"><path fill="none" stroke="#0284c7" strokeLinecap="round" strokeLinejoin="round" d="M5 8.5h4m-2-2v4m5.5-7h-11a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1m-2.5 0v-2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v2"/></svg>
+                                Video
+                            </button>
+                            <ModalVideo show={showVideo} handleModalShow={handleVideo} video={video}/>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.proyect}>
+                    <div className={styles.imageContainer}>
+                        <img src={GameRoom} alt="game room" className={styles.image} />
                     </div>
                     <div className={styles.details}>
                         <h2 className={styles.tittleProject}>Sala de juegos</h2>
@@ -50,7 +126,7 @@ function Projects(){
 
                 <div className={styles.proyect}>
                     <div className={styles.imageContainer}>
-                        <img src={clinic} alt="online clinic" className={styles.image} />
+                        <img src={Clinic} alt="online clinic" className={styles.image} />
                     </div>
                     <div className={styles.details}>
                         <h2 className={styles.tittleProject}>Clinica online</h2>
@@ -82,7 +158,7 @@ function Projects(){
 
                 <div className={styles.proyect}>
                     <div className={styles.imageContainer}>
-                        <img src={bmovies} alt="Bmovies" className={styles.image} />
+                        <img src={Bmovies} alt="Bmovies" className={styles.image} />
                     </div>
                     <div className={styles.details}>
                         <h2 className={styles.tittleProject}>Bmovies</h2>
@@ -111,6 +187,9 @@ function Projects(){
                         </div>
                     </div>
                 </div>
+
+
+
 
             </div>
         </>
