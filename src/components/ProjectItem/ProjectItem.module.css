@@ -114,3 +114,23 @@
     }
 
 }
+
+
+
+
+@media (max-width: 1250px) {
+    .proyect{
+        width: 60%;
+        gap: 20px;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .proyect {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+

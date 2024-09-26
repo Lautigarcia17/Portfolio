@@ -21,28 +21,6 @@
 
 
 
-.image {
-    width: 250px;
-    height: 100%;
-    border-radius: 18px;
-}
-
-@media (max-width: 1250px) {
-    .proyect{
-        width: 60%;
-        gap: 20px;
-    }
-}
-
-
-
-@media (max-width: 768px) {
-    .proyect {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
 @media (max-width: 450px) {
     .tittleHeader{
       font-size: 28px;
