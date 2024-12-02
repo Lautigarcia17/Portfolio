@@ -14,7 +14,7 @@ function Projects() {
         <>
             <div className={styles.content}>
                 <div className={styles.header}>
-                    <h1 className={styles.tittleHeader}> &lt;/&gt; Proyectos </h1>
+                    <h1 className={styles.titleHeader}> &lt;/&gt; Proyectos </h1>
                 </div>
 
                 {arrayProjects.map((project: Project,index : number) => (

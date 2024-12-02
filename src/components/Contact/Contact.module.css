@@ -14,11 +14,10 @@
     margin-bottom: 30px;
 }
 
-  .tittleHeader {
-      color: wheat;
-      font-weight: 900;
+  .titleHeader {
+      color: #F0EBD8;
+      font-weight: 700;
       font-size: 35px;
-      font-family: monospace;
   }
 
 
@@ -44,7 +43,6 @@
   label {
     font-size: 22px;
     color: white;
-    font-family: monospace;
   }
 
   .inputText {
@@ -76,7 +74,6 @@
     border-radius: 20px;
     cursor: pointer;
     background-color: #61DBFB;
-    font-family: monospace;
     font-weight: 900;
     font-size: 15px;
   }
@@ -121,7 +118,7 @@
   }
 
   @media (max-width: 450px) {
-    .tittleHeader{
+    .titleHeader{
       font-size: 28px;
     }
   }

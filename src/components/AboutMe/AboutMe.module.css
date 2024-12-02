@@ -13,18 +13,16 @@
     margin-bottom: 30px;
 }
 
-.tittleHeader {
-    color: wheat;
-    font-weight: 900;
+.titleHeader {
+    color: #F0EBD8;
+    font-weight: 700;
     font-size: 35px;
-    font-family: monospace;
 }
 
 .about {
     border-radius: 38px;
     width: 50%;
     height: auto;
-    font-family: monospace;
     background-color: rgb(0 0 0 / 38%);
 }
 
@@ -53,16 +51,15 @@
   }
   
   .skillsList li strong {
-    color: #61DBFB;
-    font-size: 14px;
-    margin-right: 10px;
+    color: #0a9eb1;
+    font-size: 18px;
+    margin-right: 20px;
   }
 
   .star{
     color: gold;
-    font-size: 14px;
+    font-size: 19px;
     margin-right: 10px;
-
   }
   
   .icons{
@@ -72,8 +69,8 @@
 }
 
 .icon{
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 25px;
 }
 
 
@@ -87,7 +84,7 @@
 
 .data h2{
   font-size: 28px;
-  color: wheat;
+  color: #f5deb3;
   font-weight: bold;
   text-align: center;
 }
@@ -122,7 +119,7 @@
 
 
 @media (max-width: 450px) {
-  .tittleHeader{
+  .titleHeader{
     font-size: 28px;
   }
   .data h2{

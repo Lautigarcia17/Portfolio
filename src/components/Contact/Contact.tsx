@@ -29,7 +29,7 @@ function Contact(){
   return (
     <div className={styles.content}>
       <div className={styles.header}>
-          <h1 className={styles.tittleHeader}> &lt;/&gt; Contacto </h1>
+          <h1 className={styles.titleHeader}> &lt;/&gt; Contacto </h1>
       </div> 
       <div className={styles.card}>
         <form ref={form} className={styles.form} onSubmit={handleSubmit(sendEmail)}>

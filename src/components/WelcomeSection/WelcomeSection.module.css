@@ -4,8 +4,7 @@
     width: 100%;
     height: auto;
     justify-content: center;
-    font-family: monospace;
-    gap: 120px;
+    gap: 180px;
 }
 
 .textProfile {
@@ -17,29 +16,29 @@
 }
 
 .image {
-    border-radius: 125px;
+    border-radius: 40px;
     width: 240px;
     height: 240px;
-    border: 5px solid white;
-    box-shadow: 0 0 6px #efefef;
+    border: 5px solid #3E5C76;
 }
 
 .name {
-    font-size: 40px;
-    font-weight: 900;
-    color: white;
+    font-size: 45px;
+    color: #f0e6ef;
+    font-weight: 600;
 }
 
-.tittle {
-    font-size: 25px;
-    font-weight: 700;
-    color: #61DBFB;
+.title {
+    font-size: 30px;
+    font-weight: 500;
+    color: #F0EBD8;
 }
 
 .text {
-    font-size: 14px;
-    color: wheat;
+    font-size: 20px;
+    color: #F0EBD8;
     margin-bottom: 40px;
+    font-weight: 300;
 }
 
 .buttons {
@@ -47,25 +46,26 @@
     flex-wrap: wrap; 
     width: 100%;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 .button {
-    display: flex; 
-    padding: 6px 12px;
-    color: white;
+    display: flex;
+    padding: 10px 25px;
+    color: #f0e6ef;
     background-color: #ffffff17;
-    border: 2px solid #61DBFB;
-    font-weight: 700;
-    font-size: 12px;
-    border-radius: 10px;
-    cursor: pointer;
+    border: 2px solid #3E5C76;
+    font-weight: 400;
+    font-size: 15px;
+    border-radius: 8px;
     min-width: 100px;
     max-width: 150px;
+    align-items: center;
+    gap: 5px;
 }
 
 .button:hover {
-    background-color: #48a6be;
+    background-color: #0a9eb1;
 }
 
 .icon {
@@ -87,7 +87,7 @@
         font-size: 30px;
     }
 
-    .tittle {
+    .title {
         font-size: 20px;
     }
 
@@ -113,7 +113,7 @@
     .name{
         font-size: 25px;  
     }
-    .tittle{
+    .title{
         font-size: 18px;
     }
     .text{

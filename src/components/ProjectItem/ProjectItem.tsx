@@ -29,7 +29,7 @@ const handleVideo = (video: string | null = null) => {
 
         </div>
         <div className={styles.details}>
-          <h2 className={styles.tittleProject}>{project.title}</h2>
+          <h2 className={styles.titleProject}>{project.title}</h2>
           <h3 className={styles.textProject}>{project.text}
           </h3>
           <div className={styles.technologies}>

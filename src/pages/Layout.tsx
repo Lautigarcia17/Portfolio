@@ -6,6 +6,7 @@ import Contact from "../components/Contact/Contact";
 import Projects from "../components/Projects/Projects"
 import AboutMe from "../components/AboutMe/AboutMe"
 
+
 function Layout() {
     const scrollContainerRef = useRef(null);
     const aboutMeRef = useRef(null);
@@ -15,6 +16,7 @@ function Layout() {
 
   return (
     <div className={styles.container} ref={scrollContainerRef}>
+
         <div className={styles.content}>
             <div className={` ${styles.element} ${styles.navBar}`}>
                 <NavBar scrollContainerRef={scrollContainerRef} aboutMeRef={aboutMeRef} projectsRef= {projectsRef} contactRef = {contactRef}/>

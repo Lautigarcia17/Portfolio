@@ -18,7 +18,7 @@ padding-top: 0px;
   width: 100%;
   display: flex;
   justify-content: center;
-  color: wheat;
+  color: #f5deb3;
   font-size: 35px;
 }
 
@@ -35,7 +35,6 @@ padding-top: 0px;
 label {
   font-size: 22px;
   color: white;
-  font-family: monospace;
 }
 
 .inputText {
@@ -67,7 +66,6 @@ label {
   border-radius: 20px;
   cursor: pointer;
   background-color: #61DBFB;
-  font-family: monospace;
   font-weight: 900;
   font-size: 15px;
 }

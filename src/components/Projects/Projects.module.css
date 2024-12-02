@@ -12,17 +12,16 @@
     margin-bottom: 30px;
 }
 
-.tittleHeader {
-    color: wheat;
-    font-weight: 900;
+.titleHeader {
+    color: #F0EBD8;
+    font-weight: 700;
     font-size: 35px;
-    font-family: monospace;
 }
 
 
 
 @media (max-width: 450px) {
-    .tittleHeader{
+    .titleHeader{
       font-size: 28px;
     }
   }
