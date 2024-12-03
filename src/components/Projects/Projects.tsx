@@ -17,9 +17,12 @@ function Projects() {
                     <h1 className={styles.titleHeader}> &lt;/&gt; Proyectos </h1>
                 </div>
 
-                {arrayProjects.map((project: Project,index : number) => (
-                    <ProjectItem  project={project} index={index}/>
-                ))}
+                <div className={styles.projects}>
+                    {arrayProjects.map((project: Project,index : number) => (
+                        <ProjectItem  project={project} index={index}/>
+                    ))}
+                </div>
+
             </div>
         </>
 

@@ -18,6 +18,14 @@
     font-size: 35px;
 }
 
+.projects{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    width: 60%;
+    gap: 40px;
+}
 
 
 @media (max-width: 450px) {

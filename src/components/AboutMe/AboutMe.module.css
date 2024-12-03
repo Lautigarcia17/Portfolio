@@ -80,6 +80,7 @@
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 .data h2{
