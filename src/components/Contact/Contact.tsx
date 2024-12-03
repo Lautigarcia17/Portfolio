@@ -3,6 +3,10 @@ import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css'
 import { useForm } from 'react-hook-form';
 import {toast,Toaster} from 'react-hot-toast'
+import TextField from '@mui/material/TextField';
+import { InputAdornment } from '@mui/material';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 function Contact(){
   const form : any = useRef(null);
@@ -25,6 +29,40 @@ function Contact(){
         },
       );
   };
+
+
+  const theme = createTheme({
+    components: {
+      MuiOutlinedInput: {
+        styleOverrides: {
+          root: {
+            color: 'white', // Default input text color
+            '& fieldset': {
+              borderColor: '#0a9eb1 !important', // Default border color
+            },
+            '&:hover fieldset': {
+              borderColor: '#0a9eb1 !important', // Hover border color
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: '#0a9eb1', // Focused border color
+            },
+          },
+        },
+      },
+      MuiInputLabel: {
+        styleOverrides: {
+          root: {
+            color: 'white', // Label default color
+            fontSize: '20px',
+            '&.Mui-focused': {
+              color: 'white', // Label color when focused
+            },
+          },
+        },
+      },
+    },
+  });
+
 
   return (
     <div className={styles.content}>
@@ -61,6 +99,30 @@ function Contact(){
           
           <input type="submit" value="Enviar" className={styles.submit} />
         </form>
+
+          <ThemeProvider theme={theme}>
+                <TextField
+              id="input-with-icon-textfield"
+              label="Nombre"
+              slotProps={{
+                input: {
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <AccountCircle />
+                    </InputAdornment>
+                  ),
+                },
+              }}
+              variant="outlined"
+            />
+          </ThemeProvider>
+
+
+
+
+
+
+
         <Toaster />
       </div>
     </div>
