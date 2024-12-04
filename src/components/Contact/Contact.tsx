@@ -51,6 +51,9 @@ function Contact() {
             '&:after': {
               borderBottom: '2px solid #0a9eb1',
             },
+            ['@media (max-width:450px)'] :{
+              width: '200px'
+            }
           },
         },
       },
@@ -66,6 +69,9 @@ function Contact() {
             '&.MuiInputLabel-shrink': {
               transform: 'translate(0, -10px) scale(0.85)',
             },
+            ['@media (max-width:450px)'] :{
+              fontSize: '20px'
+            }
           },
         },
       },
@@ -92,7 +98,7 @@ function Contact() {
         <Avatar
         alt="Lautaro Garcia"
         src="/me.jpg"
-        sx={{ width: 60, height: 60 }}
+        sx={{ width: 60, height: 60, marginBottom: 2 }}
       />
 
         </div>

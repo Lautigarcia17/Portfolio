@@ -28,6 +28,31 @@
 }
 
 
+@media (max-width: 1500px) {
+    .projects{
+        grid-template-columns: repeat(2, 1fr);
+        width: 70%;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .projects{
+        grid-template-columns: repeat(1, 1fr);
+        width: 50%;
+    }
+  }
+
+  @media (max-width: 550px) {
+    .titleHeader{
+      font-size: 28px;
+    }
+    .projects{
+        
+        width: 70%;
+    }
+  }
+
+
 @media (max-width: 450px) {
     .titleHeader{
       font-size: 28px;
