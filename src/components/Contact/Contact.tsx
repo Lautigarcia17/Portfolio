@@ -91,7 +91,7 @@ function Contact() {
         <div>
         <Avatar
         alt="Lautaro Garcia"
-        src="/assets/me.jpg"
+        src="public/me.jpg"
         sx={{ width: 60, height: 60 }}
       />
 
