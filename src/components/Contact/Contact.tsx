@@ -88,11 +88,14 @@ function Contact() {
         <h1 className={styles.titleHeader}> &lt;/&gt; Contacto </h1>
       </div>
       <div className={styles.card}>
-      <Avatar
+        <div>
+        <Avatar
         alt="Lautaro Garcia"
         src="src/assets/me.jpg"
-        sx={{ width: 56, height: 56 }}
+        sx={{ width: 60, height: 60 }}
       />
+
+        </div>
 
         <form ref={form} className={styles.form} onSubmit={handleSubmit(sendEmail)}>
           <ThemeProvider theme={theme}>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import styles from './Navbar.module.css'
 
-function NavBar({scrollContainerRef,aboutMeRef,projectsRef,contactRef} : any){
+function NavBar({scrollContainerRef,welcomeRef,aboutMeRef,projectsRef,contactRef} : any){
     const [isScrolled,setIsScrolled] = useState(false);
 
     useEffect(()=>{
@@ -22,13 +22,33 @@ function NavBar({scrollContainerRef,aboutMeRef,projectsRef,contactRef} : any){
 
     },[])
 
-    const scrollToSection = (ref : any) => {
-        ref.current.scrollIntoView({ behavior: 'smooth' });
+    const scrollToSection = (ref: any) => {
+        const scrollContainer = scrollContainerRef.current;
+        const offset = 50; 
+      
+        if (scrollContainer && ref?.current) {
+            if (ref === welcomeRef) {
+                scrollContainer.scrollTo({
+                    top: 0,
+                    behavior: 'smooth',
+                  });
+            }
+            else if (ref?.current) {
+                const elementTop = ref.current.offsetTop;
+                scrollContainer.scrollTo({
+                  top: elementTop - offset,
+                  behavior: 'smooth',
+                });
+            }
+        }
       };
 
     return (
         <div className={`${styles.content}`}>
             <div className={`${styles.elements} ${isScrolled ? styles.backgroundNavbarSolid : styles.backgroundNavbarTransparent}`}>
+                <button className={styles.btnNav} onClick={ ()=> scrollToSection(welcomeRef)}>
+                    <p>Inicio</p>
+                </button>
                 <button className={styles.btnNav} onClick={ ()=> scrollToSection(aboutMeRef)}>
                     <p>Sobre mi</p>
                 </button>

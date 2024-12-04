@@ -12,6 +12,7 @@ function Layout() {
     const aboutMeRef = useRef(null);
     const projectsRef = useRef(null);
     const contactRef = useRef(null);
+    const welcomeRef = useRef(null);
 
 
   return (
@@ -19,9 +20,9 @@ function Layout() {
 
         <div className={styles.content}>
             <div className={` ${styles.element} ${styles.navBar}`}>
-                <NavBar scrollContainerRef={scrollContainerRef} aboutMeRef={aboutMeRef} projectsRef= {projectsRef} contactRef = {contactRef}/>
+                <NavBar scrollContainerRef={scrollContainerRef} welcomeRef={welcomeRef} aboutMeRef={aboutMeRef} projectsRef= {projectsRef} contactRef = {contactRef}/>
             </div>
-            <div className={styles.element}>
+            <div className={styles.element} ref={welcomeRef}>
                 <WelcomeSection/>
             </div>
             <hr className={styles.lineSeparetor} />
