@@ -16,7 +16,7 @@ function AboutMe(){
                     desarrollar y fortalecer mis habilidades técnicas.
                     </h2>
                     <div className={styles.data}>
-                        <h2> Experiencias y habilidades </h2>
+                        <h2> Experiencias y habilidades</h2>
                 
                         <ul className={styles.skillsList}>
                             <li>

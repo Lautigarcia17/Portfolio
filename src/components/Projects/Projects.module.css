@@ -38,7 +38,7 @@
   @media (max-width: 800px) {
     .projects{
         grid-template-columns: repeat(1, 1fr);
-        width: 50%;
+        width: 65%;
     }
   }
 
@@ -48,7 +48,7 @@
     }
     .projects{
         
-        width: 70%;
+        width: 90%;
     }
   }
 

@@ -107,7 +107,7 @@
 
 @media (max-width: 1250px) {
     .proyect{
-        width: 60%;
+        width: 90%;
         gap: 20px;
     }
 }
@@ -120,15 +120,6 @@
         align-items: center;
     }
 
-    .imageContainer{
-        width: 100%;
-    }
-
-    .image {
-        width: 100%;
-        height: 180px;
-    }
-
     .titleProject{
         text-align: center;
     }
@@ -138,3 +129,24 @@
     }
 }
 
+
+@media (max-width: 650px) {
+    .proyect {
+       width: 90%;
+    }
+}
+
+@media (max-width: 500px) {
+    .titleProject {
+       margin-top: 0px;
+    }
+    .textProject{
+        font-size: 16px;
+    }
+
+    .button{
+            padding: 4px 8px;
+            font-size: 14px;
+
+    }
+}
