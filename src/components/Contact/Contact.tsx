@@ -2,15 +2,18 @@ import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css'
 import { useForm } from 'react-hook-form';
-import {toast,Toaster} from 'react-hot-toast'
+import { toast, Toaster } from 'react-hot-toast'
 import TextField from '@mui/material/TextField';
-import { InputAdornment } from '@mui/material';
-import AccountCircle from '@mui/icons-material/AccountCircle';
+import { Avatar, Box, Button } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import MarkunreadIcon from '@mui/icons-material/Markunread';
+import SendIcon from '@mui/icons-material/Send';
 
-function Contact(){
-  const form : any = useRef(null);
-  const {register, formState: { errors },reset, handleSubmit} = useForm( {
+function Contact() {
+  const form: any = useRef(null);
+  const { register, formState: { errors }, reset, handleSubmit } = useForm({
     mode: 'onChange'
   });
 
@@ -21,7 +24,7 @@ function Contact(){
       })
       .then(
         () => {
-          toast.success('Enviado!', {position:'top-right'})
+          toast.success('Enviado!', { position: 'top-right' })
           reset();
         },
         (error) => {
@@ -33,18 +36,20 @@ function Contact(){
 
   const theme = createTheme({
     components: {
-      MuiOutlinedInput: {
+      MuiInput: {
         styleOverrides: {
           root: {
-            color: 'white', // Default input text color
-            '& fieldset': {
-              borderColor: '#0a9eb1 !important', // Default border color
+            color: 'white',
+            backgroundColor: 'transparent',
+            width: '300px',
+            '&:before': {
+              borderBottom: '2px solid #0a9eb1',
             },
-            '&:hover fieldset': {
-              borderColor: '#0a9eb1 !important', // Hover border color
+            '&:hover:not(.Mui-disabled):before': {
+              borderBottom: '2px solid #0a9eb1',
             },
-            '&.Mui-focused fieldset': {
-              borderColor: '#0a9eb1', // Focused border color
+            '&:after': {
+              borderBottom: '2px solid #0a9eb1',
             },
           },
         },
@@ -52,14 +57,27 @@ function Contact(){
       MuiInputLabel: {
         styleOverrides: {
           root: {
-            color: 'white', // Label default color
-            fontSize: '20px',
+            color: 'white',
+            fontSize: '25px',
+            transform: 'translate(0, 13px) scale(1)',
             '&.Mui-focused': {
-              color: 'white', // Label color when focused
+              color: 'white',
+            },
+            '&.MuiInputLabel-shrink': {
+              transform: 'translate(0, -10px) scale(0.85)',
             },
           },
         },
       },
+      MuiSvgIcon: {
+        styleOverrides: {
+          root: {
+            color: '#F0EBD8',
+            fontSize: '30px',
+            marginRight: '20px'
+          }
+        }
+      }
     },
   });
 
@@ -67,58 +85,88 @@ function Contact(){
   return (
     <div className={styles.content}>
       <div className={styles.header}>
-          <h1 className={styles.titleHeader}> &lt;/&gt; Contacto </h1>
-      </div> 
+        <h1 className={styles.titleHeader}> &lt;/&gt; Contacto </h1>
+      </div>
       <div className={styles.card}>
+      <Avatar
+        alt="Lautaro Garcia"
+        src="src/assets/me.jpg"
+        sx={{ width: 56, height: 56 }}
+      />
+
         <form ref={form} className={styles.form} onSubmit={handleSubmit(sendEmail)}>
-
-          <label htmlFor="user_name">Nombre</label>
-          <input type="text"  id='user_name' className={styles.inputText} {...register('user_name',{
-            required: true,
-            pattern: /^[A-Za-z\s]+$/
-          })}  />
-          {errors.user_name?.type === 'required' && <p className={styles.messageError}>El nombre es requerido</p>}
-          {errors.user_name?.type === 'pattern' && <p className={styles.messageError}>El nombre solo puede tener letras y espacios</p>}
-
-
-          <label htmlFor="user_email">Email</label>
-          <input type="text" id="user_email" className={styles.inputText} {...register("user_email", {
-            required: true,
-            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-          })} />
-          {errors.user_email?.type === 'required' && <p className={styles.messageError}>El email es requerido</p>}
-          {errors.user_email?.type === 'pattern' && <p className={styles.messageError}>Formato de email invalido</p>}
-
-
-
-          <label htmlFor="message">Mensaje</label>
-          <textarea  id="message" className={styles.inputText} {...register("message", {
-            required: true
-          })}/>
-          {errors.message?.type === 'required' && <p className={styles.messageError}>El mensaje es requerido</p>}
-          
-          <input type="submit" value="Enviar" className={styles.submit} />
-        </form>
-
           <ThemeProvider theme={theme}>
+            {/* Name Input */}
+            <div className={styles.inputs}>
+              <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                <AssignmentIndIcon />
                 <TextField
-              id="input-with-icon-textfield"
-              label="Nombre"
-              slotProps={{
-                input: {
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <AccountCircle />
-                    </InputAdornment>
-                  ),
-                },
-              }}
-              variant="outlined"
-            />
+                  id="input-with-sx"
+                  label="Nombre"
+                  variant="standard"
+                  {...register('user_name', {
+                    required: true,
+                    pattern: /^[A-Za-z\s]+$/,
+                  })}
+                />
+              </Box>
+              <p className={`${styles.messageError} ${errors.user_name ? styles.visible : ''}`}>
+                {errors.user_name?.type === 'required' && 'El nombre es requerido'}
+                {errors.user_name?.type === 'pattern' && 'El nombre solo puede tener letras y espacios'}
+              </p>
+
+            </div>
+
+            {/* Email Input */}
+            <div className={styles.inputs}>
+              <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                <AlternateEmailIcon />
+                <TextField
+                  id="input-with-sx"
+                  label="Mail"
+                  variant="standard"
+                  {...register('user_email', {
+                    required: true,
+                    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  })}
+                />
+              </Box>
+              <p className={`${styles.messageError} ${errors.user_email ? styles.visible : ''}`}>
+                {errors.user_email?.type === 'required' && 'El mail es requerido'}
+                {errors.user_email?.type === 'pattern' && 'Formato de mail invalido'}
+              </p>
+            </div>
+
+            {/* Message Input */}
+            <div className={styles.inputs}>
+              <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                <MarkunreadIcon />
+                <TextField
+                  id="filled-multiline-flexible"
+                  label="Mensaje"
+                  multiline
+                  variant="standard"
+                  {...register('message', {
+                    required: true,
+                  })}
+                />
+              </Box>
+              <p className={`${styles.messageError} ${errors.message?.type === 'required' ? 'visible' : ''}`}>
+                El mensaje es requerido
+              </p>
+            </div>
           </ThemeProvider>
-
-
-
+          <Button type='submit' size='large' variant="contained" endIcon={<SendIcon />} sx={{
+            backgroundColor: '#0a9eb1',
+            color: '#F0EBD8',
+            marginTop: '30px',
+            '&:hover': {
+              backgroundColor: '#268693', 
+            },
+          }}>
+              Enviar
+          </Button>
+        </form>
 
 
 
