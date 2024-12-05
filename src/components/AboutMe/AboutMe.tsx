@@ -10,10 +10,7 @@ function AboutMe(){
 
                 <div className={styles.about}>
                     <h2 className={styles.textProject}>
-                    ¡Hola! Soy Lautaro Nahuel Garcia, un desarrollador web apasionado por la tecnología y el aprendizaje continuo. 
-                    Me formé en la Universidad Tecnológica Nacional, donde adquirí una sólida base en desarrollo de software y descubrí mi pasión por el desarrollo de tecnologías web.
-                    Aunque no cuento con experiencia laboral, he dedicado tiempo a proyectos personales y académicos que me han permitido
-                    desarrollar y fortalecer mis habilidades técnicas.
+                    ¡Hola! Soy Lautaro Nahuel García, un desarrollador web apasionado por la tecnología y el aprendizaje continuo. Me formé en la Universidad Tecnológica Nacional, donde adquirí una sólida base en desarrollo de software y descubrí mi pasión por el desarrollo de tecnologías web. Aunque no cuento con experiencia laboral, he dedicado tiempo a proyectos personales y académicos que me han permitido desarrollar y fortalecer mis habilidades técnicas.
                     </h2>
                     <div className={styles.data}>
                         <h2> Experiencias y habilidades</h2>

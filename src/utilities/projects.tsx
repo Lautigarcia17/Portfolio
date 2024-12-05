@@ -4,7 +4,7 @@ import { Project } from '../types/project'
 export const projects : Project[] = [
     {
         title: 'Airline',
-        text : 'Desarrollado hacer una gestion de vuelos y pasajeros, contando las cotizaciones y la cantidad de personas por vuelo, asi como una estadistica por cada viaje.',
+        text : 'Desarrollado para hacer una gestión de vuelos y pasajeros, contando las cotizaciones y la cantidad de personas por vuelo, así como una estadística por cada viaje.',
         image: Airline,
         icons: [
             { name: 'C#', icon: <svg xmlns="http://www.w3.org/2000/svg" className='responsive-icon-project' viewBox="0 0 16 16"><path fill="#7c3aed" d="M7 5.5a2.5 2.5 0 1 0 1.81 4.225a.75.75 0 0 1 1.086 1.035a4 4 0 1 1-.01-5.53a.75.75 0 0 1-1.082 1.04A2.49 2.49 0 0 0 7 5.5" /><path fill="#7c3aed" d="M6.586.102a.75.75 0 0 1 .756 0l4.715 2.75a.75.75 0 0 1-.756 1.296l-4.337-2.53L1.5 4.806v6.388l5.464 3.188l4.337-2.53a.75.75 0 1 1 .755 1.296l-4.714 2.75a.75.75 0 0 1-.756 0L.372 12.273A.75.75 0 0 1 0 11.625v-7.25a.75.75 0 0 1 .372-.648z" /><path fill="#7c3aed" d="M12.18 5.25a.5.5 0 0 1 .5.5v4.5a.5.5 0 0 1-1 0v-4.5a.5.5 0 0 1 .5-.5m2.14 0a.5.5 0 0 1 .5.5v4.5a.5.5 0 0 1-1 0v-4.5a.5.5 0 0 1 .5-.5" /><path fill="#7c3aed" d="M10.5 6.93a.5.5 0 0 1 .5-.5h4.5a.5.5 0 0 1 0 1H11a.5.5 0 0 1-.5-.5m0 2.14a.5.5 0 0 1 .5-.5h4.5a.5.5 0 0 1 0 1H11a.5.5 0 0 1-.5-.5" /></svg> },
@@ -27,7 +27,7 @@ export const projects : Project[] = [
     },
     {
         title: 'Sala de juegos',
-        text : 'Desarrollado para una experiencia de usuario interactiva y entretenida, donde puede jugar a diversos juegos.',
+        text : 'Desarrollado para ofrecer una experiencia de usuario interactiva y entretenida, donde se pueden jugar diversos juegos.',
         image: GameRoom,
         icons: [
             { name: 'Angular', icon: <svg xmlns="http://www.w3.org/2000/svg" className='responsive-icon-project' viewBox="0 0 128 128"><linearGradient id="IconifyId190a90cb68fe30e818" x1="14.704" x2="110.985" y1="46.27" y2="92.024" gradientTransform="matrix(1 0 0 -1 0 130)" gradientUnits="userSpaceOnUse"><stop offset="0" stopColor="#e40035"/><stop offset=".24" stopColor="#f60a48"/><stop offset=".352" stopColor="#f20755"/><stop offset=".494" stopColor="#dc087d"/><stop offset=".745" stopColor="#9717e7"/><stop offset="1" stopColor="#6c00f5"/></linearGradient><path fill="url(#IconifyId190a90cb68fe30e818)" d="m124.5 21.3l-4.4 68.6L78.3 0zm-29 88.7L64 128l-31.5-18l6.4-15.5h50.3zM64 34.1l16.5 40.2h-33zM7.9 89.9L3.5 21.3L49.7 0z"/><linearGradient id="IconifyId190a90cb68fe30e819" x1="28.733" x2="91.742" y1="117.071" y2="45.195" gradientTransform="matrix(1 0 0 -1 0 130)" gradientUnits="userSpaceOnUse"><stop offset="0" stopColor="#ff31d9"/><stop offset="1" stopColor="#ff5be1" stopOpacity="0"/></linearGradient><path fill="url(#IconifyId190a90cb68fe30e819)" d="m124.5 21.3l-4.4 68.6L78.3 0zm-29 88.7L64 128l-31.5-18l6.4-15.5h50.3zM64 34.1l16.5 40.2h-33zM7.9 89.9L3.5 21.3L49.7 0z"/></svg> },
@@ -40,8 +40,8 @@ export const projects : Project[] = [
         page: "https://saladejuegos-3eb2a.web.app"
     },
     {
-        title: 'Clinica online',
-        text : 'Desarrollado para facilitar la gestion de citas medicas y el seguimiento de pacientes de forma virtual. Pudiendo acceder a historiales y solicitar turnos',
+        title: 'Clínica online',
+        text : 'Desarrollado para facilitar la gestión de citas médicas y el seguimiento de pacientes de forma virtual, pudiendo acceder a historiales y solicitar turnos.',
         image: Clinic,
         icons: [
             { name: 'Angular', icon: <svg xmlns="http://www.w3.org/2000/svg" className='responsive-icon-project' viewBox="0 0 128 128"><linearGradient id="IconifyId190a90cb68fe30e818" x1="14.704" x2="110.985" y1="46.27" y2="92.024" gradientTransform="matrix(1 0 0 -1 0 130)" gradientUnits="userSpaceOnUse"><stop offset="0" stopColor="#e40035"/><stop offset=".24" stopColor="#f60a48"/><stop offset=".352" stopColor="#f20755"/><stop offset=".494" stopColor="#dc087d"/><stop offset=".745" stopColor="#9717e7"/><stop offset="1" stopColor="#6c00f5"/></linearGradient><path fill="url(#IconifyId190a90cb68fe30e818)" d="m124.5 21.3l-4.4 68.6L78.3 0zm-29 88.7L64 128l-31.5-18l6.4-15.5h50.3zM64 34.1l16.5 40.2h-33zM7.9 89.9L3.5 21.3L49.7 0z"/><linearGradient id="IconifyId190a90cb68fe30e819" x1="28.733" x2="91.742" y1="117.071" y2="45.195" gradientTransform="matrix(1 0 0 -1 0 130)" gradientUnits="userSpaceOnUse"><stop offset="0" stopColor="#ff31d9"/><stop offset="1" stopColor="#ff5be1" stopOpacity="0"/></linearGradient><path fill="url(#IconifyId190a90cb68fe30e819)" d="m124.5 21.3l-4.4 68.6L78.3 0zm-29 88.7L64 128l-31.5-18l6.4-15.5h50.3zM64 34.1l16.5 40.2h-33zM7.9 89.9L3.5 21.3L49.7 0z"/></svg> },
@@ -69,7 +69,7 @@ export const projects : Project[] = [
     },
     {
         title: 'Restaurapp',
-        text : 'Desarrollado para optimizar la experiencia en un restaurant, permitiendo gestionar pedidos, asignar mesas, interactuar con mozos y generar cuentas. Diseñado en equipo con enfoque en dispositivos móviles.',
+        text : 'Desarrollado para optimizar la experiencia en un restaurante, permitiendo gestionar pedidos, asignar mesas, interactuar con mozos y generar cuentas. Diseñado en equipo con enfoque en dispositivos móviles.',
         image: Restaurapp,
         icons: [
             { name: 'Angular', icon: <svg xmlns="http://www.w3.org/2000/svg" className='responsive-icon-project' viewBox="0 0 128 128"><linearGradient id="IconifyId190a90cb68fe30e818" x1="14.704" x2="110.985" y1="46.27" y2="92.024" gradientTransform="matrix(1 0 0 -1 0 130)" gradientUnits="userSpaceOnUse"><stop offset="0" stopColor="#e40035"/><stop offset=".24" stopColor="#f60a48"/><stop offset=".352" stopColor="#f20755"/><stop offset=".494" stopColor="#dc087d"/><stop offset=".745" stopColor="#9717e7"/><stop offset="1" stopColor="#6c00f5"/></linearGradient><path fill="url(#IconifyId190a90cb68fe30e818)" d="m124.5 21.3l-4.4 68.6L78.3 0zm-29 88.7L64 128l-31.5-18l6.4-15.5h50.3zM64 34.1l16.5 40.2h-33zM7.9 89.9L3.5 21.3L49.7 0z"/><linearGradient id="IconifyId190a90cb68fe30e819" x1="28.733" x2="91.742" y1="117.071" y2="45.195" gradientTransform="matrix(1 0 0 -1 0 130)" gradientUnits="userSpaceOnUse"><stop offset="0" stopColor="#ff31d9"/><stop offset="1" stopColor="#ff5be1" stopOpacity="0"/></linearGradient><path fill="url(#IconifyId190a90cb68fe30e819)" d="m124.5 21.3l-4.4 68.6L78.3 0zm-29 88.7L64 128l-31.5-18l6.4-15.5h50.3zM64 34.1l16.5 40.2h-33zM7.9 89.9L3.5 21.3L49.7 0z"/></svg> },
