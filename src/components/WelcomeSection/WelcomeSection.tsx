@@ -5,7 +5,7 @@ import {Me} from '../../assets/index'
 
 function WelcomeSection(){
     const copyText = () => {
-        navigator.clipboard.writeText('lauti1718garcia@gmail.com')
+        navigator.clipboard.writeText('lautaronhgarcia@gmail.com')
         .then(()=> {
             toast.success('Copiado!', {position:'top-right'})
         })
