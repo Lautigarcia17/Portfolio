@@ -113,6 +113,7 @@ function Contact() {
                   id="input-with-sx"
                   label="Nombre"
                   variant="standard"
+                  autoComplete='off'
                   {...register('user_name', {
                     required: true,
                     pattern: /^[A-Za-z\s]+$/,
@@ -134,6 +135,7 @@ function Contact() {
                   id="input-with-sx"
                   label="Mail"
                   variant="standard"
+                  autoComplete='off'
                   {...register('user_email', {
                     required: true,
                     pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
@@ -155,6 +157,7 @@ function Contact() {
                   label="Mensaje"
                   multiline
                   variant="standard"
+                  autoComplete='off'
                   {...register('message', {
                     required: true,
                   })}
