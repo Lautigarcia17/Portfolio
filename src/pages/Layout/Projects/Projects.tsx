@@ -1,7 +1,7 @@
 import styles from './Projects.module.css'
-import { projects } from '../../utilities/projects';
-import ProjectItem from '../ProjectItem/ProjectItem';
-import { Project } from '../../types/project';
+import { projects } from '../../../utilities/projects';
+import ProjectItem from '../../../components/ProjectItem/ProjectItem';
+import { Project } from '../../../types/project';
 
 function Projects() {
 
@@ -18,12 +18,14 @@ function Projects() {
                 </div>
 
                 <div className={styles.projects}>
-                    {arrayProjects.map((project: Project,index : number) => (
-                        <ProjectItem  project={project} index={index}/>
+                    {arrayProjects.map((project: Project, index: number) => (
+                        <ProjectItem project={project} index={index} />
                     ))}
                 </div>
-
             </div>
+
+
+
         </>
 
     )

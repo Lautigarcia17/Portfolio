@@ -2,8 +2,8 @@ import styles from './AboutMe.module.css'
 
 function AboutMe(){
     return (
-        <>
-            <div className={styles.content}>
+        <div className={styles.content}>
+  
                 <div className={styles.header}>
                     <h1 className={styles.titleHeader}> &lt;/&gt; Sobre mi </h1>
                 </div> 
@@ -75,8 +75,8 @@ function AboutMe(){
 
 
                 </div>
-            </div>
-        </>
+
+        </div>
     )
 }
 

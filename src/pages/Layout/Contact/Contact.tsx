@@ -185,7 +185,7 @@ function Contact() {
 
         <Toaster />
       </div>
-    </div>
+      </div>
   );
 };
 
