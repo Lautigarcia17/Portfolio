@@ -1,27 +1,33 @@
-.content {
+.contentWelcome {
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 180px;
-    /* background-color: rgb(119, 87, 177); */
+    background: linear-gradient(90deg, #1b2735 67%, #ffe557  33%);
     width: 100%;
     height: 100%;
     align-items: center;
+
+}
+
+.contentProfile{
+    position: relative;
+    height: 100%;
+    width: 900px;
+    transform: translate(-300px);
 }
 
 .textProfile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     height: 100%;
-    justify-content: space-evenly;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .image {
-    border-radius: 40px;
-    width: 240px;
-    height: 240px;
-    border: 5px solid #3E5C76;
+    border-radius: 10px;
+    width: 500px;
+    height: 500px;
 }
 
 .name {
@@ -31,39 +37,41 @@
 }
 
 .title {
-    font-size: 30px;
-    font-weight: 500;
-    color: #F0EBD8;
+    font-size: 90px;
+    font-weight: 700;
+    color: #ffe557;
 }
 
 .text {
-    font-size: 20px;
-    color: #F0EBD8;
-    margin-bottom: 40px;
+    font-size: 25px;
+    color: white;
+    margin-top: 30px;
     font-weight: 300;
 }
 
 .buttons {
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     width: 100%;
     justify-content: center;
     gap: 20px;
+    position: absolute;
+    bottom: 150px;
 }
 
 .button {
     display: flex;
-    padding: 10px 25px;
+    padding: 12px 20px;
     color: #f0e6ef;
     background-color: #ffffff17;
     border: 2px solid #3E5C76;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 22px;
     border-radius: 8px;
-    min-width: 100px;
-    max-width: 150px;
     align-items: center;
     gap: 5px;
+    width: 200px;
+    justify-content: space-evenly;
 }
 
 .button:hover {
@@ -71,8 +79,9 @@
 }
 
 .icon {
-    margin: 0px 4px;
     align-items: center;
+    width: 25px;
+    height: 25px;
 }
 
 @media (max-width: 1200px) {

@@ -19,7 +19,7 @@ function Projects() {
 
                 <div className={styles.projects}>
                     {arrayProjects.map((project: Project, index: number) => (
-                        <ProjectItem project={project} index={index} />
+                        <ProjectItem project={project} key={index} />
                     ))}
                 </div>
             </div>

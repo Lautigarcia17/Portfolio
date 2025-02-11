@@ -3,7 +3,7 @@ import { Project } from "../../types/project";
 import styles from './ProjectItem.module.css'
 import ModalVideo from "../ModalVideo/ModalVideo";
 
-export default function ProjectItem( {project,index} : {project: Project, index : number}) {
+export default function ProjectItem( {project} : {project: Project}) {
   const [showVideo, setShowVideo] = useState(false);
   const [video, setVideo] = useState<string | null>(null);
 
@@ -23,7 +23,7 @@ const handleVideo = (video: string | null = null) => {
 
   return (
     <>
-      <div key={index} className={styles.proyect}>
+      <div className={styles.proyect}>
         <div className={styles.imageContainer}>
           <img src={project.image} alt={project.title} className={styles.image} />
         </div>
