@@ -1,19 +1,14 @@
-.content {
+.contentNavbar {
     width: 100%;
-    height: auto;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap; 
-    gap: 10px;
+    justify-content: flex-start;
     position: sticky;
     top: 0;
     z-index: 99;
-    transition: background-color 0.1s ease;
+    background-color: transparent;
 }
 
-.elements{
-    border-radius: 20px;
-}
+
 
 .btnNav {
     padding: 10px 20px;
@@ -24,23 +19,11 @@
 }
 
 .btnNav p{
-    margin: 0;
-    border-bottom: 1px solid transparent;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.btnNav p:hover {
-    border-bottom: 1px solid white;
-}
 
-.backgroundNavbarTransparent{
-    background-color: transparent;
-}
 
-.backgroundNavbarSolid{
-    background-color: rgb(5 5 5 / 76%);
-    border: 2px solid white;
-
-}
 
 @media (max-width: 1000px) {
     .btnNav {

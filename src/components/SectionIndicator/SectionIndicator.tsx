@@ -4,7 +4,7 @@ const SectionIndicator = ({ currentSection }: { currentSection: string | null })
 
   return (
     <div className={styles.indicatorContainer}>
-      {['welcome', 'aboutme', 'projects', 'contact'].map((sectionId) => (
+      {['welcome', 'aboutMe', 'projects', 'contact'].map((sectionId) => (
         <div
           key={sectionId}
           className={`${styles.indicator} ${currentSection === sectionId ? styles.active : ''}`}

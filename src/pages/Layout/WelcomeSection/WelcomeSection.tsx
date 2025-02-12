@@ -26,30 +26,32 @@ function WelcomeSection() {
         <>
             <div className={styles.contentWelcome}>
                 <div className={styles.contentProfile}>
+                    <div className={styles.decorationDoubleLine}></div>       
+
                     <div className={styles.textProfile}>
                         <h2 className={styles.title}>Desarrollador <br/> Frontend</h2>
                         <h6 className={styles.text}>Apasionado por la creación y el diseño de experiencias web, siempre en busca de nuevas oportunidades para aprender y crecer.</h6>
                     </div>
 
-                        <div className={styles.buttons}>
-                            <button className={styles.button} onClick={handlePdf}>
-                                <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20 20"><g fill="#0284c7"><path d="M7.8 6.35c.56 0 1.01-.45 1.01-1.01S8.36 4.33 7.8 4.33s-1.01.45-1.01 1.01s.45 1.01 1.01 1.01" /><path d="M9.83 8.55c0-1.08-.91-1.86-2.03-1.86c-1.12 0-2.03.78-2.03 1.86v.51c0 .09.04.18.1.24c.06.06.15.1.24.1h3.38c.09 0 .18-.04.24-.1c.06-.06.1-.15.1-.24zM5.75 11.5a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75m0 3a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75" clipRule="evenodd" /><path fillRule="evenodd" d="M2.5 2.5c0-1.102.898-2 2-2h6.69c.562 0 1.092.238 1.465.631l.006.007l4.312 4.702c.359.383.527.884.527 1.36v10.3c0 1.102-.898 2-2 2h-11c-1.102 0-2-.898-2-2zm8.689 0H4.5v15h11V7.192l-4.296-4.685l-.003-.001a.041.041 0 0 0-.012-.006" clipRule="evenodd" /><path fillRule="evenodd" d="M11.19.5a1 1 0 0 1 1 1v4.7h4.31a1 1 0 1 1 0 2h-5.31a1 1 0 0 1-1-1V1.5a1 1 0 0 1 1-1" clipRule="evenodd" /></g></svg>
-                                Ver CV
-                            </button>
-                            <button className={styles.button} onClick={() => handleRedirect('https://www.linkedin.com/in/lautarongarcia/')}>
-                                <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 432 432"><path fill="#0284c7" d="M363 365V244q0-31-22-53t-53-22q-15 0-30 8.5T235 199v-26h-64v192h64V252q0-13 9-22.5t22.5-9.5t23 9.5T299 252v113zM96 137q16 0 27.5-11T135 99t-11.5-27.5T96 60T68.5 71.5T57 99t11.5 27T96 137m32 228V173H64v192zM384 3q18 0 30.5 12.5T427 45v342q0 17-12.5 29.5T384 429H43q-18 0-30.5-12.5T0 387V45q0-17 12.5-29.5T43 3z" /></svg>
-                                Linkedin
-                            </button>
-                            <button className={styles.button} onClick={() => handleRedirect('https://github.com/Lautigarcia17')}>
-                                <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><g fill="none"><path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" /><path fill="#0284c7" d="M6.315 6.176c-.25-.638-.24-1.367-.129-2.034a6.8 6.8 0 0 1 2.12 1.07c.28.214.647.283.989.18A9.3 9.3 0 0 1 12 5c.961 0 1.874.14 2.703.391c.342.104.709.034.988-.18a6.8 6.8 0 0 1 2.119-1.07c.111.667.12 1.396-.128 2.033c-.15.384-.075.826.208 1.14C18.614 8.117 19 9.04 19 10c0 2.114-1.97 4.187-5.134 4.818c-.792.158-1.101 1.155-.495 1.726c.389.366.629.882.629 1.456v3a1 1 0 0 0 2 0v-3c0-.57-.12-1.112-.334-1.603C18.683 15.35 21 12.993 21 10c0-1.347-.484-2.585-1.287-3.622c.21-.82.191-1.646.111-2.28c-.071-.568-.17-1.312-.57-1.756c-.595-.659-1.58-.271-2.28-.032a9 9 0 0 0-2.125 1.045A11.4 11.4 0 0 0 12 3c-.994 0-1.953.125-2.851.356a9 9 0 0 0-2.125-1.045c-.7-.24-1.686-.628-2.281.031c-.408.452-.493 1.137-.566 1.719l-.005.038c-.08.635-.098 1.462.112 2.283C3.484 7.418 3 8.654 3 10c0 2.992 2.317 5.35 5.334 6.397A4 4 0 0 0 8 17.98l-.168.034c-.717.099-1.176.01-1.488-.122c-.76-.322-1.152-1.133-1.63-1.753c-.298-.385-.732-.866-1.398-1.088a1 1 0 0 0-.632 1.898c.558.186.944 1.142 1.298 1.566c.373.448.869.916 1.58 1.218c.682.29 1.483.393 2.438.276V21a1 1 0 0 0 2 0v-3c0-.574.24-1.09.629-1.456c.607-.572.297-1.568-.495-1.726C6.969 14.187 5 12.114 5 10c0-.958.385-1.881 1.108-2.684c.283-.314.357-.756.207-1.14" /></g></svg>
-                                Github
-                            </button>
-                            <button className={styles.button} onClick={copyText}>
-                                <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32"><path fill="none" stroke="#0284c7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M29 9v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9m26 0a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2m26 0l-11.862 8.212a2 2 0 0 1-2.276 0L3 9" /></svg>
-                                Email
-                            </button>
-                            <Toaster />
-                        </div>
+                    <div className={styles.buttons}>
+                        <button className={styles.button} onClick={handlePdf}>
+                            <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20 20"><g fill="none"><path fill="#ffe557" d="M6.5 12.5a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zm0 2.5a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1z"/><path fill="#ffe557" fillRule="evenodd" d="M11.185 1H4.5A1.5 1.5 0 0 0 3 2.5v15A1.5 1.5 0 0 0 4.5 19h11a1.5 1.5 0 0 0 1.5-1.5V7.202a1.5 1.5 0 0 0-.395-1.014l-4.314-4.702A1.5 1.5 0 0 0 11.185 1M4 2.5a.5.5 0 0 1 .5-.5h6.685a.5.5 0 0 1 .369.162l4.314 4.702a.5.5 0 0 1 .132.338V17.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5z" clipRule="evenodd"/><path stroke="#ffe557" strokeLinecap="round" strokeLinejoin="round" d="M11.5 2.1v4.7h4.7"/><path fill="#ffe557" d="M8.134 6.133a1.067 1.067 0 1 0 0-2.133a1.067 1.067 0 0 0 0 2.133"/><path fill="#ffe557" fillRule="evenodd" d="M10.266 8.444c0-1.134-.955-1.955-2.133-1.955S6 7.309 6 8.444v.534a.356.356 0 0 0 .356.355h3.555a.356.356 0 0 0 .355-.355z" clipRule="evenodd"/></g></svg>
+                            Ver CV
+                        </button>
+                        <button className={styles.button} onClick={() => handleRedirect('https://www.linkedin.com/in/lautarongarcia/')}>
+                            <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><g fill="none" stroke="#ffe557" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2a2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6M2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></g></svg>
+                            Linkedin
+                        </button>
+                        <button className={styles.button} onClick={() => handleRedirect('https://github.com/Lautigarcia17')}>
+                            <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><g fill="none" stroke="#ffe557" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" color="#ffe557"><path d="M10 20.568c-3.429 1.157-6.286 0-8-3.568"/><path d="M10 22v-3.242c0-.598.184-1.118.48-1.588c.204-.322.064-.78-.303-.88C7.134 15.452 5 14.107 5 9.645c0-1.16.38-2.25 1.048-3.2c.166-.236.25-.354.27-.46c.02-.108-.015-.247-.085-.527c-.283-1.136-.264-2.343.16-3.43c0 0 .877-.287 2.874.96c.456.285.684.428.885.46s.469-.035 1.005-.169A9.5 9.5 0 0 1 13.5 3a9.6 9.6 0 0 1 2.343.28c.536.134.805.2 1.006.169c.2-.032.428-.175.884-.46c1.997-1.247 2.874-.96 2.874-.96c.424 1.087.443 2.294.16 3.43c-.07.28-.104.42-.084.526s.103.225.269.461c.668.95 1.048 2.04 1.048 3.2c0 4.462-2.134 5.807-5.177 6.643c-.367.101-.507.559-.303.88c.296.47.48.99.48 1.589V22"/></g></svg>
+                            Github
+                        </button>
+                        <button className={styles.button} onClick={copyText}>
+                            <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="#ffe557"><path d="M6.412 7.584C5.36 9.044 5 10.827 5 12c0 1.173.36 2.956 1.412 4.416C7.426 17.825 9.126 19 12 19c1.98 0 3.385-.558 4.388-1.334a1 1 0 1 1 1.224 1.581C16.229 20.317 14.385 21 12 21c-3.526 0-5.826-1.491-7.212-3.416C3.44 15.711 3 13.494 3 12c0-1.493.44-3.711 1.788-5.584C6.174 4.492 8.474 3 12 3s5.826 1.492 7.212 3.416C20.56 8.289 21 10.506 21 12a3.79 3.79 0 0 1-.689 2.147c-.56.778-1.485 1.353-2.811 1.353c-1.326 0-2.251-.575-2.812-1.353A3.791 3.791 0 0 1 14 12a1 1 0 1 1 2 0c0 .257.085.664.311.978c.19.264.515.522 1.189.522s.999-.258 1.189-.522c.226-.314.311-.721.311-.978c0-1.173-.36-2.956-1.412-4.416C16.575 6.175 14.874 5 12 5S7.426 6.175 6.412 7.584z"/><path d="M12 10a2 2 0 1 0 0 4a2 2 0 0 0 0-4zm-4 2a4 4 0 1 1 8 0a4 4 0 0 1-8 0z"/></g></svg>
+                            Email
+                        </button>
+                        <Toaster />
+                    </div>
                 </div>
                 <div className={styles.contentImage}>
                     <img src={Me} alt="Lautaro García" className={styles.image} />
