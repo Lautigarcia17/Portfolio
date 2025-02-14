@@ -1,8 +1,8 @@
 import styles from './Navbar.module.css'
-
+import { motion } from "framer-motion";
 function NavBar({ scrollContainerRef, welcomeRef, visibleSection }: any) {
-
-
+    const isWelcome = visibleSection === "welcome";
+    const fullName = "Lautaro Nahuel García";
 
     const scrollToSection = (ref: any) => {
         const scrollContainer = scrollContainerRef.current;
@@ -25,27 +25,56 @@ function NavBar({ scrollContainerRef, welcomeRef, visibleSection }: any) {
         }
     };
 
-    const getName = () => {
-        if (visibleSection === 'welcome') return "Lautaro Nahuel Garcia";
-        if (visibleSection === 'aboutMe' || visibleSection === 'projects' || visibleSection === 'contact') return "LNG";
-        return "Lautaro Nahuel Garcia";
-    };
+
 
     const getNameColor = () => {
         switch (visibleSection) {
-          case 'welcome': return '#ffe557';
-          case 'aboutMe': return 'red';
-          case 'projects': return 'blue';
-          case 'contact': return 'pink';
-          default: return '#ffe557';
+            case 'welcome': return '#ffe557';
+            case 'aboutMe': return '#1b2735 ';
+            case 'projects': return '#ffe557';
+            case 'contact': return '#1b2735';
+            default: return '#ffe557';
         }
-      };
+    };
 
     return (
-        <header className={`${styles.contentNavbar}`}>
-            <button className={styles.btnNav} onClick={() => scrollToSection(welcomeRef)}>
-                <p style={{color: getNameColor()}}>{getName()}</p>
-            </button>
+        <header className={styles.contentNavbar}>
+            <motion.button
+                className={styles.btnNav}
+                animate={{ gap: 0 }} // Controlamos el espaciado entre palabras
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                onClick={() => scrollToSection}
+            >
+                {fullName.split(" ").map((word, wordIndex) => {
+                    return (
+                        <span key={wordIndex} className={styles.wordContainer}>
+                            {word.split("").map((letter, index) => {
+                                const isPersistent = ["L", "N", "G"].includes(letter);
+
+                                return (
+                                    <motion.span
+                                        key={index}
+                                        initial={{ opacity: 0 }}
+                                        animate={{
+                                            opacity: isWelcome || isPersistent ? 1 : 0,
+                                            x: isWelcome ? 0 : isPersistent ? 0 : -2, // Mueve las letras fuera de la vista
+                                            display: isPersistent || isWelcome ? "inline-block" : "none", // Controla visibilidad
+                                        }}
+                                        transition={{ duration: 0.1, delay: index * 0.03 }}
+                                        className={`${styles.nameLetter} ${isPersistent ? styles.persistent : styles.hidden}`}
+                                        style={{
+                                            color: getNameColor(),
+                                            fontWeight: isPersistent ? 700 : 400
+                                        }}
+                                    >
+                                        {letter}
+                                    </motion.span>
+                                );
+                            })}
+                        </span>
+                    );
+                })}
+            </motion.button>
         </header>
     );
 }

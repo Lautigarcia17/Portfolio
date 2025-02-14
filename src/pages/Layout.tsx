@@ -15,26 +15,20 @@ const Layout = () => {
 
     useEffect(() => {
         const container = document.querySelector(`.${styles.containerLayout}`) as HTMLElement;
-
-        const handleScroll = (event: WheelEvent) => {
+    
+        if (!container) return;
+    
+        const handleWheel = (event: WheelEvent) => {
+            if (event.ctrlKey || event.metaKey) return; 
+    
             event.preventDefault();
             const delta = event.deltaY;
-
+    
             container.scrollBy({
                 top: delta * 0.1,
                 behavior: 'smooth'
             });
         };
-
-        container?.addEventListener('wheel', handleScroll);
-
-        return () => {
-            container?.removeEventListener('wheel', handleScroll);
-        };
-    }, []);
-
-    useEffect(() => {
-        const container = document.querySelector(`.${styles.containerLayout}`) as HTMLElement;
     
         const handleScroll = () => {
             const sections = Array.from(document.querySelectorAll('section'));
@@ -44,7 +38,7 @@ const Layout = () => {
                 const rect = section.getBoundingClientRect();
                 if (rect.top <= window.innerHeight * 0.1 && rect.bottom >= window.innerHeight * 0.5) {
                     newVisibleSection = section.id;
-                    break; 
+                    break;
                 }
             }
     
@@ -53,18 +47,21 @@ const Layout = () => {
             }
         };
     
-        container?.addEventListener('scroll', handleScroll);
+
+        container.addEventListener('wheel', handleWheel);
+        container.addEventListener('scroll', handleScroll);
     
         handleScroll(); 
     
         return () => {
-            container?.removeEventListener('scroll', handleScroll);
+            container.removeEventListener('wheel', handleWheel);
+            container.removeEventListener('scroll', handleScroll);
         };
     }, [visibleSection]);
 
 
     return (
-        <main className={styles.containerLayout} ref={scrollContainerRef}>
+         <main className={styles.containerLayout} ref={scrollContainerRef}>
             <NavBar scrollContainerRef={scrollContainerRef} welcomeRef={welcomeRef} visibleSection={visibleSection}/>
             <SectionIndicator currentSection={visibleSection}/>
             <section id="welcome" className={styles.sectionLayout} aria-hidden={visibleSection !== 'welcome' ? 'true' : 'false'} ref={welcomeRef}>

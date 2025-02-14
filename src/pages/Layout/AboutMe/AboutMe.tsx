@@ -2,9 +2,9 @@ import styles from './AboutMe.module.css'
 
 function AboutMe(){
     return (
-        <div className={styles.content}>
+        <div className={styles.contentAboutMe}>
   
-                <div className={styles.header}>
+                <div className={styles.headerAboutMe}>
                     <h1 className={styles.titleHeader}> &lt;/&gt; Sobre mi </h1>
                 </div> 
 
