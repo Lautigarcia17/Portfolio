@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css'
 import { useForm } from 'react-hook-form';
-import { toast, Toaster } from 'react-hot-toast'
+import { toast } from 'react-hot-toast'
 import TextField from '@mui/material/TextField';
 import { Avatar, Box, Button } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -179,11 +179,6 @@ function Contact() {
               Enviar
           </Button>
         </form>
-
-
-
-
-        <Toaster />
       </div>
       </div>
   );

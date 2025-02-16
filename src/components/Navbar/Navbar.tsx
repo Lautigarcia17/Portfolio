@@ -29,11 +29,11 @@ function NavBar({ scrollContainerRef, welcomeRef, visibleSection }: any) {
 
     const getNameColor = () => {
         switch (visibleSection) {
-            case 'welcome': return '#ffe557';
-            case 'aboutMe': return '#1b2735 ';
-            case 'projects': return '#ffe557';
+            case 'welcome': return '#fdb500';
+            case 'aboutMe': return '#111111 ';
+            case 'projects': return '#fdb500';
             case 'contact': return '#1b2735';
-            default: return '#ffe557';
+            default: return '#fdb500';
         }
     };
 
@@ -43,7 +43,7 @@ function NavBar({ scrollContainerRef, welcomeRef, visibleSection }: any) {
                 className={styles.btnNav}
                 animate={{ gap: 0 }} // Controlamos el espaciado entre palabras
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                onClick={() => scrollToSection}
+                onClick={()=>scrollToSection(welcomeRef)}
             >
                 {fullName.split(" ").map((word, wordIndex) => {
                     return (

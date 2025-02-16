@@ -6,6 +6,7 @@ import Projects from './Layout/Projects/Projects';
 import Contact from './Layout/Contact/Contact';
 import SectionIndicator from '../components/SectionIndicator/SectionIndicator';
 import NavBar from '../components/Navbar/Navbar';
+import { Toaster } from 'react-hot-toast';
 
 
 const Layout = () => {
@@ -76,6 +77,7 @@ const Layout = () => {
             <section id="contact" className={styles.sectionLayout} aria-hidden={visibleSection !== 'contact' ? 'true' : 'false'} >
                 <Contact />
             </section>
+            <Toaster/>
         </main>
     );
 };

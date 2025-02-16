@@ -1,81 +1,95 @@
+.containerAboutMe {
+  width: 100%;
+  height: 100%;
+  background-color: #eae4d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .contentAboutMe {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    background-color: #F9F9F9;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1500px;
+  width: 100%;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 .headerAboutMe {
-    display: flex;
-    width: 60%;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
 }
 
-.headerAboutMe .titleHeader {
-    color: #F0EBD8;
-    font-weight: 700;
-    font-size: 35px;
+.contentAboutMe .titleDiv {
+  font-size: 45px;
+  text-align: center;
+  color: #111111;
+  font-weight: 900;
+  padding-bottom: 20px;
+  font-family: "Croissant One", serif;
+  margin-bottom: 0;
 }
 
 .contentAboutMe .about {
-    border-radius: 38px;
-    width: 50%;
-    height: auto;
-    background-color: rgb(0 0 0 / 38%);
+  width: 100%;
+  height: auto;
+
 }
 
-.about .textProject{
-    padding: 25px;
-    font-size: 20px;
-    color: white;
-    font-weight: 500;
+.headerAboutMe .textProject {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 0px;
+  padding: 20px 50px;
 }
 
 .data .skillsList {
-    list-style-type: none; 
-    padding-left: 0;     
-    margin: 0; 
-  }
-  
-
-  .data .skillsList li {
-    display: flex;
-    align-items: center;
-    background: #5857574d;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 20px 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .data .skillsList li strong {
-    color: #0a9eb1;
-    font-size: 18px;
-    margin-right: 20px;
-  }
-
-  .data .skillsList li .star{
-    color: gold;
-    font-size: 19px;
-    margin-right: 10px;
-  }
-  
-  .skillsList li .icons{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
 }
 
-.skillsList li .icons .icon{
+
+.data .skillsList li {
+  display: flex;
+  align-items: center;
+  background: #111111d6;
+  border-radius: 25px;
+  padding: 10px;
+  margin: 20px 0px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.data .skillsList li strong {
+  color: white;
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+.data .skillsList li .star {
+  color: #fdb500 ;
+  font-size: 19px;
+  margin-right: 10px;
+}
+
+.skillsList li .icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 2px 10px;
+}
+
+.skillsList li .icons .icon {
   height: 25px;
   width: 25px;
 }
 
 
-.about .data{
+.about .data {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -84,59 +98,55 @@
   margin-bottom: 30px;
 }
 
-.about .data h2{
-  font-size: 28px;
-  color: #f5deb3;
-  font-weight: bold;
-  text-align: center;
-}
-
 
 
 
 @media (max-width: 1000px) {
-  .contentAboutMe .about{
+  .contentAboutMe .about {
     width: 90%;
   }
 
-  .about .data h2 h2{
+  .about .data h2 h2 {
     font-size: 24px;
   }
 
-  .about .textProject{
+  .about .textProject {
     font-size: 16px;
   }
-  .data .skillsList li{
+
+  .data .skillsList li {
     padding: 5px 5px;
   }
 
-  .data .skillsList li strong{
+  .data .skillsList li strong {
     font-size: 12px;
   }
 
-  .skillsList li .icons{
+  .skillsList li .icons {
     gap: 10px;
   }
 }
 
 
 @media (max-width: 450px) {
-  .headerAboutMe .titleHeader{
+  .headerAboutMe .titleHeader {
     font-size: 28px;
   }
-  .data h2{
+
+  .data h2 {
     font-size: 22px;
   }
+
   .data .skillsList li strong {
     font-size: 12px;
   }
 
-  .skillsList li .icons .icon{
+  .skillsList li .icons .icon {
     width: 15px;
     height: 15px;
   }
 
-  .data .skillsList li .star{
+  .data .skillsList li .star {
     font-size: 16px;
     margin-right: 5px;
   }
@@ -148,4 +158,3 @@
     font-size: 8px;
   }
 }
-
