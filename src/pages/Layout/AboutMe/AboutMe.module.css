@@ -14,6 +14,7 @@
   width: 100%;
   flex-direction: row;
   align-items: flex-start;
+  margin-top: 50px;
 }
 
 .headerAboutMe {
@@ -29,9 +30,8 @@
   text-align: center;
   color: #111111;
   font-weight: 900;
-  padding-bottom: 20px;
+  margin-bottom: 25px;
   font-family: "Croissant One", serif;
-  margin-bottom: 0;
 }
 
 .contentAboutMe .about {
@@ -47,45 +47,11 @@
   padding: 20px 50px;
 }
 
-.data .skillsList {
-  list-style-type: none;
-  padding-left: 0;
-  margin: 0;
-}
 
 
-.data .skillsList li {
-  display: flex;
-  align-items: center;
-  background: #111111d6;
-  border-radius: 25px;
-  padding: 10px;
-  margin: 20px 0px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.data .skillsList li strong {
-  color: white;
-  font-size: 18px;
-  margin-right: 20px;
-}
-
-.data .skillsList li .star {
-  color: #fdb500 ;
-  font-size: 19px;
-  margin-right: 10px;
-}
-
-.skillsList li .icons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 2px 10px;
-}
-
-.skillsList li .icons .icon {
-  height: 25px;
-  width: 25px;
+.icon {
+  height: 30px;
+  width: 30px;
 }
 
 
@@ -95,9 +61,73 @@
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 30px;
 }
 
+
+.skillsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.skillCategory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skillCategory h3 {
+  color: #111111;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  position: relative;
+}
+
+.skillCategory h3::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background-color: #111111;
+  margin: 5px auto 0;
+  border-radius: 2px;
+}
+
+.techGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  max-width: 800px;
+}
+
+.techCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff12;
+  border-radius: 8px;
+  min-width: 70px;
+  height: 65px;
+  text-align: center;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+
+  padding: 0px 10px;
+  gap: 2px;
+
+}
+
+.techCard span {
+  color: #111111;
+  font-size: 14px;
+  font-weight: 500;
+}
 
 
 
@@ -114,17 +144,7 @@
     font-size: 16px;
   }
 
-  .data .skillsList li {
-    padding: 5px 5px;
-  }
 
-  .data .skillsList li strong {
-    font-size: 12px;
-  }
-
-  .skillsList li .icons {
-    gap: 10px;
-  }
 }
 
 
@@ -137,24 +157,8 @@
     font-size: 22px;
   }
 
-  .data .skillsList li strong {
-    font-size: 12px;
-  }
-
-  .skillsList li .icons .icon {
-    width: 15px;
-    height: 15px;
-  }
-
-  .data .skillsList li .star {
-    font-size: 16px;
-    margin-right: 5px;
-  }
-
 }
 
-@media (max-width: 360px) {
-  .data .skillsList li strong {
-    font-size: 8px;
-  }
-}
+
+
+
