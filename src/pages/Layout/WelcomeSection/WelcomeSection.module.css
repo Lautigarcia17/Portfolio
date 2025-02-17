@@ -99,18 +99,22 @@
     padding: 6px 18px;
     color: #f0e6ef;
     background-color: #ffffff17;
-    border: 2px solid #3E5C76;
+    border: 2px solid #26282a;
     font-weight: 400;
     font-size: 16px;
     border-radius: 8px;
     align-items: center;
     width: 180px;
     justify-content: space-evenly;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease;
+    
 }
 
 .buttons .button:hover {
-    box-shadow: 0 0 8px 4px #fdb500;
+    background-color: #ffffff17;
+    border-color: #fdb500;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(253, 181, 0, 0.5);
 }
 
 .button .icon {
