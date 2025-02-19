@@ -5,7 +5,7 @@
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
-    background: rgba(0, 0, 0, 0.815);
+    /* background: rgba(0, 0, 0, 0.815); */
 }
 
 .sectionLayout {

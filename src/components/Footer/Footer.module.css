@@ -1,0 +1,40 @@
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  padding: 30px 10px;
+  background-color: #111111;
+  color: #ffffff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1; 
+}
+
+
+
+.name {
+  font-size: 20px;
+  margin: 0;
+}
+
+.message {
+  font-size: 20px;
+  margin: 0;
+}
+
+
+
+.icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin: 0px 10px;
+}

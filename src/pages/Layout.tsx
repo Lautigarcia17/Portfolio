@@ -7,6 +7,7 @@ import Contact from './Layout/Contact/Contact';
 import SectionIndicator from '../components/SectionIndicator/SectionIndicator';
 import NavBar from '../components/Navbar/Navbar';
 import { Toaster } from 'react-hot-toast';
+import Footer from '../components/Footer/Footer';
 
 
 const Layout = () => {
@@ -74,8 +75,9 @@ const Layout = () => {
             <section id="projects" className={styles.sectionLayout} aria-hidden={visibleSection !== 'projects' ? 'true' : 'false'} >
                 <Projects />
             </section>
-            <section id="contact" className={styles.sectionLayout} aria-hidden={visibleSection !== 'contact' ? 'true' : 'false'} >
+            <section id="contact" className={styles.sectionLayout} aria-hidden={visibleSection !== 'contact' ? 'true' : 'false'} style={{width:'100%'}} >
                 <Contact />
+                <Footer></Footer>
             </section>
             <Toaster/>
         </main>

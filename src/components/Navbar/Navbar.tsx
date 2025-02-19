@@ -32,7 +32,7 @@ function NavBar({ scrollContainerRef, welcomeRef, visibleSection }: any) {
             case 'welcome': return '#fdb500';
             case 'aboutMe': return '#111111 ';
             case 'projects': return '#fdb500';
-            case 'contact': return '#1b2735';
+            case 'contact': return '#111111';
             default: return '#fdb500';
         }
     };

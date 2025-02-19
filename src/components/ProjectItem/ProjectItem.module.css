@@ -1,120 +1,103 @@
 
-.buttonContainer {
-    margin-top: 7px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    gap: 30px;
-    margin-bottom: 15px;
+
+
+
+.projectCard {
+  border-radius: 3px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.242);
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  margin: 20px 20px 0px 20px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+}
+
+.projectCard .contentImage{
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.projectCard .contentImage .projectImage {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+}
+
+.projectCard .projectInfo {
+  padding: 15px;
+  background-color: #111111;
+  flex-grow: 1;
+}
+
+.projectInfo .projectName {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  color: #eae4d4;
+  text-align: center;
+}
+
+
+
+
+.projectInfo .technologies {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0px
+}
+
+.technologies .textTechnologies {
+  font-size: 18px;
+  color: #0a9eb1;
+  margin: 20px 0px 10px 0px;
+  font-weight: 600;
+}
+
+.technologies .iconsTechnologies {
+  display: flex;
+  gap: 20px;
+}
+
+
+
+.projectInfo .buttonContainer {
+  margin-top: 7px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 30px;
+  margin-bottom: 15px;
 }
 
 .buttonContainer .button {
-    display: flex;
-    padding: 6px 12px;
-    color: white;
-    background-color: #ffffff17;
-    font-weight: 700;
-    font-size: 15px;
-    border-radius: 10px;
-    align-items: center;
-    gap: 4px;
-    border: 2px solid #26282a;
-    /* transition: all 0.3s ease; */
-
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  padding: 6px 12px;
+  color: white;
+  background-color: #ffffff17;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 10px;
+  align-items: center;
+  gap: 4px;
+  border: 2px solid #26282a;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
 }
 
 .buttonContainer .button:hover {
-  /* background-color: #ffffff26;
-  border-color: #fdb500;
-  transform: scale(1.05);
-  box-shadow: 0px 4px 10px rgba(253, 181, 0, 0.5); */
-
-      transform: scale(1.05);
-    box-shadow: 0px 4px 10px rgba(253, 181, 0, 0.5);
+  /* transform: scale(1.05); */
+  box-shadow: 0px 4px 10px rgba(253, 181, 0, 0.5);
 }
 
 .buttonContainer .icon {
-    margin: 0px 4px;
-    align-items: center;
+  margin: 0px 4px;
+  align-items: center;
 }
-
-
-.technologies{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 25px 0px
-}
-.technologies .textTechnologies{
-    font-size: 18px;
-    color: #0a9eb1;
-    margin: 20px 0px 10px 0px;
-    font-weight: 600;
-}
-
-.technologies .iconsTechnologies{
-    display: flex;
-    gap: 20px;
-}
-
-.projectCard {
-    background-color: #ffffff;
-    border-radius: 10px 10px 0px 0px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    width: 320px;
-    margin: 20px 20px 0px 20px;
-    overflow: hidden;
-  }
-  
-  .projectImage {
-    width: 100%;
-    height: 160px;
-    object-fit: contain;
-  }
-  
-  .projectInfo {
-    padding: 15px;
-    background-color: #111111;
-    color: #fdb500;
-    flex-grow: 1; /* Para que la info ocupe el espacio disponible */
-  }
-  
-  .projectName {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 0px;
-    color: #eae4d4;
-    text-align: center;
-  }
-  
-  .projectTech {
-    font-size: 14px;
-    color: #eae4d4;
-    margin-bottom: 15px;
-  }
-  
-  .projectButtons {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .projectBtn {
-    background-color: #fdb500;
-    color: #111111;
-    border: none;
-    padding: 8px 12px;
-    font-size: 14px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .projectBtn:hover {
-    background-color: #eae4d4;
-    color: #111111;
-  }

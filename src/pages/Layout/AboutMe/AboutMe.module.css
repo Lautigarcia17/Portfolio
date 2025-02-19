@@ -74,7 +74,7 @@
 }
 
 .skillsContent .skillCategory h3 {
-  color: #111111;
+  color: #5c3d2e;;
   font-size: 22px;
   font-weight: bold;
   text-align: center;
@@ -89,7 +89,7 @@
   display: block;
   width: 60px;
   height: 2px;
-  background-color: #111111;
+  background-color: #5c3d2e;;
   margin: 5px auto 0;
   border-radius: 2px;
 }
