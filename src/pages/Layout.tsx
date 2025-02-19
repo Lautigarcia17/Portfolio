@@ -75,9 +75,9 @@ const Layout = () => {
             <section id="projects" className={styles.sectionLayout} aria-hidden={visibleSection !== 'projects' ? 'true' : 'false'} >
                 <Projects />
             </section>
-            <section id="contact" className={styles.sectionLayout} aria-hidden={visibleSection !== 'contact' ? 'true' : 'false'} style={{width:'100%'}} >
+            <section id="contact" className={styles.sectionLayout} aria-hidden={visibleSection !== 'contact' ? 'true' : 'false'}>
                 <Contact />
-                <Footer></Footer>
+                {/* <Footer></Footer> */}
             </section>
             <Toaster/>
         </main>

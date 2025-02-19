@@ -91,65 +91,67 @@ function Contact() {
 
   return (
     <div className={styles.containerContact}>
-      <div className={styles.contentContact}>
-        <div className={styles.header}>
-          <h1 className={styles.titleHeader}>Contáctate conmigo </h1>
-          <h2 className={styles.subtitleHeader}>Si te gustaría colaborar conmigo o simplemente charlar sobre tecnología, aquí estoy.</h2>
-        </div>
+      <div className={styles.containerPositionContact}>
 
-        <form ref={form} className={styles.form} onSubmit={handleSubmit(sendEmail)}>
-          <ThemeProvider theme={theme}>
+        <div className={styles.contentContact}>
+          <div className={styles.header}>
+            <h1 className={styles.titleHeader}>Contáctate conmigo </h1>
+            <h2 className={styles.subtitleHeader}>Si quieres trabajar conmigo o simplemente compartir ideas sobre tecnología, estaré encantado de hablar contigo.</h2>
+          </div>
 
-            <div className={`${styles.nameEmailDiv} ${styles.marginInput}`}>
-              <div className={styles.inputs}>
-                <Box sx={{ display: 'flex', alignItems: 'flex-end', width:'100%' }}>
-                  <AssignmentIndIcon />
-                  <TextField
-                    id="input-with-sx"
-                    label="Nombre"
-                    variant="standard"
-                    autoComplete='off'
-                    style={{width:'100%'}}
-                    {...register('user_name', {
-                      required: true,
-                      pattern: /^[A-Za-z\s]+$/,
-                    })}
-                  />
-                </Box>
-                <p className={`${styles.messageError} ${errors.user_name ? styles.visible : ''}`}>
-                  {errors.user_name?.type === 'required' && 'El nombre es requerido'}
-                  {errors.user_name?.type === 'pattern' && 'El nombre solo puede tener letras y espacios'}
-                </p>
+          <form ref={form} className={styles.form} onSubmit={handleSubmit(sendEmail)}>
+            <ThemeProvider theme={theme}>
+
+              <div className={`${styles.nameEmailDiv} ${styles.marginInput}`}>
+                <div className={styles.inputs}>
+                  <Box sx={{ display: 'flex', alignItems: 'flex-end', width: '100%' }}>
+                    <AssignmentIndIcon />
+                    <TextField
+                      id="input-with-sx"
+                      label="Nombre"
+                      variant="standard"
+                      autoComplete='off'
+                      style={{ width: '100%' }}
+                      {...register('user_name', {
+                        required: true,
+                        pattern: /^[A-Za-z\s]+$/,
+                      })}
+                    />
+                  </Box>
+                  <p className={`${styles.messageError} ${errors.user_name ? styles.visible : ''}`}>
+                    {errors.user_name?.type === 'required' && 'El nombre es requerido'}
+                    {errors.user_name?.type === 'pattern' && 'El nombre solo puede tener letras y espacios'}
+                  </p>
+                </div>
+
+                {/* Email Input */}
+                <div className={styles.inputs}>
+                  <Box sx={{ display: 'flex', alignItems: 'flex-end', width: '100%' }}>
+                    <AlternateEmailIcon />
+                    <TextField
+                      id="input-with-sx"
+                      label="Correo electrónico"
+                      variant="standard"
+                      autoComplete='off'
+                      style={{ width: '100%' }}
+                      {...register('user_email', {
+                        required: true,
+                        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      })}
+                    />
+                  </Box>
+                  <p className={`${styles.messageError} ${errors.user_email ? styles.visible : ''}`}>
+                    {errors.user_email?.type === 'required' && 'El mail es requerido'}
+                    {errors.user_email?.type === 'pattern' && 'Formato de mail invalido'}
+                  </p>
+                </div>
               </div>
+              {/* Name Input */}
 
-              {/* Email Input */}
-              <div className={styles.inputs}>
-                <Box sx={{ display: 'flex', alignItems: 'flex-end', width:'100%' }}>
-                  <AlternateEmailIcon />
-                  <TextField
-                    id="input-with-sx"
-                    label="Mail"
-                    variant="standard"
-                    autoComplete='off'
-                    style={{width:'100%'}}
-                    {...register('user_email', {
-                      required: true,
-                      pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                    })}
-                  />
-                </Box>
-                <p className={`${styles.messageError} ${errors.user_email ? styles.visible : ''}`}>
-                  {errors.user_email?.type === 'required' && 'El mail es requerido'}
-                  {errors.user_email?.type === 'pattern' && 'Formato de mail invalido'}
-                </p>
-              </div>
-            </div>
-            {/* Name Input */}
 
-    
               {/* Message Input */}
               <div className={`${styles.inputs} ${styles.marginInput}`}>
-                <Box sx={{ display: 'flex', alignItems: 'flex-end', width:'100%' }}>
+                <Box sx={{ display: 'flex', alignItems: 'flex-end', width: '100%' }}>
                   <MarkunreadIcon />
                   <TextField
                     label="Mensaje"
@@ -157,7 +159,7 @@ function Contact() {
                     variant="standard"
                     autoComplete='off'
                     maxRows={2}
-                    style={{width:'100%'}}
+                    style={{ width: '100%' }}
                     {...register('message', {
                       required: true,
                     })}
@@ -168,27 +170,28 @@ function Contact() {
                 </p>
               </div>
 
-          </ThemeProvider>
-          <Button type='submit' size='large' variant="contained" endIcon={<SendIcon />} sx={{
-            backgroundColor: 'transparent',
-            border: '1px solid #5c3d2e',
-            color: '#5c3d2e',
-            marginTop: '30px',
-            width: '350px',
-            fontSize:  '20px',
-            padding:'10px',
-            '&:hover': {
-              backgroundColor: '#111111',
-              color: '#eae4d4'
-            },
-          }}>
-            Enviar
-          </Button>
-        </form>
+            </ThemeProvider>
+            <Button type='submit' size='large' variant="contained" endIcon={<SendIcon />} sx={{
+              backgroundColor: 'transparent',
+              border: '1px solid #5c3d2e',
+              color: '#5c3d2e',
+              marginTop: '30px',
+              width: '350px',
+              fontSize: '20px',
+              padding: '10px',
+              '&:hover': {
+                backgroundColor: '#111111',
+                color: '#eae4d4'
+              },
+            }}>
+              Enviar
+            </Button>
+          </form>
 
+        </div>
+        <Footer />
       </div>
 
-      {/* <Footer/> */}
     </div>
   );
 };
