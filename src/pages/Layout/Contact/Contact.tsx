@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css'
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast'
 import TextField from '@mui/material/TextField';
 import { Box, Button } from '@mui/material';
@@ -14,8 +14,8 @@ import Footer from '../../../components/Footer/Footer';
 
 function Contact() {
   const form: any = useRef(null);
-  const { register, formState: { errors }, reset, handleSubmit } = useForm({
-    mode: 'onChange'
+  const { formState: { errors }, reset, handleSubmit, control } = useForm({
+    mode: 'onSubmit'
   });
 
   const sendEmail = () => {
@@ -26,7 +26,8 @@ function Contact() {
       .then(
         () => {
           toast.success('Enviado!', { position: 'top-right' })
-          reset();
+          reset()
+
         },
         (error) => {
           console.log('FAILED...', error.text);
@@ -104,18 +105,28 @@ function Contact() {
 
               <div className={`${styles.nameEmailDiv} ${styles.marginInput}`}>
                 <div className={styles.inputs}>
-                  <Box sx={{ display: 'flex', alignItems: 'flex-end', width: '100%' }}>
+                  <Box sx={{ display: "flex", alignItems: "flex-end", width: "100%" }}>
                     <AssignmentIndIcon />
-                    <TextField
-                      id="input-with-sx"
-                      label="Nombre"
-                      variant="standard"
-                      autoComplete='off'
-                      style={{ width: '100%' }}
-                      {...register('user_name', {
-                        required: true,
-                        pattern: /^[A-Za-z\s]+$/,
-                      })}
+                    <Controller
+                      name="user_name"
+                      control={control}
+                      defaultValue=""
+                      rules={{
+                        required: "El nombre es requerido",
+                        pattern: {
+                          value: /^[A-Za-z\s]+$/,
+                          message: "El nombre solo puede tener letras y espacios",
+                        },
+                      }}
+                      render={({ field }) => (
+                        <TextField
+                          {...field}
+                          label="Nombre"
+                          variant="standard"
+                          autoComplete="off"
+                          style={{ width: "100%" }}
+                        />
+                      )}
                     />
                   </Box>
                   <p className={`${styles.messageError} ${errors.user_name ? styles.visible : ''}`}>
@@ -126,23 +137,30 @@ function Contact() {
 
                 {/* Email Input */}
                 <div className={styles.inputs}>
-                  <Box sx={{ display: 'flex', alignItems: 'flex-end', width: '100%' }}>
+                  <Box sx={{ display: "flex", alignItems: "flex-end", width: "100%" }}>
                     <AlternateEmailIcon />
-                    <TextField
-                      id="input-with-sx"
-                      label="Correo electrónico"
-                      variant="standard"
-                      autoComplete='off'
-                      style={{ width: '100%' }}
-                      {...register('user_email', {
+                    <Controller
+                      name="user_email"
+                      control={control}
+                      defaultValue=""
+                      rules={{
                         required: true,
                         pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                      })}
+                      }}
+                      render={({ field }) => (
+                        <TextField
+                          {...field}
+                          label="Correo electrónico"
+                          variant="standard"
+                          autoComplete="off"
+                          style={{ width: "100%" }}
+                        />
+                      )}
                     />
                   </Box>
                   <p className={`${styles.messageError} ${errors.user_email ? styles.visible : ''}`}>
-                    {errors.user_email?.type === 'required' && 'El mail es requerido'}
-                    {errors.user_email?.type === 'pattern' && 'Formato de mail invalido'}
+                    {errors.user_email?.type === 'required' && 'El correo electrónico es requerido'}
+                    {errors.user_email?.type === 'pattern' && 'Formato de correo electrónico invalido'}
                   </p>
                 </div>
               </div>
@@ -151,41 +169,49 @@ function Contact() {
 
               {/* Message Input */}
               <div className={`${styles.inputs} ${styles.marginInput}`}>
-                <Box sx={{ display: 'flex', alignItems: 'flex-end', width: '100%', height: '30px' }}>
+                <Box sx={{ display: "flex", alignItems: "flex-end", width: "100%", height: "30px" }}>
                   <MarkunreadIcon />
-                  <TextField
-                    label="Mensaje"
-                    multiline
-                    variant="standard"
-                    autoComplete='off'
-                    className={styles.textareaScroll}
-                    maxRows={2}
-                    style={{ width: '100%' }}
-                    sx={{
-                      width: '100%',
-                      '& .MuiInputBase-root': {
-                        overflowY: 'auto', 
-                        maxHeight: '4.5em', 
-                      },
-                      '& .MuiInputBase-input': {
-                        overflowY: 'auto',
-                        resize: 'none',
-                        '&::-webkit-scrollbar': {
-                          width: '6px', 
-                          display: 'block !important', 
-                        },
-                        '&::-webkit-scrollbar-thumb': {
-                          background: '#888',
-                          borderRadius: '3px',
-                        },
-                        '&::-webkit-scrollbar-thumb:hover': {
-                          background: '#555',
-                        },
-                      },
+                  <Controller
+                    name="message"
+                    control={control}
+                    defaultValue=""
+                    rules={{
+                      required: "El mensaje es requerido",
                     }}
-                    {...register('message', {
-                      required: true,
-                    })}
+                    render={({ field }) => (
+                      <TextField
+                        {...field}
+                        label="Mensaje"
+                        multiline
+                        variant="standard"
+                        autoComplete="off"
+                        className={styles.textareaScroll}
+                        maxRows={2}
+                        style={{ width: "100%" }}
+                        sx={{
+                          width: "100%",
+                          "& .MuiInputBase-root": {
+                            overflowY: "auto",
+                            maxHeight: "4.5em",
+                          },
+                          "& .MuiInputBase-input": {
+                            overflowY: "auto",
+                            resize: "none",
+                            "&::-webkit-scrollbar": {
+                              width: "6px",
+                              display: "block !important",
+                            },
+                            "&::-webkit-scrollbar-thumb": {
+                              background: "#888",
+                              borderRadius: "3px",
+                            },
+                            "&::-webkit-scrollbar-thumb:hover": {
+                              background: "#555",
+                            },
+                          },
+                        }}
+                      />
+                    )}
                   />
                 </Box>
                 <p className={`${styles.messageError} ${errors.message?.type === 'required' ? 'visible' : ''}`}>

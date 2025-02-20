@@ -82,6 +82,7 @@
   height: 15px;
   visibility: hidden;
   margin-top: 8px;
+  font-weight: 600;
 }
 
 .messageError.visible {

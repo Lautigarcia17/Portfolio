@@ -1,18 +1,48 @@
+import { Tooltip } from '@mui/material';
+import { SectionIndicatorProps } from '../../types/interfaces/SectionIndicatorProps';
 import styles from './SectionIndicator.module.css'
 
-const SectionIndicator = ({ currentSection }: { currentSection: string | null }) => {
 
+
+
+
+const SectionIndicator = ({ currentSection, handleScrollToSection, welcomeRef, aboutMeRef, projectsRef, contactRef }: SectionIndicatorProps) => {
+  const sectionRefs: any = {
+    welcome: welcomeRef,
+    aboutMe: aboutMeRef,
+    projects: projectsRef,
+    contact: contactRef,
+  };
+  const sectionIds = ['welcome', 'aboutMe', 'projects', 'contact'];
+  
+  const sectionNamesInSpanish: Record<string, string> = {
+    welcome: 'Inicio',
+    aboutMe: 'Sobre mí',
+    projects: 'Proyectos',
+    contact: 'Contacto',
+  };
+  
   return (
     <div className={styles.indicatorContainer}>
-      {['welcome', 'aboutMe', 'projects', 'contact'].map((sectionId) => (
-        <div
-          key={sectionId}
-          className={`${styles.indicator} 
+      {sectionIds.map((sectionId) => (
+        <Tooltip title={sectionNamesInSpanish[sectionId]} placement="left" >
+
+
+
+          <div
+            key={sectionId}
+            className={`${styles.indicator} 
             ${currentSection === sectionId ? styles.active : ''}  
             ${currentSection === 'projects' && currentSection === sectionId ? styles.activeProjects : ''}`
-          }
-        />
+            }
+            onClick={() => handleScrollToSection(sectionRefs[sectionId])}
+          />
+
+
+          
+        </Tooltip>
       ))}
+
     </div>
   );
 };
