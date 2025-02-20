@@ -23,13 +23,14 @@ function Footer() {
             </div>
 
             <div>
-                <p className={styles.name}>&copy; Lautaro Nahuel Garcia {currentDate.getUTCFullYear()}</p>
+                <p className={styles.symbolName}>&copy;</p>
+                <p className={styles.name}> Lautaro Nahuel Garcia {currentDate.getUTCFullYear()}</p>
 
             </div>
            
 
             <div>
-                <p className={styles.message}>Gracias por visitar mi portafolio.</p>
+                <p className={styles.message}>Gracias por pasarte por aquí.</p>
 
             </div>
          

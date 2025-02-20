@@ -151,15 +151,38 @@ function Contact() {
 
               {/* Message Input */}
               <div className={`${styles.inputs} ${styles.marginInput}`}>
-                <Box sx={{ display: 'flex', alignItems: 'flex-end', width: '100%' }}>
+                <Box sx={{ display: 'flex', alignItems: 'flex-end', width: '100%', height: '30px' }}>
                   <MarkunreadIcon />
                   <TextField
                     label="Mensaje"
                     multiline
                     variant="standard"
                     autoComplete='off'
+                    className={styles.textareaScroll}
                     maxRows={2}
                     style={{ width: '100%' }}
+                    sx={{
+                      width: '100%',
+                      '& .MuiInputBase-root': {
+                        overflowY: 'auto', 
+                        maxHeight: '4.5em', 
+                      },
+                      '& .MuiInputBase-input': {
+                        overflowY: 'auto',
+                        resize: 'none',
+                        '&::-webkit-scrollbar': {
+                          width: '6px', 
+                          display: 'block !important', 
+                        },
+                        '&::-webkit-scrollbar-thumb': {
+                          background: '#888',
+                          borderRadius: '3px',
+                        },
+                        '&::-webkit-scrollbar-thumb:hover': {
+                          background: '#555',
+                        },
+                      },
+                    }}
                     {...register('message', {
                       required: true,
                     })}
