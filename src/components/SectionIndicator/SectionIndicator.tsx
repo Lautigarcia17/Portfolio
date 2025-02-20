@@ -1,4 +1,4 @@
-import { Tooltip } from '@mui/material';
+import { Tooltip, Typography } from '@mui/material';
 import { SectionIndicatorProps } from '../../types/interfaces/SectionIndicatorProps';
 import styles from './SectionIndicator.module.css'
 
@@ -25,10 +25,28 @@ const SectionIndicator = ({ currentSection, handleScrollToSection, welcomeRef, a
   return (
     <div className={styles.indicatorContainer}>
       {sectionIds.map((sectionId) => (
-        <Tooltip title={sectionNamesInSpanish[sectionId]} placement="left" >
+        <Tooltip title={
+          <Typography fontSize={16} fontFamily={"Croissant One"}>
 
-
-
+            {sectionNamesInSpanish[sectionId]}
+          </Typography>
+            } 
+          
+          placement="left" arrow slotProps={{
+            tooltip: {
+              sx: {
+                color: currentSection === 'projects' ? "#111111" :'#eae4d4'  ,
+                backgroundColor: currentSection === 'projects' ?  '#eae4d4' : "#111111"  ,
+                borderRadius: '8px'
+              },
+            },
+            arrow:{
+              sx:{
+                color: currentSection === 'projects' ? "#eae4d4" :'#111111'  ,
+              }
+            }
+          }}>
+          
           <div
             key={sectionId}
             className={`${styles.indicator} 
@@ -37,9 +55,6 @@ const SectionIndicator = ({ currentSection, handleScrollToSection, welcomeRef, a
             }
             onClick={() => handleScrollToSection(sectionRefs[sectionId])}
           />
-
-
-          
         </Tooltip>
       ))}
 
@@ -48,3 +63,5 @@ const SectionIndicator = ({ currentSection, handleScrollToSection, welcomeRef, a
 };
 
 export default SectionIndicator;
+
+
