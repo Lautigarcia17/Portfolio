@@ -21,11 +21,23 @@ h1,h2,h3,h4,h5,h6{
     height: 30px;
 }
 
-::-webkit-scrollbar {
-    display: none;
+
+
+
+@media (min-width: 1001px) {
+    ::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 
+@media (max-width: 1000px) {
+    html, body, #root{
+        scrollbar-width: thin;
+        scrollbar-color: rgb(66, 61, 59) transparent;
+
+    }
+}
 
 
 @media (max-width: 650px) {

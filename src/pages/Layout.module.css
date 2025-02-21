@@ -3,14 +3,23 @@
     height: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
+    /* scroll-snap-type: y mandatory; */
+    /* scroll-behavior: smooth; */
 }
 
 .sectionLayout {
     height: 100%;
     width: 100%;
-    scroll-snap-align: start;
+    /* scroll-snap-align: start; */
 }
 
 
+@media (min-width: 1001px) {
+    .containerLayout {
+        scroll-snap-type: y mandatory; 
+         scroll-behavior: smooth;
+    }
+    .sectionLayout{
+        scroll-snap-align: start;
+    }
+}

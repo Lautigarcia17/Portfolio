@@ -1,30 +1,42 @@
-.contentWelcome {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background: linear-gradient(90deg, #111111 75%, #fdb500 25%);
+.containerWelcome {
     width: 100%;
     height: 100%;
-    align-items: center;
-
+    background: #111111;
 }
 
-.contentProfile{
-    position: relative;
+
+.contentWelcome {
     height: 100%;
-    width: 900px;
-    transform: translate(-120px);
+    width: 100%;
+    align-items: center;
+    padding: 0px 200px;
+    position: relative;
+
 }
 
-.contentProfile .textProfile {
+.contentTop {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.contentProfile {
+    height: 100%;
+    width: 650px;
+}
+
+.textProfile {
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding-top: 3em
 }
 
-.contentImage .image {
+.image {
     width: inherit;
     height: inherit;
     margin-top: -17px;
@@ -32,29 +44,28 @@
     display: block;
 }
 
-.contentWelcome .contentImage{
+.contentImage {
     margin: 0;
     z-index: 1;
     width: 350px;
     height: 350px;
     position: relative;
     border: 2px solid #ffffff;
-    transform: translate(-40px);
+    margin-right: 35px;
 }
 
 /* DECORATION */
 
-.contentProfile .decorationDoubleLine {
-    position: absolute;
-    top: 300px;
-    left: 0;
+.decorationDoubleLine {
+    position: relative;
     width: 80px;
     height: 1px;
     background: #fdb500;
     opacity: 0.6;
+    translate: 0px -15px;
 }
 
-.contentProfile .decorationDoubleLine::before {
+.decorationDoubleLine::before {
     content: "";
     position: absolute;
     top: 10px;
@@ -70,31 +81,31 @@
 /* </DECORATION> */
 
 
-.textProfile .title {
-    font-size: 60px;
+.title {
+    font-size: 65px;
     font-weight: 700;
     color: #fdb500;
     font-family: "Croissant One", serif;
 }
 
-.textProfile .text {
+.text {
     font-size: 20px;
     color: #ffffff;
     margin-top: 30px;
     font-weight: 300;
 }
 
-.contentProfile .buttons {
+.buttons {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 20px;
     position: absolute;
     bottom: 110px;
 }
 
-.buttons .button {
+.button {
     display: flex;
     padding: 6px 18px;
     color: #f0e6ef;
@@ -107,67 +118,99 @@
     width: 180px;
     justify-content: space-evenly;
     transition: all 0.3s ease;
-    
+
 }
 
-.buttons .button:hover {
+.button:hover {
     background-color: #ffffff17;
     border-color: #fdb500;
     transform: scale(1.05);
     box-shadow: 0px 4px 10px rgba(253, 181, 0, 0.5);
 }
 
-.button .icon {
+.icon {
     align-items: center;
     width: 20px;
     height: 20px;
 }
 
-@media (max-width: 1200px) {
-    .content {
-        gap: 10px;
-    }
+@media (min-width: 1501px) {
 
-    .image {
-        width: 100px;
-        height: 100px;
-    }
+    .contentWelcome {
+        max-width: 1760px;
 
-    .name {
-        font-size: 30px;
     }
+}
+
+@media (min-width: 701px) and (max-width: 1500px) {
+
+    .contentWelcome {
+        max-width: 1388px;
+    }
+}
+
+@media (max-width: 1350px) {
 
     .title {
-        font-size: 20px;
+        font-size: 50px;
     }
 
     .text {
-        font-size: 10px;
-    }
-
-    .buttons {
-        display: grid;
-        grid-template-columns: 1fr 1fr; 
-        gap: 10px; 
+        font-size: 16px;
     }
 
     .button {
-        width: 100%; 
+        padding: 4px 6px;
+        font-size: 12px;
+        width: 120px;
+    }
+
+    .contentImage {
+        width: 250px;
+        height: 250px;
     }
 }
 
-@media (max-width: 360px) {
-    .content {
-        margin-left: 15px;
+@media (min-width: 1001px) {
+    .containerWelcome {
+        background: linear-gradient(90deg, #111111 75%, #fdb500 25%);
     }
-    .name{
-        font-size: 25px;  
-    }
-    .title{
-        font-size: 18px;
-    }
-    .text{
-        font-size: 9px;
-    }
+
+
 }
 
+@media (max-width: 1000px) {
+    .contentWelcome {
+        padding: 0px;
+    }
+
+    .contentTop {
+        gap: 0px;
+        flex-direction: column;
+    }
+
+    .contentProfile {
+        height: 65%;
+        width: 100%;
+    }
+
+    .contentImage{
+        margin-right: 0px;
+        margin-top: 10px;
+    }
+ 
+    .contentImageMobile {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        height: 35%;
+        align-items: center;
+        background: #fdb500;
+    }
+    .textProfile{
+        padding: 3em 5em 0em 5em;
+    }
+    .buttons{
+        justify-content: center;
+    }
+}
