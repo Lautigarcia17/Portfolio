@@ -131,35 +131,3 @@
   width: 30px;
 }
 
-
-@media (max-width: 1000px) {
-  .contentAboutMe .about {
-    width: 90%;
-  }
-
-  .about .data h2 h2 {
-    font-size: 24px;
-  }
-
-  .about .textProject {
-    font-size: 16px;
-  }
-
-
-}
-
-
-@media (max-width: 450px) {
-  .headerAboutMe .titleHeader {
-    font-size: 28px;
-  }
-
-  .data h2 {
-    font-size: 22px;
-  }
-
-}
-
-
-
-

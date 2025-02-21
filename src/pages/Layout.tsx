@@ -24,7 +24,7 @@ const Layout = () => {
         if (!container) return;
 
         const updateResponsiveness = () => {
-            if (window.innerWidth > 1000) {
+            if (window.innerWidth > 992) {
               setIsResponsive(false);
             } else {
               setIsResponsive(true);
@@ -35,7 +35,7 @@ const Layout = () => {
         const handleWheel = (event: WheelEvent) => {
             if (event.ctrlKey || event.metaKey) return;
 
-            if (window.innerWidth > 1000) {
+            if (window.innerWidth > 992) {
                 event.preventDefault();
                 const delta = event.deltaY;
     
@@ -96,7 +96,7 @@ const Layout = () => {
             <section id="welcome" className={styles.sectionLayout} aria-hidden={visibleSection !== 'welcome' ? 'true' : 'false'} ref={welcomeRef}>
                 <WelcomeSection />
             </section>
-            {/* <section id="aboutMe" className={styles.sectionLayout} aria-hidden={visibleSection !== 'aboutMe' ? 'true' : 'false'} ref={aboutMeRef}>
+            <section id="aboutMe" className={styles.sectionLayout} aria-hidden={visibleSection !== 'aboutMe' ? 'true' : 'false'} ref={aboutMeRef}>
                 <AboutMe />
             </section>
             <section id="projects" className={styles.sectionLayout} aria-hidden={visibleSection !== 'projects' ? 'true' : 'false'} ref={projectsRef}>
@@ -104,7 +104,7 @@ const Layout = () => {
             </section>
             <section id="contact" className={styles.sectionLayout} aria-hidden={visibleSection !== 'contact' ? 'true' : 'false'} ref={contactRef}>
                 <Contact />
-            </section> */}
+            </section>
             <Toaster />
         </main>
     );
