@@ -86,16 +86,16 @@ export const projects : Project[] = [
         github: "https://github.com/Lautigarcia17/tps_laboratorio_2/tree/master/Garcia.Lautaro.PrimerParcialLaboratorioDos",
         video: AirlineVideo
     },
-    // {
-    //     title: 'Generala',
-    //     text : 'Desarrollado para simular el juego de la generala, permitiendo jugar, registrar y calcular automáticamente los puntajes obtenidos, así como llevar un historial de partidas jugadas.',
-    //     image: Generala,
-    //     icons: [
-    //         { name: 'C#', icon: <svg xmlns="http://www.w3.org/2000/svg" className='responsive-icon-project' viewBox="0 0 16 16"><path fill="#7c3aed" d="M7 5.5a2.5 2.5 0 1 0 1.81 4.225a.75.75 0 0 1 1.086 1.035a4 4 0 1 1-.01-5.53a.75.75 0 0 1-1.082 1.04A2.49 2.49 0 0 0 7 5.5" /><path fill="#7c3aed" d="M6.586.102a.75.75 0 0 1 .756 0l4.715 2.75a.75.75 0 0 1-.756 1.296l-4.337-2.53L1.5 4.806v6.388l5.464 3.188l4.337-2.53a.75.75 0 1 1 .755 1.296l-4.714 2.75a.75.75 0 0 1-.756 0L.372 12.273A.75.75 0 0 1 0 11.625v-7.25a.75.75 0 0 1 .372-.648z" /><path fill="#7c3aed" d="M12.18 5.25a.5.5 0 0 1 .5.5v4.5a.5.5 0 0 1-1 0v-4.5a.5.5 0 0 1 .5-.5m2.14 0a.5.5 0 0 1 .5.5v4.5a.5.5 0 0 1-1 0v-4.5a.5.5 0 0 1 .5-.5" /><path fill="#7c3aed" d="M10.5 6.93a.5.5 0 0 1 .5-.5h4.5a.5.5 0 0 1 0 1H11a.5.5 0 0 1-.5-.5m0 2.14a.5.5 0 0 1 .5-.5h4.5a.5.5 0 0 1 0 1H11a.5.5 0 0 1-.5-.5" /></svg> },
-    //         { name: '.NET', icon: <svg xmlns="http://www.w3.org/2000/svg" className='responsive-icon-project' viewBox="0 0 256 256"><path fill="#512BD4" d="M0 0h256v256H0z" /><path fill="#FFF" d="M45.627 163.555q-2.715 0-4.615-1.809q-1.9-1.856-1.901-4.408q0-2.598 1.9-4.454q1.901-1.856 4.616-1.856q2.76 0 4.661 1.856q1.946 1.856 1.946 4.454q0 2.551-1.946 4.408q-1.9 1.81-4.66 1.81m72.361-1.02h-11.765L75.225 113.63a22 22 0 0 1-1.946-3.85h-.272l.047.305l.043.35l.04.393l.038.436l.049.736l.042.832l.035.93l.028 1.028l.02 1.125l.01.805l.01 2.2v43.614H62.961V96h12.535l29.957 47.743l.74 1.169l.477.768l.408.675l.34.583l.19.338l.16.296l.13.255h.18l-.034-.21l-.064-.45l-.06-.493l-.053-.537l-.024-.285l-.046-.602l-.04-.645l-.035-.69l-.042-1.114l-.03-1.212l-.018-1.31l-.006-1.407V96h10.362zm50.685 0h-36.428V96h34.98v9.373h-24.21v18.837h22.31v9.326h-22.31v19.673h25.658zm51.772-57.162H201.8v57.162h-10.77v-57.162h-18.6V96h48.014z" /></svg> },
-    //         { name: 'SQL', icon: <svg xmlns="http://www.w3.org/2000/svg" className='responsive-icon-project' viewBox="0 0 24 24"><path fill="none" stroke="#ffffff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8a2 2 0 0 1 2 2v4a2 2 0 1 1-4 0v-4a2 2 0 0 1 2-2m5 0v8h4m-8-1l1 1M3 15a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1"/></svg> },
-    //     ],
-    //     github: "https://github.com/Lautigarcia17/tps_laboratorio_2/tree/master/Garcia.Lautaro.SegundoParcialLaboratorioDos",
-    //     video: GeneralaVideo
-    // },
+    {
+        title: 'Generala',
+        text : 'Desarrollado para simular el juego de la generala, permitiendo jugar, registrar y calcular automáticamente los puntajes obtenidos, así como llevar un historial de partidas jugadas.',
+        image: Generala,
+        icons: [
+            { name: 'C#', icon: <svg xmlns="http://www.w3.org/2000/svg" className='responsive-icon-project' viewBox="0 0 16 16"><path fill="#7c3aed" d="M7 5.5a2.5 2.5 0 1 0 1.81 4.225a.75.75 0 0 1 1.086 1.035a4 4 0 1 1-.01-5.53a.75.75 0 0 1-1.082 1.04A2.49 2.49 0 0 0 7 5.5" /><path fill="#7c3aed" d="M6.586.102a.75.75 0 0 1 .756 0l4.715 2.75a.75.75 0 0 1-.756 1.296l-4.337-2.53L1.5 4.806v6.388l5.464 3.188l4.337-2.53a.75.75 0 1 1 .755 1.296l-4.714 2.75a.75.75 0 0 1-.756 0L.372 12.273A.75.75 0 0 1 0 11.625v-7.25a.75.75 0 0 1 .372-.648z" /><path fill="#7c3aed" d="M12.18 5.25a.5.5 0 0 1 .5.5v4.5a.5.5 0 0 1-1 0v-4.5a.5.5 0 0 1 .5-.5m2.14 0a.5.5 0 0 1 .5.5v4.5a.5.5 0 0 1-1 0v-4.5a.5.5 0 0 1 .5-.5" /><path fill="#7c3aed" d="M10.5 6.93a.5.5 0 0 1 .5-.5h4.5a.5.5 0 0 1 0 1H11a.5.5 0 0 1-.5-.5m0 2.14a.5.5 0 0 1 .5-.5h4.5a.5.5 0 0 1 0 1H11a.5.5 0 0 1-.5-.5" /></svg> },
+            { name: '.NET', icon: <svg xmlns="http://www.w3.org/2000/svg" className='responsive-icon-project' viewBox="0 0 256 256"><path fill="#512BD4" d="M0 0h256v256H0z" /><path fill="#FFF" d="M45.627 163.555q-2.715 0-4.615-1.809q-1.9-1.856-1.901-4.408q0-2.598 1.9-4.454q1.901-1.856 4.616-1.856q2.76 0 4.661 1.856q1.946 1.856 1.946 4.454q0 2.551-1.946 4.408q-1.9 1.81-4.66 1.81m72.361-1.02h-11.765L75.225 113.63a22 22 0 0 1-1.946-3.85h-.272l.047.305l.043.35l.04.393l.038.436l.049.736l.042.832l.035.93l.028 1.028l.02 1.125l.01.805l.01 2.2v43.614H62.961V96h12.535l29.957 47.743l.74 1.169l.477.768l.408.675l.34.583l.19.338l.16.296l.13.255h.18l-.034-.21l-.064-.45l-.06-.493l-.053-.537l-.024-.285l-.046-.602l-.04-.645l-.035-.69l-.042-1.114l-.03-1.212l-.018-1.31l-.006-1.407V96h10.362zm50.685 0h-36.428V96h34.98v9.373h-24.21v18.837h22.31v9.326h-22.31v19.673h25.658zm51.772-57.162H201.8v57.162h-10.77v-57.162h-18.6V96h48.014z" /></svg> },
+            { name: 'SQL', icon: <svg xmlns="http://www.w3.org/2000/svg" className='responsive-icon-project' viewBox="0 0 24 24"><path fill="none" stroke="#ffffff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8a2 2 0 0 1 2 2v4a2 2 0 1 1-4 0v-4a2 2 0 0 1 2-2m5 0v8h4m-8-1l1 1M3 15a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1"/></svg> },
+        ],
+        github: "https://github.com/Lautigarcia17/tps_laboratorio_2/tree/master/Garcia.Lautaro.SegundoParcialLaboratorioDos",
+        video: GeneralaVideo
+    },
 ]

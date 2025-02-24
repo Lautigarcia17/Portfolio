@@ -1,5 +1,5 @@
 html, body, #root {
-    height: 100%;
+    height: 100vh;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -9,6 +9,7 @@ html, body, #root {
     overflow-y: scroll;
     overflow-x: hidden;
     box-sizing: border-box;
+
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -23,17 +24,13 @@ h1,h2,h3,h4,h5,h6{
 
 
 :root {
-    /* Colores principales */
     --color-dark: #111111;
     --color-primary: #fdb500;
     --color-light: #ffffff;
+    --color-brown: #5c3d2e;
+    --color-gray: #808080;
     --color-light-transparent: #ffffff17;
     --color-background-light: #eae4d4;
-
-    /* Colores de texto */
-    --color-text-dark: #111111;
-    --color-text-light: #ffffff;
-    --color-text-accent: #fdb500;
 }
 
 

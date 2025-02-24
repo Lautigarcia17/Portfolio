@@ -4,7 +4,7 @@
   flex-direction: row;
   align-items: center;
   padding: 10px 10px;
-  background-color: #111111;
+  background-color: var(--color-dark);
   color: #ffffff;
   position: absolute;
   bottom: 0;
@@ -43,4 +43,38 @@
   margin-bottom: 0px;
   font-size: 35px;
   margin-right: 8px;
+}
+
+
+@media (max-width: 992px) {
+  .name{
+    font-size: 18px;
+  }
+  .icon{
+    width: 25px;
+    height: 25px; 
+  }
+  .message{
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .name{
+    font-size: 12px;
+  }
+  .icon{
+    width: 20px;
+    height: 20px; 
+  }
+  .message{
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer{
+    flex-direction: column;
+    padding: 5px 10px;
+  }
 }

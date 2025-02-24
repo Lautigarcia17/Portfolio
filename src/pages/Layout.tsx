@@ -99,13 +99,14 @@ const Layout = () => {
             <section id="aboutMe" className={styles.sectionLayout} aria-hidden={visibleSection !== 'aboutMe' ? 'true' : 'false'} ref={aboutMeRef}>
                 <AboutMe />
             </section>
-            <section id="projects" className={styles.sectionLayout} aria-hidden={visibleSection !== 'projects' ? 'true' : 'false'} ref={projectsRef}>
+            {/* <section id="projects" className={styles.sectionLayout} aria-hidden={visibleSection !== 'projects' ? 'true' : 'false'} ref={projectsRef}>
                 <Projects />
-            </section>
+            </section> */}
             <section id="contact" className={styles.sectionLayout} aria-hidden={visibleSection !== 'contact' ? 'true' : 'false'} ref={contactRef}>
                 <Contact />
             </section>
-            <Toaster />
+
+            <Toaster /> 
         </main>
     );
 };

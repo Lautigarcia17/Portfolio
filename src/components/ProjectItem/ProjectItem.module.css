@@ -12,6 +12,7 @@
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
+  height: 350px;
 }
 
 .projectCard:hover {
@@ -20,7 +21,7 @@
 
 .projectCard .contentImage{
   width: 100%;
-  background-color: #ffffff;
+  background-color: var(--color-light);
 }
 
 .projectCard .contentImage .projectImage {
@@ -31,7 +32,7 @@
 
 .projectCard .projectInfo {
   padding: 15px;
-  background-color: #111111;
+  background-color: var(--color-dark);
   flex-grow: 1;
 }
 
@@ -39,7 +40,7 @@
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 0px;
-  color: #eae4d4;
+  color: var(--color-background-light);
   text-align: center;
 }
 
@@ -54,12 +55,6 @@
   margin: 25px 0px
 }
 
-.technologies .textTechnologies {
-  font-size: 18px;
-  color: #0a9eb1;
-  margin: 20px 0px 10px 0px;
-  font-weight: 600;
-}
 
 .technologies .iconsTechnologies {
   display: flex;
@@ -80,8 +75,8 @@
 .buttonContainer .button {
   display: flex;
   padding: 6px 12px;
-  color: #ffffff;
-  background-color: #ffffff17;
+  color: var(--color-light);
+  background-color: var(--color-light-transparent);
   font-weight: 700;
   font-size: 15px;
   border-radius: 10px;

@@ -14,14 +14,14 @@
 .indicator {
     width: 25px; 
     height: 25px;
-    background-color: gray;
+    background-color: var(--color-gray);
     transition: background-color 0.3s ease, transform 0.3s ease, clip-path 0.3s ease;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); 
     cursor: pointer;
 }
 
 .indicator.active {
-    background-color: black; 
+    background-color: var(--color-dark); 
     clip-path: polygon(
         50% 0%, 61% 35%, 98% 35%, 
         68% 57%, 79% 91%, 50% 70%, 
@@ -33,7 +33,7 @@
 }
 
 .activeProjects{
-    background-color: #fdb500 !important;
+    background-color: var(--color-primary) !important;
     clip-path: polygon(
         50% 0%, 61% 35%, 98% 35%, 
         68% 57%, 79% 91%, 50% 70%, 

@@ -37,6 +37,15 @@ function Contact() {
 
 
   const theme = createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 450,
+        md: 768,
+        lg: 1024,
+        xl: 1200,
+      },
+    },
     components: {
       MuiInput: {
         styleOverrides: {
@@ -72,7 +81,7 @@ function Contact() {
               transform: 'translate(0, -10px) scale(0.85)',
             },
             ['@media (max-width:450px)']: {
-              fontSize: '20px'
+              fontSize: '15px'
             }
           },
         },
@@ -105,7 +114,7 @@ function Contact() {
 
               <div className={`${styles.nameEmailDiv} ${styles.marginInput}`}>
                 <div className={styles.inputs}>
-                  <Box sx={{ display: "flex", alignItems: "flex-end", width: "100%" }}>
+                  <Box sx={{ display: "flex", alignItems: "flex-end", width: { sm: '450px',   md: '350px'}, }}>
                     <AssignmentIndIcon />
                     <Controller
                       name="user_name"
@@ -137,7 +146,7 @@ function Contact() {
 
                 {/* Email Input */}
                 <div className={styles.inputs}>
-                  <Box sx={{ display: "flex", alignItems: "flex-end", width: "100%" }}>
+                  <Box sx={{ display: "flex", alignItems: "flex-end", width: { sm: '450px',   md: '350px'} }}>
                     <AlternateEmailIcon />
                     <Controller
                       name="user_email"
@@ -169,7 +178,7 @@ function Contact() {
 
               {/* Message Input */}
               <div className={`${styles.inputs} ${styles.marginInput}`}>
-                <Box sx={{ display: "flex", alignItems: "flex-end", width: "100%", height: "30px" }}>
+                <Box sx={{ display: "flex", alignItems: "flex-end", height: "30px", width: { sm: '450px', md: '100%', lg: '100%'} }}>
                   <MarkunreadIcon />
                   <Controller
                     name="message"
@@ -225,9 +234,9 @@ function Contact() {
               border: '1px solid #5c3d2e',
               color: '#5c3d2e',
               marginTop: '30px',
-              width: '350px',
-              fontSize: '20px',
-              padding: '10px',
+              width: { xs: '200px',sm: '300px', lg: '350px'},
+              fontSize: { xs: '16px',sm: '20px'},
+              padding: { xs: '6px',sm: '10px'},
               '&:hover': {
                 backgroundColor: '#111111',
                 color: '#eae4d4'

@@ -41,13 +41,26 @@
   }
 
 @media (max-width: 992px) {
+  .contentNavbar{
+    justify-content: center;
+    background-color: var(--color-dark);
+    position: relative;
+  }
   .contentNavbar .btnNav {
-        font-size: 25px; 
+        font-size: 40px; 
+        margin-left: 0px;
     }
 }
 
 
 @media (max-width: 576px) {
+  .contentNavbar .btnNav {
+      font-size: 30px; 
+    }
+}
+
+
+@media (max-width: 420px) {
   .contentNavbar .btnNav {
       font-size: 20px; 
     }

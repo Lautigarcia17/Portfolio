@@ -1,7 +1,7 @@
 .containerContact {
   width: 100%;
   height: 100%;
-  background-color: #eae4d4;
+  background-color: var(--color-background-light);
 }
 
 .containerPositionContact{
@@ -34,7 +34,7 @@
 
 .titleHeader {
   font-size: 60px;
-  color: #111111;
+  color: var(--color-dark);
   font-weight: 900;
   font-family: "Croissant One", serif;
   margin-bottom: 0px;
@@ -42,7 +42,7 @@
 
 .subtitleHeader {
   font-size: 22px;
-  color: #5c3d2e;
+  color: var(--color-brown);
   font-weight: 600;
   font-family: 'Inconsolata';
   margin-bottom: 0px;
@@ -98,22 +98,52 @@
 }
 
 
-@media (max-width: 1200px) {
-  .card {
-    width: 60%;
+@media (max-width: 992px) {
+  .titleHeader{
+    font-size: 50px;
+  }
+  .subtitleHeader{
+    font-size: 18px;
+  }
+  .nameEmailDiv{
+    flex-direction: column;
+  }
+  .inputs{
+    align-items: center;
+  }
+  .header {
+    margin-bottom: 50px;
+  }
+  /* .contentContact{
+    margin-bottom: 10em;
+  } */
+}
+
+
+@media (max-width: 576px) {
+  .titleHeader{
+    font-size: 38px;
+  }
+  .subtitleHeader{
+    font-size: 16px;
   }
 }
 
-@media (max-width: 750px) {
-  .card {
-    border-radius: 20px;
-    width: 90%;
+
+@media (max-width: 420px) {
+  .titleHeader{
+    font-size: 25px;
   }
-
-}
-
-@media (max-width: 450px) {
-  .titleHeader {
-    font-size: 28px;
+  .subtitleHeader{
+    font-size: 12px;
+  }
+  .marginInput{
+    margin-bottom: 30px;
+  }
+  .nameEmailDiv{
+    gap: 15px;
+  }
+  .contentContact{
+    margin-bottom: 5em;
   }
 }

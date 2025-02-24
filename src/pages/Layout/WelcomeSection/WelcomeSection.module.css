@@ -1,7 +1,7 @@
 .containerWelcome {
     width: 100%;
     height: 100%;
-    background: #111111;
+    background: var(--color-dark);
 }
 
 
@@ -60,7 +60,7 @@
     position: relative;
     width: 80px;
     height: 1px;
-    background: #fdb500;
+    background: var(--color-primary) ;
     opacity: 0.6;
     translate: 0px -15px;
 }
@@ -84,7 +84,7 @@
 .title {
     font-size: 65px;
     font-weight: 700;
-    color: #fdb500;
+    color: var(--color-primary);
     font-family: "Croissant One", serif;
 }
 
@@ -110,7 +110,7 @@
     display: flex;
     padding: 6px 18px;
     color: #f0e6ef;
-    background-color: #ffffff17;
+    background-color: transparent;
     border: 2px solid #26282a;
     font-weight: 400;
     font-size: 16px;
@@ -123,8 +123,7 @@
 }
 
 .button:hover {
-    background-color: #ffffff17;
-    border-color: #fdb500;
+    border-color: var(--color-primary);
     transform: scale(1.05);
     box-shadow: 0px 4px 10px rgba(253, 181, 0, 0.5);
 }
@@ -145,7 +144,7 @@
 
 @media (min-width: 993px) {
     .containerWelcome {
-        background: linear-gradient(90deg, #111111 75%, #fdb500 25%);
+        background: linear-gradient(90deg, var(--color-dark) 75%, var(--color-primary) 25%);
     }
 }
 
@@ -181,6 +180,7 @@
 
 
 @media (max-width: 992px) {
+
     .contentWelcome {
         padding: 0px;
     }
@@ -208,12 +208,12 @@
         justify-content: center;
         height: 40%;
         align-items: center;
-        background: #fdb500;
+        background: var(--color-primary);
         order: 3;
     }
 
     .textProfile {
-        padding: 7em 5em 0em 5em;
+        padding: 2em 5em 0em 5em;
     }
 
     .buttons {
@@ -248,7 +248,15 @@
     }
 
     .textProfile{
-        padding: 7em 2em 0em 2em;
+        padding: 0em 2em;
+    }
+
+    .contentProfile {
+        height: 40%;
+    }
+    
+    .contentImageMobile {
+        height: 50%;
     }
 }
 
@@ -261,15 +269,15 @@
         width: 35%;
     }
     .contentImageMobile{
+        height: 50%;
+    }
+    .contentProfile{
         height: 35%;
     }
     .contentImage{
         width: 200px;
         height: 200px;
         margin-top: 15px;
-    }
-    .textProfile{
-        padding: 5em 2em 0em 2em;
     }
     .title{
         font-size: 30px;
