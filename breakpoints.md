@@ -2,6 +2,7 @@
 
 These are the standard sizes used in the application for media queries:
 
+- **xxxs**: 320px  
 - **xxs**: 420px  
 - **xs**: 576px  
 - **sm**: 768px  

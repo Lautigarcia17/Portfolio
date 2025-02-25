@@ -92,19 +92,19 @@ const Layout = () => {
     return (
         <main className={styles.containerLayout} ref={scrollContainerRef}>
             <NavBar scrollContainerRef={scrollContainerRef} welcomeRef={welcomeRef} visibleSection={visibleSection} />
-            {/* {!isResponsive && <SectionIndicator currentSection={visibleSection} handleScrollToSection={handleScrollToSection} welcomeRef={welcomeRef} aboutMeRef={aboutMeRef} projectsRef={projectsRef} contactRef={contactRef}/>}
+            {!isResponsive && <SectionIndicator currentSection={visibleSection} handleScrollToSection={handleScrollToSection} welcomeRef={welcomeRef} aboutMeRef={aboutMeRef} projectsRef={projectsRef} contactRef={contactRef}/>}
             <section id="welcome" className={styles.sectionLayout} aria-hidden={visibleSection !== 'welcome' ? 'true' : 'false'} ref={welcomeRef}>
                 <WelcomeSection />
             </section>
             <section id="aboutMe" className={styles.sectionLayout} aria-hidden={visibleSection !== 'aboutMe' ? 'true' : 'false'} ref={aboutMeRef}>
                 <AboutMe />
-            </section> */}
+            </section>
             <section id="myWork" className={styles.sectionLayout} aria-hidden={visibleSection !== 'myWork' ? 'true' : 'false'} ref={projectsRef}>
                 <MyWork />
             </section>
-            {/* <section id="contact" className={styles.sectionLayout} aria-hidden={visibleSection !== 'contact' ? 'true' : 'false'} ref={contactRef}>
+            <section id="contact" className={styles.sectionLayout} aria-hidden={visibleSection !== 'contact' ? 'true' : 'false'} ref={contactRef}>
                 <Contact />
-            </section> */}
+            </section>
 
             <Toaster /> 
         </main>
