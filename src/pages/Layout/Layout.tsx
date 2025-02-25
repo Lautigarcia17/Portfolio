@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './Layout.module.css'; // Asegúrate de que los estilos estén configurados correctamente
-import WelcomeSection from './Layout/WelcomeSection/WelcomeSection';
-import AboutMe from './Layout/AboutMe/AboutMe';
-import Projects from './Layout/Projects/Projects';
-import Contact from './Layout/Contact/Contact';
-import SectionIndicator from '../components/SectionIndicator/SectionIndicator';
-import NavBar from '../components/Navbar/Navbar';
+import WelcomeSection from './WelcomeSection/WelcomeSection';
+import AboutMe from './AboutMe/AboutMe';
+import Contact from './Contact/Contact';
+import SectionIndicator from '../../components/SectionIndicator/SectionIndicator';
+import NavBar from '../../components/Navbar/Navbar';
 import { Toaster } from 'react-hot-toast';
+import MyWork from './MyWork/MyWork';
 
 
 const Layout = () => {
@@ -92,19 +92,19 @@ const Layout = () => {
     return (
         <main className={styles.containerLayout} ref={scrollContainerRef}>
             <NavBar scrollContainerRef={scrollContainerRef} welcomeRef={welcomeRef} visibleSection={visibleSection} />
-            {!isResponsive && <SectionIndicator currentSection={visibleSection} handleScrollToSection={handleScrollToSection} welcomeRef={welcomeRef} aboutMeRef={aboutMeRef} projectsRef={projectsRef} contactRef={contactRef}/>}
+            {/* {!isResponsive && <SectionIndicator currentSection={visibleSection} handleScrollToSection={handleScrollToSection} welcomeRef={welcomeRef} aboutMeRef={aboutMeRef} projectsRef={projectsRef} contactRef={contactRef}/>}
             <section id="welcome" className={styles.sectionLayout} aria-hidden={visibleSection !== 'welcome' ? 'true' : 'false'} ref={welcomeRef}>
                 <WelcomeSection />
             </section>
             <section id="aboutMe" className={styles.sectionLayout} aria-hidden={visibleSection !== 'aboutMe' ? 'true' : 'false'} ref={aboutMeRef}>
                 <AboutMe />
-            </section>
-            {/* <section id="projects" className={styles.sectionLayout} aria-hidden={visibleSection !== 'projects' ? 'true' : 'false'} ref={projectsRef}>
-                <Projects />
             </section> */}
-            <section id="contact" className={styles.sectionLayout} aria-hidden={visibleSection !== 'contact' ? 'true' : 'false'} ref={contactRef}>
-                <Contact />
+            <section id="myWork" className={styles.sectionLayout} aria-hidden={visibleSection !== 'myWork' ? 'true' : 'false'} ref={projectsRef}>
+                <MyWork />
             </section>
+            {/* <section id="contact" className={styles.sectionLayout} aria-hidden={visibleSection !== 'contact' ? 'true' : 'false'} ref={contactRef}>
+                <Contact />
+            </section> */}
 
             <Toaster /> 
         </main>

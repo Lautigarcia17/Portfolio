@@ -1,9 +1,17 @@
-import Layout from "./pages/Layout"
+import Layout from "./pages/Layout/Layout"
 import './index.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Projects from "./pages/Projects/Projects";
+
 
 function App() {
   return (
-    <Layout />
+    <Router>
+      <Routes>
+        <Route path='/' element={<Layout />} />
+        <Route path='/work' element={<Projects />} />
+      </Routes>
+    </Router>
   )
 }
 

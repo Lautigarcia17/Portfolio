@@ -45,6 +45,7 @@
     justify-content: center;
     background-color: var(--color-dark);
     position: relative;
+    border-bottom: 1px solid var(--color-primary);
   }
   .contentNavbar .btnNav {
         font-size: 40px; 

@@ -10,15 +10,15 @@ const SectionIndicator = ({ currentSection, handleScrollToSection, welcomeRef, a
   const sectionRefs: any = {
     welcome: welcomeRef,
     aboutMe: aboutMeRef,
-    projects: projectsRef,
+    myWork: projectsRef,
     contact: contactRef,
   };
-  const sectionIds = ['welcome', 'aboutMe', 'projects', 'contact'];
+  const sectionIds = ['welcome', 'aboutMe', 'myWork', 'contact'];
 
   const sectionNamesInSpanish: Record<string, string> = {
     welcome: 'Inicio',
     aboutMe: 'Sobre mí',
-    projects: 'Proyectos',
+    myWork: 'Mi trabajo',
     contact: 'Contacto',
   };
 
@@ -34,14 +34,14 @@ const SectionIndicator = ({ currentSection, handleScrollToSection, welcomeRef, a
           placement="left" arrow slotProps={{
             tooltip: {
               sx: {
-                color: currentSection === 'projects' ? "#111111" : '#eae4d4',
-                backgroundColor: currentSection === 'projects' ? '#eae4d4' : "#111111",
+                color: currentSection === 'myWork' ? "#111111" : '#eae4d4',
+                backgroundColor: currentSection === 'myWork' ? '#eae4d4' : "#111111",
                 borderRadius: '8px'
               },
             },
             arrow: {
               sx: {
-                color: currentSection === 'projects' ? "#eae4d4" : '#111111',
+                color: currentSection === 'myWork' ? "#eae4d4" : '#111111',
               }
             }
           }}>
@@ -50,7 +50,7 @@ const SectionIndicator = ({ currentSection, handleScrollToSection, welcomeRef, a
             key={sectionId}
             className={`${styles.indicator} 
             ${currentSection === sectionId ? styles.active : ''}  
-            ${currentSection === 'projects' && currentSection === sectionId ? styles.activeProjects : ''}`
+            ${currentSection === 'myWork' && currentSection === sectionId ? styles.activeProjects : ''}`
             }
             onClick={() => handleScrollToSection(sectionRefs[sectionId])}
           />

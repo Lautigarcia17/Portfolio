@@ -1,7 +1,9 @@
+import ProjectItem from '../../components/ProjectItem/ProjectItem';
+import { Project } from '../../types/project';
+import { projects } from '../../utilities/projects';
 import styles from './Projects.module.css'
-import { projects } from '../../../utilities/projects';
-import ProjectItem from '../../../components/ProjectItem/ProjectItem';
-import { Project } from '../../../types/project';
+
+
 
 function Projects() {
 
