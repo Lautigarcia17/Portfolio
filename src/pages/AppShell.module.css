@@ -1,0 +1,12 @@
+.containerLayout {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+@media (min-width: 993px) {
+    .containerLayout {
+        scroll-snap-type: y mandatory; 
+         scroll-behavior: smooth;
+    }
+}

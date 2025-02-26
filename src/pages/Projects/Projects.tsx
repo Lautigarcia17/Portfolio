@@ -15,11 +15,12 @@ function Projects() {
                 <div className={styles.contentProjects}>
                     <div className={styles.headerProjects}>
                         <h1 className={styles.titleHeader}> Mis Proyectos </h1>
+                        <h2 className={styles.subtitleHeader}>Experiencia construida a través de cada línea de código.</h2>
                     </div>
 
                     <div className={styles.projects}>
                         {arrayProjects.map((project: Project, index: number) => (
-                            <ProjectItem project={project} key={index} />
+                            <ProjectItem project={project} key={index}/>
                         ))}
                     </div>
                 </div>

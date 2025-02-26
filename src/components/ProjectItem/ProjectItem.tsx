@@ -26,7 +26,9 @@ export default function ProjectItem({ project }: { project: Project }) {
       <div className={styles.card} onClick={() => project.video ? handleVideo(project.video) : handleRedirect(project.page ?? '')}>
         <div className={styles.imageContainer}>
           <img src={project.image} alt="Project" className={styles.image} />
-          <div className={styles.overlayText}>Último Desarrollo</div>
+
+          {project.status && <div className={styles.overlayText}>Último Desarrollo</div> }
+          
         </div>
         <div className={styles.content}>
           <h2 className={styles.title}>{project.title}</h2>

@@ -2,12 +2,28 @@ import styles from './MyWork.module.css'
 import { projects } from '../../../utilities/projects';
 import ProjectItem from '../../../components/ProjectItem/ProjectItem';
 import { Project } from '../../../types/project';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useGenericContext } from '../../../hooks/useGenericContext';
+import { ScrollContext } from '../../../context/ScrollContext';
 
 
 function MyWork() {
 
-    const lastProject: Project = projects[1];
+    const lastProject: Project = projects[0];
+
+     const { scrollContainerRef } = useGenericContext(ScrollContext);
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        const scrollContainer:any = scrollContainerRef.current;
+        setTimeout(() => {
+            scrollContainer.scrollTo({
+                top: 0,
+                behavior: 'instant',
+            });
+          }, 50); 
+        navigate('/work');
+      };
 
     return (
         <>
@@ -25,9 +41,9 @@ function MyWork() {
                         </div>
 
                         <div className={styles.linkContainer}>
-                            <Link to="/work" className={styles.buttonRedirect}>
+                            <div className={styles.buttonRedirect}  onClick={handleClick}> 
                                 <span>Ver más proyectos</span>
-                            </Link>
+                                </div>
                         </div>
                     </div>
                 </div>

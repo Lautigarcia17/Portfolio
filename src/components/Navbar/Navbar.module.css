@@ -8,6 +8,12 @@
     background-color: transparent;
   }
   
+  .contentViewWork{
+    position: relative ;
+    background: var(--color-background-light);
+  }
+
+
   .contentNavbar .btnNav {
     font-size: 30px;
     border: none;

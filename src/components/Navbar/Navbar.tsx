@@ -1,27 +1,41 @@
+import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './Navbar.module.css'
 import { motion } from "framer-motion";
 function NavBar({ scrollContainerRef, welcomeRef, visibleSection }: any) {
-    const isWelcome = visibleSection === "welcome";
+    const location = useLocation();
+    const isViewWork = location.pathname !== '/';
+    const isWelcome = visibleSection === "welcome" || location.pathname !== '/';
     const fullName = "Lautaro Nahuel García";
+    const navigate = useNavigate();
 
     const scrollToSection = (ref: any) => {
         const scrollContainer = scrollContainerRef.current;
-        const offset = 50;
-
-        if (scrollContainer && ref?.current) {
-            if (ref === welcomeRef) {
+        if (location.pathname === '/') {
+            const offset = 50;
+    
+            if (scrollContainer && ref?.current) {
+                if (ref === welcomeRef) {
+                    scrollContainer.scrollTo({
+                        top: 0,
+                        behavior: 'smooth',
+                    });
+                }
+                else if (ref?.current) {
+                    const elementTop = ref.current.offsetTop;
+                    scrollContainer.scrollTo({
+                        top: elementTop - offset,
+                        behavior: 'smooth',
+                    });
+                }
+            }
+        }else{
+            setTimeout(() => {
                 scrollContainer.scrollTo({
                     top: 0,
-                    behavior: 'smooth',
+                    behavior: 'instant',
                 });
-            }
-            else if (ref?.current) {
-                const elementTop = ref.current.offsetTop;
-                scrollContainer.scrollTo({
-                    top: elementTop - offset,
-                    behavior: 'smooth',
-                });
-            }
+              }, 50); 
+            navigate('/');
         }
     };
 
@@ -33,12 +47,12 @@ function NavBar({ scrollContainerRef, welcomeRef, visibleSection }: any) {
             case 'aboutMe': return '#111111 ';
             case 'myWork': return '#fdb500';
             case 'contact': return '#111111';
-            default: return '#fdb500';
+            default: return '#111111';
         }
     };
 
     return (
-        <header className={styles.contentNavbar}>
+        <header className={`${styles.contentNavbar} ${isViewWork ? styles.contentViewWork : ''}`}>
             <motion.button
                 className={styles.btnNav}
                 animate={{ gap: 0 }} 

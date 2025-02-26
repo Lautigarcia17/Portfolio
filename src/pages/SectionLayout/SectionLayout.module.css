@@ -1,9 +1,9 @@
-.containerLayout {
+/* .containerLayout {
     width: 100%;
     height: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
-}
+} */
 
 .sectionLayout {
     height: 100%;
@@ -12,10 +12,10 @@
 
 
 @media (min-width: 993px) {
-    .containerLayout {
+    /* .containerLayout {
         scroll-snap-type: y mandatory; 
          scroll-behavior: smooth;
-    }
+    } */
     .sectionLayout{
         scroll-snap-align: start;
     }
