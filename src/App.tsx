@@ -1,17 +1,21 @@
-import Layout from "./pages/Layout/Layout"
+
 import './index.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Projects from "./pages/Projects/Projects";
+import SectionLayout from "./pages/SectionLayout/SectionLayout";
+import { ScrollProvider } from './context/ScrollContext';
 
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path='/' element={<Layout />} />
-        <Route path='/work' element={<Projects />} />
-      </Routes>
-    </Router>
+    <ScrollProvider>
+      <Router>
+        <Routes>
+          <Route path='/' element={<SectionLayout />} />
+          <Route path='/work' element={<Projects />} />
+        </Routes>
+      </Router>
+    </ScrollProvider>
   )
 }
 

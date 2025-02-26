@@ -41,7 +41,7 @@ function NavBar({ scrollContainerRef, welcomeRef, visibleSection }: any) {
         <header className={styles.contentNavbar}>
             <motion.button
                 className={styles.btnNav}
-                animate={{ gap: 0 }} // Controlamos el espaciado entre palabras
+                animate={{ gap: 0 }} 
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 onClick={()=>scrollToSection(welcomeRef)}
             >
@@ -57,8 +57,8 @@ function NavBar({ scrollContainerRef, welcomeRef, visibleSection }: any) {
                                         initial={{ opacity: 0 }}
                                         animate={{
                                             opacity: isWelcome || isPersistent ? 1 : 0,
-                                            x: isWelcome ? 0 : isPersistent ? 0 : -2, // Mueve las letras fuera de la vista
-                                            display: isPersistent || isWelcome ? "inline-block" : "none", // Controla visibilidad
+                                            x: isWelcome ? 0 : isPersistent ? 0 : -2, 
+                                            display: isPersistent || isWelcome ? "inline-block" : "none", 
                                         }}
                                         transition={{ duration: 0.1, delay: index * 0.03 }}
                                         className={`${styles.nameLetter} ${isPersistent ? styles.persistent : styles.hidden}`}
