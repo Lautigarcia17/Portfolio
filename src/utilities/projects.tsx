@@ -34,7 +34,7 @@ export const projects : Project[] = [
             { name: 'Supabase', icon: <svg xmlns="http://www.w3.org/2000/svg" className='responsive-icon-project' viewBox="0 0 128 128"><defs><linearGradient id="IconifyId19161022acb3f76e50" x1="53.974" x2="94.163" y1="54.974" y2="71.829" gradientTransform="translate(29.387 60.096)scale(1.1436)" gradientUnits="userSpaceOnUse"><stop offset="0" stopColor="#249361"/><stop offset="1" stopColor="#3ecf8e"/></linearGradient><linearGradient id="IconifyId19161022acb3f76e51" x1="36.156" x2="54.484" y1="30.578" y2="65.081" gradientTransform="translate(29.387 60.096)scale(1.1436)" gradientUnits="userSpaceOnUse"><stop offset="0"/><stop offset="1" stopOpacity="0"/></linearGradient></defs><path fill="url(#IconifyId19161022acb3f76e50)" d="M102.24 186.21c-3.267 4.117-9.904 1.862-9.977-3.397l-1.156-76.906h51.715c9.365 0 14.587 10.817 8.763 18.149z" transform="translate(-27.722 -60.338)"/><path fill="url(#IconifyId19161022acb3f76e51)" fillOpacity=".2" d="M102.24 186.21c-3.267 4.117-9.904 1.862-9.977-3.397l-1.156-76.906h51.715c9.365 0 14.587 10.817 8.763 18.149z" transform="translate(-27.722 -60.338)"/><path fill="#3ecf8e" d="M53.484 2.128c3.267-4.117 9.905-1.862 9.977 3.396l.508 76.907H12.902c-9.365 0-14.587-10.817-8.764-18.149z"/></svg> },
         ],
         github: "https://github.com/Lautigarcia17/Bmovies",
-        page: "https://bmovies-git-master-lautaro-nahuel-garcias-projects.vercel.app"
+        page: "https://bmoviesworld.vercel.app"
     },
     {
         title: 'Portafolio',
@@ -49,7 +49,7 @@ export const projects : Project[] = [
             { name: 'Mui', icon: <svg xmlns="http://www.w3.org/2000/svg" className='responsive-icon-project' fill="none"><path fill="#0073E6" fillRule="evenodd" d="M24 5.601V1.592a.344.344 0 0 0-.514-.298l-2.64 1.508a.688.688 0 0 0-.346.597v4.009c0 .264.285.43.514.298l2.64-1.508A.688.688 0 0 0 24 5.6ZM.515 1.295l7.643 4.383a.688.688 0 0 0 .684 0l7.643-4.383a.344.344 0 0 1 .515.298v12.03c0 .235-.12.453-.319.58l-4.65 2.953 3.11 1.832c.22.13.495.127.713-.009l4.61-2.878a.344.344 0 0 0 .161-.292v-4.085c0-.254.14-.486.362-.606l2.507-1.346a.344.344 0 0 1 .506.303v7.531c0 .244-.13.47-.34.593l-7.834 4.592a.688.688 0 0 1-.71-.009l-5.953-3.681A.344.344 0 0 1 9 18.808v-3.624c0-.115.057-.222.153-.286l4.04-2.694a.688.688 0 0 0 .307-.572v-4.39a.137.137 0 0 0-.208-.117l-4.44 2.664a.688.688 0 0 1-.705.002L3.645 7.123a.138.138 0 0 0-.208.118v7.933a.344.344 0 0 1-.52.295L.5 14.019C.19 13.833 0 13.497 0 13.135V1.593c0-.264.286-.43.515-.298Z" clipRule="evenodd" /></svg> },
         ],
         github: "https://github.com/Lautigarcia17/Portfolio",
-        page: "https://portfolio-git-master-lautaro-nahuel-garcias-projects.vercel.app/"
+        page: "https://lautaroportafolio.vercel.app/"
     },
     {
         title: 'RestaurApp',
