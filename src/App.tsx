@@ -1,6 +1,6 @@
 
 import './index.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Projects from "./pages/Projects/Projects";
 import SectionLayout from "./pages/SectionLayout/SectionLayout";
 import { ScrollProvider } from './context/ScrollContext';
