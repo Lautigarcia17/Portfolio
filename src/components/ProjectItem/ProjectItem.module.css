@@ -155,7 +155,9 @@
 @media (max-width: 992px) {
   .card{
     width: 350px;
+    height: 470px;
   }
+
   .title{
     font-size: 35px;
   }
@@ -181,10 +183,18 @@
     font-size: 16px;
   }
   .imageContainer{
-    height: 180px;
+    height: 270px;
   }
 }
 
+@media (max-width: 576px) {
+  .card{
+    height: 380px;
+  }
+  .imageContainer{
+    height: 250px;
+  }
+}
 
 @media (max-width: 420px) {
   .card{
@@ -220,14 +230,12 @@
   .overlayText{
     font-size: 12px;
   }
-  .imageContainer{
-    height: 180px;
-  }
 }
 
 @media (max-width: 320px) {
   .card{
     width: 200px;
+    height: 300px;
   }
   .title{
     margin-bottom: 5px;
@@ -244,6 +252,6 @@
     font-size: 10px;
   }
   .imageContainer{
-    height: 120px;
+    height: 200px;
   }
 }

@@ -8,3 +8,4 @@ export { default as GeneralaVideo } from './generala.mp4';
 export { default as Generala } from './generala.jpg';
 export { default as Restaurapp } from './restaurapp.png';
 export { default as Portafolio } from './portafolio.png';
+export { default as ExpenseManager } from './expenseManager.png';

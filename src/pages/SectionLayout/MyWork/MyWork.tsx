@@ -9,7 +9,7 @@ import { ScrollContext } from '../../../context/ScrollContext';
 
 function MyWork() {
 
-    const lastProject: Project = projects[0];
+    const lastProject: Project = projects[1];
 
      const { scrollContainerRef } = useGenericContext(ScrollContext);
     const navigate = useNavigate();

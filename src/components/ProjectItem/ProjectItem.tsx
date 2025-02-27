@@ -23,11 +23,11 @@ export default function ProjectItem({ project }: { project: Project }) {
 
   return (
     <>
-      <div className={styles.card} onClick={() => project.video ? handleVideo(project.video) : handleRedirect(project.page ?? '')}>
+      <div className={styles.card} onClick={() => project.video ? handleVideo(project.video) :  project.page && handleRedirect(project.page ?? '')}>
         <div className={styles.imageContainer}>
           <img src={project.image} alt="Project" className={styles.image} />
 
-          {project.status && <div className={styles.overlayText}>Último Desarrollo</div> }
+          {project.status !== '' && <div className={styles.overlayText}>{project.status}</div> }
           
         </div>
         <div className={styles.content}>
@@ -49,7 +49,7 @@ export default function ProjectItem({ project }: { project: Project }) {
                 <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="#fdb500" d="M2 2h20v20H2zm2 2v16h16V4zm4 2.37L17.75 12L8 17.63zm2 3.465v4.33L13.75 12z" /></svg>
                 Video
               </button>
-            ) : (
+            ) : ( project.page !== '' &&
               <button className={styles.button} onClick={(e) => { e.stopPropagation(); handleRedirect(project.page ?? '') }}>
                 <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#fdb500" d="M3 19V5h18v14zm1-1h16V8H4z" /></svg>
                 Página
