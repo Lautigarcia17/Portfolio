@@ -1,3 +1,4 @@
+import Footer from '../../components/Footer/Footer';
 import ProjectItem from '../../components/ProjectItem/ProjectItem';
 import { Project } from '../../types/project';
 import { projects } from '../../utilities/projects';
@@ -24,6 +25,7 @@ function Projects() {
                         ))}
                     </div>
                 </div>
+                <Footer/>
             </div>
 
 

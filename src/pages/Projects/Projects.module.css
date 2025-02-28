@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .contentProjects {
@@ -15,7 +16,7 @@
   width: 100%;
   padding: 0 4em;
   height: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 6em;
 }
 
 
@@ -77,6 +78,7 @@
   }
   .contentProjects{
     padding: 0;
+    margin-bottom: 10em;
   }
 }
 

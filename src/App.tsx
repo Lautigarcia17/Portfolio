@@ -5,6 +5,7 @@ import Projects from "./pages/Projects/Projects";
 import SectionLayout from "./pages/SectionLayout/SectionLayout";
 import { ScrollProvider } from './context/ScrollContext';
 import AppShell from './pages/AppShell';
+import NotFound from './pages/NotFound/NotFound';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path='/' element={<AppShell />} >
             <Route index element={<SectionLayout />} />
             <Route path='/work' element={<Projects />} />
+            <Route path='*' element={<NotFound />} />
           </Route>
         </Routes>
       </ScrollProvider>

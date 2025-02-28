@@ -3,7 +3,7 @@ import styles from './Navbar.module.css'
 import { motion } from "framer-motion";
 function NavBar({ scrollContainerRef, welcomeRef, visibleSection }: any) {
     const location = useLocation();
-    const isViewWork = location.pathname !== '/';
+    const isViewWork = location.pathname === '/work';
     const isWelcome = visibleSection === "welcome" || location.pathname !== '/';
     const fullName = "Lautaro Nahuel García";
     const navigate = useNavigate();
@@ -47,7 +47,7 @@ function NavBar({ scrollContainerRef, welcomeRef, visibleSection }: any) {
             case 'aboutMe': return '#111111 ';
             case 'myWork': return '#fdb500';
             case 'contact': return '#111111';
-            default: return '#111111';
+            default: return '#fdb500';
         }
     };
 
@@ -77,7 +77,7 @@ function NavBar({ scrollContainerRef, welcomeRef, visibleSection }: any) {
                                         transition={{ duration: 0.1, delay: index * 0.03 }}
                                         className={`${styles.nameLetter} ${isPersistent ? styles.persistent : styles.hidden}`}
                                         style={{
-                                            color: getNameColor(),
+                                            color: isViewWork ?  '#111111' : getNameColor(),
                                             fontWeight: isPersistent ? 700 : 400
                                         }}
                                     >
