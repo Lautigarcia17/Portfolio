@@ -7,11 +7,11 @@ import { useGenericContext } from '../hooks/useGenericContext';
 
 function AppShell() {
 
-    const { scrollContainerRef, visibleSection, welcomeRef } = useGenericContext(ScrollContext);
+    const { scrollContainerRef, visibleSection, welcomeRef, isResponsive } = useGenericContext(ScrollContext);
 
     return (
         <main className={styles.containerLayout} ref={scrollContainerRef}>
-            <NavBar scrollContainerRef={scrollContainerRef} welcomeRef={welcomeRef} visibleSection={visibleSection} />
+            <NavBar scrollContainerRef={scrollContainerRef} welcomeRef={welcomeRef} visibleSection={visibleSection} isResponsive={isResponsive} />
             <Outlet />
         </main>
     )

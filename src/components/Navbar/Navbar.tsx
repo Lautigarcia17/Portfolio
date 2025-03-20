@@ -1,10 +1,10 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './Navbar.module.css'
 import { motion } from "framer-motion";
-function NavBar({ scrollContainerRef, welcomeRef, visibleSection }: any) {
+function NavBar({ scrollContainerRef, welcomeRef, visibleSection, isResponsive }: any) {
     const location = useLocation();
     const isViewWork = location.pathname === '/work';
-    const isWelcome = visibleSection === "welcome" || location.pathname !== '/';
+    const isWelcome = visibleSection === "welcome" || location.pathname !== '/' || isResponsive;
     const fullName = "Lautaro Nahuel García";
     const navigate = useNavigate();
 

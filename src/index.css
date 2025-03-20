@@ -43,9 +43,22 @@ h1,h2,h3,h4,h5,h6{
 
 
 @media (max-width: 992px) {
-    html, body, #root{
+    html, body, #root {
         scrollbar-width: thin;
         scrollbar-color: rgb(66, 61, 59) transparent;
+        overflow-y: auto;
+    }
 
+    ::-webkit-scrollbar {
+        width: 6px; /* Ancho de la barra */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: rgb(66, 61, 59); 
+        border-radius: 10px; 
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent; 
     }
 }
