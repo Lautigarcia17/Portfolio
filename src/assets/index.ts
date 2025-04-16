@@ -1,4 +1,4 @@
-export { default as Airline } from './airline.jpg';
+export { default as Airline } from './airline.png';
 export { default as Clinic } from './clinic.png';
 export { default as GameRoom } from './gameRoom.png';
 export { default as Me } from './me.jpg';
