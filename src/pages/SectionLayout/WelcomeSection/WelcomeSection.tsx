@@ -9,9 +9,9 @@ function WelcomeSection() {
         window.open(url);
     }
 
-    const handlePdf = () => {
-        window.open(`/LautaroNGarcia.pdf`, '_blank');
-    }
+    // const handlePdf = () => {
+    //     window.open(`/LautaroNGarcia.pdf`, '_blank');
+    // }
 
 
     return (
