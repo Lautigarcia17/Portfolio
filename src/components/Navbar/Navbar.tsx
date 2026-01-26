@@ -1,97 +1,126 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import styles from './Navbar.module.css'
+import { useContext, useState } from 'react';
+import { NavigationContext, SectionType } from '../../context/NavigationContext';
 import { motion } from "framer-motion";
-function NavBar({ scrollContainerRef, welcomeRef, visibleSection, isResponsive }: any) {
+import styles from './Navbar.module.css'
+
+function NavBar() {
     const location = useLocation();
-    const isViewWork = location.pathname === '/work';
-    const isWelcome = visibleSection === "welcome" || location.pathname !== '/' || isResponsive;
-    const fullName = "Lautaro Nahuel García";
     const navigate = useNavigate();
-
-    const scrollToSection = (ref: any) => {
-        const scrollContainer = scrollContainerRef.current;
-        if (location.pathname === '/') {
-            const offset = 50;
+    const navContext = useContext(NavigationContext);
+    const [hoveredSection, setHoveredSection] = useState<string | null>(null);
     
-            if (scrollContainer && ref?.current) {
-                if (ref === welcomeRef) {
-                    scrollContainer.scrollTo({
-                        top: 0,
-                        behavior: 'smooth',
-                    });
-                }
-                else if (ref?.current) {
-                    const elementTop = ref.current.offsetTop;
-                    scrollContainer.scrollTo({
-                        top: elementTop - offset,
-                        behavior: 'smooth',
-                    });
-                }
-            }
-        }else{
-            setTimeout(() => {
-                scrollContainer.scrollTo({
-                    top: 0,
-                    behavior: 'instant',
-                });
-              }, 50); 
+    const isHomePage = location.pathname === '/';
+    const currentSection = navContext?.currentSection || 'welcome';
+
+    const handleNavigation = (section: SectionType) => {
+        if (location.pathname !== '/') {
             navigate('/');
+            setTimeout(() => {
+                navContext?.navigateToSection(section);
+            }, 100);
+        } else {
+            navContext?.navigateToSection(section);
         }
     };
 
-
-
-    const getNameColor = () => {
-        switch (visibleSection) {
-            case 'welcome': return '#fdb500';
-            case 'aboutMe': return '#111111 ';
-            case 'myWork': return '#fdb500';
-            case 'contact': return '#111111';
-            default: return '#fdb500';
-        }
-    };
+    const sections = [
+        { id: 'welcome', label: 'HOME', icon: '◆' },
+        { id: 'about', label: 'ABOUT', icon: '◇' },
+        { id: 'work', label: 'WORK', icon: '◈' },
+        { id: 'contact', label: 'CONTACT', icon: '◉' }
+    ];
 
     return (
-        <header className={`${styles.contentNavbar} ${isViewWork ? styles.contentViewWork : ''}`}>
+        <header className={styles.navbar}>
+            {/* Logo/Name with glitch effect */}
             <motion.button
-                className={styles.btnNav}
-                animate={{ gap: 0 }} 
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                onClick={()=>scrollToSection(welcomeRef)}
+                className={styles.logo}
+                onClick={() => handleNavigation('welcome')}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
             >
-                {fullName.split(" ").map((word, wordIndex) => {
-                    return (
-                        <span key={wordIndex} className={styles.wordContainer}>
-                            {word.split("").map((letter, index) => {
-                                const isPersistent = ["L", "N", "G"].includes(letter);
-
-                                return (
-                                    <motion.span
-                                        key={index}
-                                        initial={{ opacity: 0 }}
-                                        animate={{
-                                            opacity: isWelcome || isPersistent ? 1 : 0,
-                                            x: isWelcome ? 0 : isPersistent ? 0 : -2, 
-                                            display: isPersistent || isWelcome ? "inline-block" : "none", 
-                                        }}
-                                        transition={{ duration: 0.1, delay: index * 0.03 }}
-                                        className={`${styles.nameLetter} ${isPersistent ? styles.persistent : styles.hidden}`}
-                                        style={{
-                                            color: isViewWork ?  '#111111' : getNameColor(),
-                                            fontWeight: isPersistent ? 700 : 400
-                                        }}
-                                    >
-                                        {letter}
-                                    </motion.span>
-                                );
-                            })}
-                        </span>
-                    );
-                })}
+                <span className={styles.logoText}>LNG</span>
+                <motion.span 
+                    className={styles.logoGlitch}
+                    animate={{
+                        opacity: [0, 1, 0],
+                        x: [0, -2, 2, 0],
+                    }}
+                    transition={{
+                        duration: 0.3,
+                        repeat: Infinity,
+                        repeatDelay: 3,
+                    }}
+                >
+                    LNG
+                </motion.span>
             </motion.button>
+
+            {/* Navigation Menu */}
+            {isHomePage && (
+                <nav className={styles.navMenu}>
+                    {sections.map((section, index) => {
+                        const isActive = currentSection === section.id;
+                        const isHovered = hoveredSection === section.id;
+                        
+                        return (
+                            <motion.button
+                                key={section.id}
+                                className={`${styles.navButton} ${isActive ? styles.active : ''}`}
+                                onClick={() => handleNavigation(section.id as SectionType)}
+                                onMouseEnter={() => setHoveredSection(section.id)}
+                                onMouseLeave={() => setHoveredSection(null)}
+                                initial={{ opacity: 0, y: -20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.1 }}
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                            >
+                                <span className={styles.navIcon}>{section.icon}</span>
+                                <span className={styles.navLabel}>{section.label}</span>
+                                
+                                {/* Active indicator */}
+                                {isActive && (
+                                    <motion.div
+                                        className={styles.activeIndicator}
+                                        layoutId="activeSection"
+                                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                    />
+                                )}
+                                
+                                {/* Hover glow */}
+                                {(isHovered || isActive) && (
+                                    <motion.div
+                                        className={styles.hoverGlow}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                    />
+                                )}
+                            </motion.button>
+                        );
+                    })}
+                </nav>
+            )}
+
+            {/* Decorative elements */}
+            <div className={styles.navDecor}>
+                <motion.div
+                    className={styles.decorLine}
+                    animate={{
+                        scaleX: [1, 1.2, 1],
+                        opacity: [0.5, 1, 0.5]
+                    }}
+                    transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                />
+            </div>
         </header>
     );
 }
-
 
 export default NavBar

@@ -1,12 +1,19 @@
 
-.sectionLayout {
-    height: 100%;
+.sectionContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 
-
-@media (min-width: 993px) {
-    .sectionLayout{
-        scroll-snap-align: start;
-    }
+.sectionLayout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 }

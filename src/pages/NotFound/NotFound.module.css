@@ -1,17 +1,50 @@
 .containerNotFound{
     width: 100%;
     height: 100%;
-    background-color: var(--color-dark);
+    background: linear-gradient(135deg, var(--color-dark) 0%, #1a1a2e 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.containerNotFound::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 30% 40%, rgba(251, 191, 36, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(251, 191, 36, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    animation: pulseGlow 8s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .contentNotFound{
     width: 100%;
     height: 100%;
-    display: flex
-;
+    display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+    position: relative;
+    z-index: 1;
 }
 
 .textNotFound{
@@ -21,12 +54,16 @@
     align-items: center;
     gap: 20px;
     padding: 0 3em;
+    animation: fadeInDown 0.8s ease-out;
 }
 
 .textNotFound h1{
     font-size: 40px;
     font-weight: 700;
-    color: var(--color-light);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin: 0;
     text-align: center;
 }
@@ -35,7 +72,7 @@
     display: inline-block;
     font-size: 20px;
     font-weight: 500;
-    color: var(--color-light);
+    color: rgba(255, 255, 255, 0.9);
     margin: 0;
 }
 
@@ -43,6 +80,15 @@
     display: inline-block;
     color: var(--color-primary);
     text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all var(--transition-base);
+    padding-bottom: 2px;
+}
+
+.textNotFound h2 .linkToBack:hover{
+    color: var(--color-primary-light);
+    border-bottom-color: var(--color-primary-light);
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
 }
 
 @media (max-width: 1200px) {

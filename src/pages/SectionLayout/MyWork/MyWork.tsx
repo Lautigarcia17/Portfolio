@@ -3,27 +3,16 @@ import { projects } from '../../../utilities/projects';
 import ProjectItem from '../../../components/ProjectItem/ProjectItem';
 import { Project } from '../../../types/project';
 import { useNavigate } from 'react-router-dom';
-import { useGenericContext } from '../../../hooks/useGenericContext';
-import { ScrollContext } from '../../../context/ScrollContext';
 
 
 function MyWork() {
 
     const lastProject: Project = projects[1];
-
-     const { scrollContainerRef } = useGenericContext(ScrollContext);
     const navigate = useNavigate();
 
     const handleClick = () => {
-        const scrollContainer:any = scrollContainerRef.current;
-        setTimeout(() => {
-            scrollContainer.scrollTo({
-                top: 0,
-                behavior: 'instant',
-            });
-          }, 50); 
         navigate('/work');
-      };
+    };
 
     return (
         <>

@@ -50,17 +50,19 @@ function Contact() {
       MuiInput: {
         styleOverrides: {
           root: {
-            color: '#111111',
+            color: '#1f2937',
             backgroundColor: 'transparent',
-            // width: '300px',
+            transition: 'all 0.3s ease',
             '&:before': {
-              borderBottom: '2px solid #5c3d2e',
+              borderBottom: '2px solid rgba(251, 191, 36, 0.3)',
+              transition: 'border-color 0.3s ease',
             },
             '&:hover:not(.Mui-disabled):before': {
-              borderBottom: '2px solid #5c3d2e',
+              borderBottom: '2px solid rgba(251, 191, 36, 0.6)',
             },
             '&:after': {
-              borderBottom: '2px solid #5c3d2e',
+              borderBottom: '3px solid #fbbf24',
+              boxShadow: '0 2px 10px rgba(251, 191, 36, 0.3)',
             },
             ['@media (max-width:450px)']: {
               width: '200px'
@@ -73,12 +75,15 @@ function Contact() {
           root: {
             color: '#5c3d2e',
             fontSize: '25px',
+            fontWeight: 500,
             transform: 'translate(0, 13px) scale(1)',
+            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
             '&.Mui-focused': {
-              color: '#5c3d2e',
+              color: '#fbbf24',
             },
             '&.MuiInputLabel-shrink': {
               transform: 'translate(0, -10px) scale(0.85)',
+              color: '#fbbf24',
             },
             ['@media (max-width:450px)']: {
               fontSize: '15px'
@@ -89,9 +94,11 @@ function Contact() {
       MuiSvgIcon: {
         styleOverrides: {
           root: {
-            color: '#5c3d2e',
+            color: '#fbbf24',
             fontSize: '30px',
-            marginRight: '15px'
+            marginRight: '15px',
+            filter: 'drop-shadow(0 2px 4px rgba(251, 191, 36, 0.2))',
+            transition: 'all 0.3s ease',
           }
         }
       }
@@ -230,17 +237,25 @@ function Contact() {
 
             </ThemeProvider>
             <Button type='submit' size='large' variant="contained" endIcon={<SendIcon />} sx={{
-              backgroundColor: 'transparent',
-              border: '1px solid #5c3d2e',
-              color: '#5c3d2e',
+              background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
+              border: '2px solid transparent',
+              color: '#1a1a2a',
               marginTop: '30px',
               width: { xs: '200px',sm: '300px', lg: '350px'},
               fontSize: { xs: '16px',sm: '20px'},
-              padding: { xs: '6px',sm: '10px'},
+              padding: { xs: '10px',sm: '14px'},
+              fontWeight: 700,
+              borderRadius: '12px',
+              boxShadow: '0 10px 25px rgba(251, 191, 36, 0.3)',
+              transition: 'all 0.3s ease',
               '&:hover': {
-                backgroundColor: '#111111',
-                color: '#eae4d4'
+                background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                transform: 'translateY(-3px)',
+                boxShadow: '0 15px 35px rgba(251, 191, 36, 0.4)',
               },
+              '&:active': {
+                transform: 'translateY(-1px)',
+              }
             }}>
               Enviar
             </Button>

@@ -3,42 +3,196 @@ html, body, #root {
     width: 100%;
     margin: 0;
     padding: 0;
-    font-family: "Inconsolata", serif;
+    font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow: hidden;
     box-sizing: border-box;
-
 }
 
-h1,h2,h3,h4,h5,h6{
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
     padding: 0;
     margin: 0;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
 }
 
-.responsive-icon-project{
+:root {
+    /* Cyberpunk Neon Palette */
+    --color-neon-cyan: #00fff9;
+    --color-neon-pink: #ff006e;
+    --color-neon-purple: #8b5cf6;
+    --color-neon-blue: #3b82f6;
+    --color-neon-green: #00ff88;
+    --color-neon-orange: #ff9500;
+    
+    /* Primary Futuristic Colors */
+    --color-primary: #00fff9;
+    --color-primary-dark: #00d4cc;
+    --color-primary-light: #66fff9;
+    --color-secondary: #ff006e;
+    --color-accent: #8b5cf6;
+    
+    /* Dark Cinematic Background */
+    --color-bg-primary: #0a0a0f;
+    --color-bg-secondary: #13131a;
+    --color-bg-tertiary: #1a1a27;
+    --color-bg-overlay: rgba(10, 10, 15, 0.9);
+    --color-bg-glass: rgba(26, 26, 39, 0.7);
+    
+    /* Surface Colors */
+    --color-surface-dark: #1e1e2e;
+    --color-surface-medium: #2a2a3e;
+    --color-surface-light: #363654;
+    
+    /* Text Colors */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #b4b4d4;
+    --color-text-tertiary: #7878a8;
+    --color-text-muted: #52527a;
+    
+    /* Legacy Support (gradual migration) */
+    --color-dark: #0a0a0f;
+    --color-light: #ffffff;
+    --color-primary-old: #fbbf24;
+    
+    /* Cinematic Shadows & Glows */
+    --shadow-neon-cyan: 0 0 20px rgba(0, 255, 249, 0.5), 0 0 40px rgba(0, 255, 249, 0.3);
+    --shadow-neon-pink: 0 0 20px rgba(255, 0, 110, 0.5), 0 0 40px rgba(255, 0, 110, 0.3);
+    --shadow-neon-purple: 0 0 20px rgba(139, 92, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.3);
+    --shadow-depth-sm: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --shadow-depth-md: 0 8px 24px rgba(0, 0, 0, 0.6);
+    --shadow-depth-lg: 0 16px 48px rgba(0, 0, 0, 0.7);
+    --shadow-depth-xl: 0 24px 64px rgba(0, 0, 0, 0.8);
+    --shadow-cinematic: 0 32px 96px rgba(0, 0, 0, 0.9);
+    
+    /* Transitions & Timing (Cinematic) */
+    --timing-instant: 100ms;
+    --timing-fast: 250ms;
+    --timing-base: 400ms;
+    --timing-slow: 600ms;
+    --timing-cinematic: 800ms;
+    --timing-epic: 1200ms;
+    
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --ease-elastic: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-cinematic: cubic-bezier(0.83, 0, 0.17, 1);
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+    --spacing-3xl: 6rem;
+    
+    /* Border Radius */
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    --radius-2xl: 2rem;
+    --radius-full: 9999px;
+    
+    /* Grid & Layout */
+    --grid-gap: 2rem;
+    --container-max: 1400px;
+    
+    /* Backdrop Blur */
+    --blur-sm: 8px;
+    --blur-md: 12px;
+    --blur-lg: 24px;
+}
+
+/* Cinematic Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes glitch {
+    0%, 100% {
+        transform: translate(0);
+    }
+    33% {
+        transform: translate(-2px, 2px);
+    }
+    66% {
+        transform: translate(2px, -2px);
+    }
+}
+
+@keyframes neonPulse {
+    0%, 100% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+    50% {
+        opacity: 0.8;
+        filter: brightness(1.3);
+    }
+}
+
+@keyframes rotateGrid {
+    from {
+        transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+    }
+    to {
+        transform: perspective(1000px) rotateX(360deg) rotateY(360deg);
+    }
+}
+
+@keyframes floatSlow {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.responsive-icon-project {
     width: 30px;
     height: 30px;
 }
 
-
-:root {
-    --color-dark: #111111;
-    --color-primary: #fdb500;
-    --color-light: #ffffff;
-    --color-brown: #5c3d2e;
-    --color-gray: #808080;
-    --color-light-transparent: #ffffff17;
-    --color-background-light: #eae4d4;
-}
-
-
-
-@media (min-width: 993px) {
-    ::-webkit-scrollbar {
-        display: none;
-    }
+::-webkit-scrollbar {
+    display: none;
 }
 
 

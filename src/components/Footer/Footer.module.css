@@ -3,12 +3,15 @@
   justify-content: space-evenly;
   flex-direction: row;
   align-items: center;
-  padding: 10px 10px;
-  background-color: var(--color-dark);
+  padding: 20px 10px;
+  background: linear-gradient(135deg, var(--color-dark) 0%, #1a1a2e 100%);
   color: #ffffff;
   position: absolute;
   bottom: 0;
   width: 100%;
+  border-top: 1px solid rgba(251, 191, 36, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .footer>div {
@@ -37,6 +40,13 @@
   height: 30px;
   cursor: pointer;
   margin: 0px 10px;
+  transition: all var(--transition-base);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.icon:hover {
+  transform: translateY(-3px) scale(1.1);
+  filter: drop-shadow(0 4px 8px rgba(251, 191, 36, 0.4));
 }
 
 .symbolName{

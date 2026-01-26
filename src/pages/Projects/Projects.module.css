@@ -1,11 +1,25 @@
 .containerProjects {
   width: 100%;
   min-height: 100%;
-  background-color: var(--color-background-light);
+  background: linear-gradient(135deg, #f9fafb 0%, #ffffff 50%, #f3f4f6 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
+}
+
+.containerProjects::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(251, 191, 36, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(251, 191, 36, 0.03) 0%, transparent 40%);
+  pointer-events: none;
 }
 
 .contentProjects {
@@ -29,9 +43,13 @@
 .headerProjects .titleHeader {
   font-size: 60px;
   text-align: center;
-  color: var(--color-dark-transparent);
+  background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-gray-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: 900;
   font-family: "Croissant One", serif;
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .headerProjects .subtitleHeader {

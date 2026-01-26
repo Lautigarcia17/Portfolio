@@ -1,36 +1,99 @@
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from './SectionLayout.module.css';
 import WelcomeSection from './WelcomeSection/WelcomeSection';
 import AboutMe from './AboutMe/AboutMe';
 import Contact from './Contact/Contact';
-import SectionIndicator from '../../components/SectionIndicator/SectionIndicator';
 import { Toaster } from 'react-hot-toast';
 import MyWork from './MyWork/MyWork';
-import { useGenericContext } from '../../hooks/useGenericContext';
-import { ScrollContext } from '../../context/ScrollContext';
+import { useContext } from 'react';
+import { NavigationContext } from '../../context/NavigationContext';
 
 
 function SectionLayout() {
+    const navContext = useContext(NavigationContext);
+    
+    if (!navContext) {
+        throw new Error('SectionLayout must be used within NavigationProvider');
+    }
 
-    const { visibleSection, isResponsive, handleScrollToSection, welcomeRef, aboutMeRef, projectsRef, contactRef } = useGenericContext(ScrollContext);
+    const { currentSection } = navContext;
+
+    const pageVariants = {
+        initial: { opacity: 0, scale: 0.95, filter: 'blur(10px)' },
+        animate: { 
+            opacity: 1, 
+            scale: 1, 
+            filter: 'blur(0px)',
+            transition: {
+                duration: 0.8,
+                ease: [0.83, 0, 0.17, 1]
+            }
+        },
+        exit: { 
+            opacity: 0, 
+            scale: 1.05,
+            filter: 'blur(10px)',
+            transition: {
+                duration: 0.3,
+                ease: [0.83, 0, 0.17, 1]
+            }
+        }
+    };
 
     return (
-        <>
-            {!isResponsive && <SectionIndicator currentSection={visibleSection} handleScrollToSection={handleScrollToSection} welcomeRef={welcomeRef} aboutMeRef={aboutMeRef} projectsRef={projectsRef} contactRef={contactRef}/>}
-            <section id="welcome" className={styles.sectionLayout} aria-hidden={visibleSection !== 'welcome' ? 'true' : 'false'} ref={welcomeRef}>
-                <WelcomeSection />
-            </section>
-            <section id="aboutMe" className={styles.sectionLayout} aria-hidden={visibleSection !== 'aboutMe' ? 'true' : 'false'} ref={aboutMeRef}>
-                <AboutMe />
-            </section>
-            <section id="myWork" className={styles.sectionLayout} aria-hidden={visibleSection !== 'myWork' ? 'true' : 'false'} ref={projectsRef}>
-                <MyWork />
-            </section>
-            <section id="contact" className={styles.sectionLayout} aria-hidden={visibleSection !== 'contact' ? 'true' : 'false'} ref={contactRef}>
-                <Contact />
-            </section>
-
+        <div className={styles.sectionContainer}>
+            <AnimatePresence mode="wait">
+                {currentSection === 'welcome' && (
+                    <motion.section
+                        key="welcome"
+                        className={styles.sectionLayout}
+                        variants={pageVariants}
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                    >
+                        <WelcomeSection />
+                    </motion.section>
+                )}
+                {currentSection === 'about' && (
+                    <motion.section
+                        key="about"
+                        className={styles.sectionLayout}
+                        variants={pageVariants}
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                    >
+                        <AboutMe />
+                    </motion.section>
+                )}
+                {currentSection === 'work' && (
+                    <motion.section
+                        key="work"
+                        className={styles.sectionLayout}
+                        variants={pageVariants}
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                    >
+                        <MyWork />
+                    </motion.section>
+                )}
+                {currentSection === 'contact' && (
+                    <motion.section
+                        key="contact"
+                        className={styles.sectionLayout}
+                        variants={pageVariants}
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                    >
+                        <Contact />
+                    </motion.section>
+                )}
+            </AnimatePresence>
             <Toaster /> 
-        </>
+        </div>
     );
 };
 
