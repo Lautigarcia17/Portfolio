@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import styles from './SectionLayout.module.css';
 import WelcomeSection from './WelcomeSection/WelcomeSection';
 import AboutMe from './AboutMe/AboutMe';
@@ -10,7 +10,6 @@ import Contact from './Contact/Contact';
 
 
 function SectionLayout() {
-    const [activeSection, setActiveSection] = useState('welcome');
 
     useEffect(() => {
         const handleScroll = () => {
@@ -22,7 +21,6 @@ function SectionLayout() {
                 if (element) {
                     const { offsetTop, offsetHeight } = element;
                     if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-                        setActiveSection(sectionId);
                         break;
                     }
                 }

@@ -5,7 +5,7 @@ import styles from './Footer.module.css'
 
 
 function Footer() {
-    const { translations, language } = useLanguage();
+    const { language } = useLanguage();
     const currentDate = new Date();
 
     const handleRedirect = (url: string) => {
