@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import styles from './AboutMe.module.css'
 import { FaReact, FaAngular, FaNodeJs, FaGitAlt, FaBootstrap, FaHtml5, FaCss3Alt } from 'react-icons/fa'
-import { SiTypescript, SiIonic, SiExpress, SiFirebase, SiSharp, SiMongodb, SiMysql, SiMui } from 'react-icons/si'
+import { SiTypescript, SiIonic, SiExpress, SiMongodb, SiMysql, SiMui } from 'react-icons/si'
+import { TbBrandCSharp, TbBrandFirebase } from 'react-icons/tb'
 import { VscCode } from 'react-icons/vsc'
 import { BiServer, BiData } from 'react-icons/bi'
 import { RiToolsFill } from 'react-icons/ri'
@@ -26,9 +27,9 @@ const skills = [
         color: 'purple',
         items: [
             { name: 'Node.js', icon: <FaNodeJs color="#339933" /> },
-            { name: 'Express', icon: <SiExpress color="#000000" /> },
-            { name: 'Firebase', icon: <SiFirebase color="#FFCA28" /> },
-            { name: 'C#', icon: <SiSharp color="#239120" /> }
+            { name: 'Express', icon: <SiExpress color="#ffffff" /> },
+            { name: 'Firebase', icon: <TbBrandFirebase color="#FFCA28" /> },
+          { name: 'C#', icon: <TbBrandCSharp color="#512BD4" /> },
         ]
     },
     {
@@ -38,7 +39,7 @@ const skills = [
         items: [
             { name: 'MongoDB', icon: <SiMongodb color="#47A248" /> },
             { name: 'MySQL', icon: <SiMysql color="#4479A1" /> },
-            { name: 'Firestore', icon: <SiFirebase color="#FFCA28" /> }
+            { name: 'Firestore', icon: <TbBrandFirebase color="#FFCA28" /> }
         ]
     },
     {

@@ -372,6 +372,13 @@
 
     .scrollIndicator {
         bottom: 1rem;
+        margin-top: 3rem;
+        left: 50%;
+        right: auto;
+    }
+
+    .socialLinks {
+        margin-bottom: 5rem;
     }
 }
 
@@ -410,10 +417,17 @@
 
     .socialLinks {
         justify-content: center;
+        margin-bottom: 6rem;
     }
 
     .socialButton {
         width: 44px;
         height: 44px;
+    }
+
+    .scrollIndicator {
+        bottom: 0.5rem;
+        left: 50%;
+        right: auto;
     }
 }
