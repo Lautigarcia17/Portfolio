@@ -10,7 +10,7 @@ export const projects: Project[] = [
         text: 'Desarrollo de un e-commerce, permitiendole al admin cargar productos y ser comprados por clientes, atraves de Mercado Pago.',
         textEn: 'Development of an e-commerce platform, allowing the admin to upload products and customers to purchase them through Mercado Pago.',
         image: VeloShop,
-        status: "En desarrollo",
+        status: "",
         statusEn: "In development",
         icons: [
             { name: 'React', icon: <FaReact color="#61DAFB" /> },
