@@ -1,19 +1,22 @@
 import { motion } from 'framer-motion';
-import { useContext } from 'react';
-import { NavigationContext } from '../../../context/NavigationContext';
 import styles from './WelcomeSection.module.css';
 import { Me } from '../../../assets/index';
 
 
 function WelcomeSection() {
-    const navContext = useContext(NavigationContext);
-
     const handleRedirect = (url: string) => {
         window.open(url, '_blank');
     };
 
-    const handleNavigate = (section: 'about' | 'work' | 'contact') => {
-        navContext?.navigateToSection(section);
+    const scrollToSection = (sectionId: string) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            const offsetTop = element.offsetTop - 80;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
     };
 
     return (
@@ -111,7 +114,7 @@ function WelcomeSection() {
                         >
                             <motion.button
                                 className={styles.ctaPrimary}
-                                onClick={() => handleNavigate('work')}
+                                onClick={() => scrollToSection('work')}
                                 whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 255, 249, 0.5)' }}
                                 whileTap={{ scale: 0.95 }}
                             >
@@ -123,7 +126,7 @@ function WelcomeSection() {
 
                             <motion.button
                                 className={styles.ctaSecondary}
-                                onClick={() => handleNavigate('contact')}
+                                onClick={() => scrollToSection('contact')}
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
@@ -231,7 +234,7 @@ function WelcomeSection() {
                     </motion.div>
                 </div>
 
-                {/* Scroll Indicator (optional) */}
+                {/* Scroll Indicator */}
                 <motion.div
                     className={styles.scrollIndicator}
                     initial={{ opacity: 0 }}
@@ -240,7 +243,7 @@ function WelcomeSection() {
                         opacity: { delay: 1.5 },
                         y: { duration: 2, repeat: Infinity, ease: "easeInOut" }
                     }}
-                    onClick={() => handleNavigate('about')}
+                    onClick={() => scrollToSection('about')}
                 >
                     <span>Explore More</span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">

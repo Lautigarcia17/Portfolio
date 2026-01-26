@@ -6,12 +6,11 @@
   padding: 20px 10px;
   background: linear-gradient(135deg, var(--color-dark) 0%, #1a1a2e 100%);
   color: #ffffff;
-  position: absolute;
-  bottom: 0;
   width: 100%;
-  border-top: 1px solid rgba(251, 191, 36, 0.2);
+  border-top: 1px solid rgba(0, 255, 249, 0.2);
   backdrop-filter: blur(10px);
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+  margin-top: auto;
 }
 
 .footer>div {

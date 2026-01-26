@@ -1,26 +1,48 @@
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
-import { NavigationContext, SectionType } from '../../context/NavigationContext';
+import { useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
 import styles from './Navbar.module.css'
 
 function NavBar() {
     const location = useLocation();
-    const navigate = useNavigate();
-    const navContext = useContext(NavigationContext);
     const [hoveredSection, setHoveredSection] = useState<string | null>(null);
+    const [activeSection, setActiveSection] = useState('welcome');
     
     const isHomePage = location.pathname === '/';
-    const currentSection = navContext?.currentSection || 'welcome';
 
-    const handleNavigation = (section: SectionType) => {
-        if (location.pathname !== '/') {
-            navigate('/');
-            setTimeout(() => {
-                navContext?.navigateToSection(section);
-            }, 100);
-        } else {
-            navContext?.navigateToSection(section);
+    useEffect(() => {
+        if (!isHomePage) return;
+
+        const handleScroll = () => {
+            const sections = ['welcome', 'about', 'work', 'contact'];
+            const scrollPosition = window.scrollY + 200;
+
+            for (const sectionId of sections) {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    const { offsetTop, offsetHeight } = element;
+                    if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                        setActiveSection(sectionId);
+                        break;
+                    }
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+        
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [isHomePage]);
+
+    const scrollToSection = (sectionId: string) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            const offsetTop = element.offsetTop - 80;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
         }
     };
 
@@ -36,7 +58,7 @@ function NavBar() {
             {/* Logo/Name with glitch effect */}
             <motion.button
                 className={styles.logo}
-                onClick={() => handleNavigation('welcome')}
+                onClick={() => scrollToSection('welcome')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
             >
@@ -61,14 +83,14 @@ function NavBar() {
             {isHomePage && (
                 <nav className={styles.navMenu}>
                     {sections.map((section, index) => {
-                        const isActive = currentSection === section.id;
+                        const isActive = activeSection === section.id;
                         const isHovered = hoveredSection === section.id;
                         
                         return (
                             <motion.button
                                 key={section.id}
                                 className={`${styles.navButton} ${isActive ? styles.active : ''}`}
-                                onClick={() => handleNavigation(section.id as SectionType)}
+                                onClick={() => scrollToSection(section.id)}
                                 onMouseEnter={() => setHoveredSection(section.id)}
                                 onMouseLeave={() => setHoveredSection(null)}
                                 initial={{ opacity: 0, y: -20 }}

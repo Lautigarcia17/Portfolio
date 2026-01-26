@@ -1,40 +1,46 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import styles from './SectionLayout.module.css';
 import WelcomeSection from './WelcomeSection/WelcomeSection';
 import AboutMe from './AboutMe/AboutMe';
 import Contact from './Contact/Contact';
 import { Toaster } from 'react-hot-toast';
 import MyWork from './MyWork/MyWork';
-import { useContext } from 'react';
-import { NavigationContext } from '../../context/NavigationContext';
 
 
 function SectionLayout() {
-    const navContext = useContext(NavigationContext);
-    
-    if (!navContext) {
-        throw new Error('SectionLayout must be used within NavigationProvider');
-    }
+    const [activeSection, setActiveSection] = useState('welcome');
 
-    const { currentSection } = navContext;
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = ['welcome', 'about', 'work', 'contact'];
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
 
-    const pageVariants = {
-        initial: { opacity: 0, scale: 0.95, filter: 'blur(10px)' },
-        animate: { 
+            for (const sectionId of sections) {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    const { offsetTop, offsetHeight } = element;
+                    if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                        setActiveSection(sectionId);
+                        break;
+                    }
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Initial check
+        
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const sectionVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { 
             opacity: 1, 
-            scale: 1, 
-            filter: 'blur(0px)',
+            y: 0,
             transition: {
                 duration: 0.8,
-                ease: [0.83, 0, 0.17, 1]
-            }
-        },
-        exit: { 
-            opacity: 0, 
-            scale: 1.05,
-            filter: 'blur(10px)',
-            transition: {
-                duration: 0.3,
                 ease: [0.83, 0, 0.17, 1]
             }
         }
@@ -42,56 +48,50 @@ function SectionLayout() {
 
     return (
         <div className={styles.sectionContainer}>
-            <AnimatePresence mode="wait">
-                {currentSection === 'welcome' && (
-                    <motion.section
-                        key="welcome"
-                        className={styles.sectionLayout}
-                        variants={pageVariants}
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
-                    >
-                        <WelcomeSection />
-                    </motion.section>
-                )}
-                {currentSection === 'about' && (
-                    <motion.section
-                        key="about"
-                        className={styles.sectionLayout}
-                        variants={pageVariants}
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
-                    >
-                        <AboutMe />
-                    </motion.section>
-                )}
-                {currentSection === 'work' && (
-                    <motion.section
-                        key="work"
-                        className={styles.sectionLayout}
-                        variants={pageVariants}
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
-                    >
-                        <MyWork />
-                    </motion.section>
-                )}
-                {currentSection === 'contact' && (
-                    <motion.section
-                        key="contact"
-                        className={styles.sectionLayout}
-                        variants={pageVariants}
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
-                    >
-                        <Contact />
-                    </motion.section>
-                )}
-            </AnimatePresence>
+            <motion.section
+                id="welcome"
+                className={styles.section}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={sectionVariants}
+            >
+                <WelcomeSection />
+            </motion.section>
+
+            <motion.section
+                id="about"
+                className={styles.section}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={sectionVariants}
+            >
+                <AboutMe />
+            </motion.section>
+
+            <motion.section
+                id="work"
+                className={styles.section}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={sectionVariants}
+            >
+                <MyWork />
+            </motion.section>
+
+            <motion.section
+                id="contact"
+                className={styles.section}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={sectionVariants}
+            >
+                <Contact />
+            </motion.section>
+
             <Toaster /> 
         </div>
     );

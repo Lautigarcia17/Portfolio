@@ -1,22 +1,19 @@
-import { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import { useRef } from 'react'
+import { motion } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 import styles from './Contact.module.css'
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast'
-import TextField from '@mui/material/TextField';
-import { Box, Button } from '@mui/material';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
-import MarkunreadIcon from '@mui/icons-material/Markunread';
-import SendIcon from '@mui/icons-material/Send';
-import Footer from '../../../components/Footer/Footer';
+import TextField from '@mui/material/TextField'
+import { Button } from '@mui/material'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import Footer from '../../../components/Footer/Footer'
 
 function Contact() {
-  const form: any = useRef(null);
+  const form: any = useRef(null)
   const { formState: { errors }, reset, handleSubmit, control } = useForm({
     mode: 'onSubmit'
-  });
+  })
 
   const sendEmail = () => {
     emailjs
@@ -25,104 +22,120 @@ function Contact() {
       })
       .then(
         () => {
-          toast.success('Enviado!', { position: 'top-right' })
+          toast.success('Mensaje enviado!', { 
+            position: 'top-right',
+            style: {
+              background: 'rgba(26, 26, 39, 0.95)',
+              color: '#00fff9',
+              border: '1px solid rgba(0, 255, 249, 0.3)',
+            }
+          })
           reset()
-
         },
         (error) => {
-          console.log('FAILED...', error.text);
+          toast.error('Error al enviar', { position: 'top-right' })
+          console.log('FAILED...', error.text)
         },
-      );
-  };
-
+      )
+  }
 
   const theme = createTheme({
-    breakpoints: {
-      values: {
-        xs: 0,
-        sm: 450,
-        md: 768,
-        lg: 1024,
-        xl: 1200,
-      },
-    },
     components: {
-      MuiInput: {
+      MuiTextField: {
         styleOverrides: {
           root: {
-            color: '#1f2937',
-            backgroundColor: 'transparent',
-            transition: 'all 0.3s ease',
-            '&:before': {
-              borderBottom: '2px solid rgba(251, 191, 36, 0.3)',
-              transition: 'border-color 0.3s ease',
+            '& .MuiInputLabel-root': {
+              color: 'rgba(255, 255, 255, 0.5)',
+              fontWeight: 500,
             },
-            '&:hover:not(.Mui-disabled):before': {
-              borderBottom: '2px solid rgba(251, 191, 36, 0.6)',
+            '& .MuiInputLabel-root.Mui-focused': {
+              color: '#00fff9',
             },
-            '&:after': {
-              borderBottom: '3px solid #fbbf24',
-              boxShadow: '0 2px 10px rgba(251, 191, 36, 0.3)',
+            '& .MuiInput-root': {
+              color: '#ffffff',
+              '&:before': {
+                borderBottom: '1px solid rgba(0, 255, 249, 0.2)',
+              },
+              '&:hover:not(.Mui-disabled):before': {
+                borderBottom: '1px solid rgba(0, 255, 249, 0.4)',
+              },
+              '&:after': {
+                borderBottom: '2px solid #00fff9',
+                boxShadow: '0 2px 10px rgba(0, 255, 249, 0.3)',
+              },
             },
-            ['@media (max-width:450px)']: {
-              width: '200px'
-            }
+            '& .MuiInput-input': {
+              fontSize: '1rem',
+              padding: '8px 0',
+            },
           },
         },
       },
-      MuiInputLabel: {
-        styleOverrides: {
-          root: {
-            color: '#5c3d2e',
-            fontSize: '25px',
-            fontWeight: 500,
-            transform: 'translate(0, 13px) scale(1)',
-            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-            '&.Mui-focused': {
-              color: '#fbbf24',
-            },
-            '&.MuiInputLabel-shrink': {
-              transform: 'translate(0, -10px) scale(0.85)',
-              color: '#fbbf24',
-            },
-            ['@media (max-width:450px)']: {
-              fontSize: '15px'
-            }
-          },
-        },
-      },
-      MuiSvgIcon: {
-        styleOverrides: {
-          root: {
-            color: '#fbbf24',
-            fontSize: '30px',
-            marginRight: '15px',
-            filter: 'drop-shadow(0 2px 4px rgba(251, 191, 36, 0.2))',
-            transition: 'all 0.3s ease',
-          }
-        }
-      }
     },
-  });
+  })
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.83, 0, 0.17, 1]
+      }
+    }
+  }
 
   return (
     <div className={styles.containerContact}>
       <div className={styles.containerPositionContact}>
+        <motion.div 
+          className={styles.contentContact}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {/* Header */}
+          <motion.div className={styles.header} variants={itemVariants}>
+            <div className={styles.badge}>
+              <span className={styles.badgeIcon}>◉</span>
+              <span>Contacto</span>
+            </div>
+            <h2 className={styles.titleHeader}>
+              <span className={styles.titleLine1}>Hablemos</span>
+              <span className={styles.titleLine2}>de tu proyecto</span>
+            </h2>
+            <p className={styles.subtitleHeader}>
+              ¿Tienes una idea en mente? Trabajemos juntos para hacerla realidad. 
+              Estoy disponible para proyectos freelance y colaboraciones.
+            </p>
+          </motion.div>
 
-        <div className={styles.contentContact}>
-          <div className={styles.header}>
-            <h1 className={styles.titleHeader}>Contáctate conmigo </h1>
-            <h2 className={styles.subtitleHeader}>Si quieres trabajar conmigo o simplemente compartir ideas sobre tecnología, estaré encantado de hablar contigo.</h2>
-          </div>
-
-          <form ref={form} className={styles.form} onSubmit={handleSubmit(sendEmail)}>
+          {/* Form */}
+          <motion.form 
+            ref={form} 
+            className={styles.form} 
+            onSubmit={handleSubmit(sendEmail)}
+            variants={itemVariants}
+          >
             <ThemeProvider theme={theme}>
-
-              <div className={`${styles.nameEmailDiv} ${styles.marginInput}`}>
-                <div className={styles.inputs}>
-                  <Box sx={{ display: "flex", alignItems: "flex-end", width: { sm: '450px',   md: '350px'}, }}>
-                    <AssignmentIndIcon />
+              <div className={styles.inputs}>
+                {/* Name & Email Row */}
+                <div className={styles.nameEmailDiv}>
+                  {/* Name Input */}
+                  <div className={styles.inputWrapper}>
                     <Controller
                       name="user_name"
                       control={control}
@@ -130,38 +143,38 @@ function Contact() {
                       rules={{
                         required: "El nombre es requerido",
                         pattern: {
-                          value: /^[A-Za-z\s]+$/,
-                          message: "El nombre solo puede tener letras y espacios",
+                          value: /^[A-Za-zÀ-ÿ\s]+$/,
+                          message: "Solo letras y espacios",
                         },
                       }}
                       render={({ field }) => (
                         <TextField
                           {...field}
-                          label="Nombre"
+                          label="Nombre completo"
                           variant="standard"
                           autoComplete="off"
-                          style={{ width: "100%" }}
+                          fullWidth
+                          error={!!errors.user_name}
                         />
                       )}
                     />
-                  </Box>
-                  <p className={`${styles.messageError} ${errors.user_name ? styles.visible : ''}`}>
-                    {errors.user_name?.type === 'required' && 'El nombre es requerido'}
-                    {errors.user_name?.type === 'pattern' && 'El nombre solo puede tener letras y espacios'}
-                  </p>
-                </div>
+                    <p className={`${styles.messageError} ${errors.user_name ? styles.visible : ''}`}>
+                      {errors.user_name?.message as string}
+                    </p>
+                  </div>
 
-                {/* Email Input */}
-                <div className={styles.inputs}>
-                  <Box sx={{ display: "flex", alignItems: "flex-end", width: { sm: '450px',   md: '350px'} }}>
-                    <AlternateEmailIcon />
+                  {/* Email Input */}
+                  <div className={styles.inputWrapper}>
                     <Controller
                       name="user_email"
                       control={control}
                       defaultValue=""
                       rules={{
-                        required: true,
-                        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                        required: "El correo es requerido",
+                        pattern: {
+                          value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                          message: "Correo inválido"
+                        },
                       }}
                       render={({ field }) => (
                         <TextField
@@ -169,104 +182,92 @@ function Contact() {
                           label="Correo electrónico"
                           variant="standard"
                           autoComplete="off"
-                          style={{ width: "100%" }}
+                          fullWidth
+                          error={!!errors.user_email}
                         />
                       )}
                     />
-                  </Box>
-                  <p className={`${styles.messageError} ${errors.user_email ? styles.visible : ''}`}>
-                    {errors.user_email?.type === 'required' && 'El correo electrónico es requerido'}
-                    {errors.user_email?.type === 'pattern' && 'Formato de correo electrónico invalido'}
-                  </p>
+                    <p className={`${styles.messageError} ${errors.user_email ? styles.visible : ''}`}>
+                      {errors.user_email?.message as string}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              {/* Name Input */}
 
-
-              {/* Message Input */}
-              <div className={`${styles.inputs} ${styles.marginInput}`}>
-                <Box sx={{ display: "flex", alignItems: "flex-end", height: "30px", width: { sm: '450px', md: '100%', lg: '100%'} }}>
-                  <MarkunreadIcon />
+                {/* Message Input */}
+                <div className={styles.inputWrapper}>
                   <Controller
                     name="message"
                     control={control}
                     defaultValue=""
                     rules={{
                       required: "El mensaje es requerido",
+                      minLength: {
+                        value: 10,
+                        message: "Mínimo 10 caracteres"
+                      }
                     }}
                     render={({ field }) => (
                       <TextField
                         {...field}
                         label="Mensaje"
                         multiline
+                        rows={4}
                         variant="standard"
                         autoComplete="off"
-                        className={styles.textareaScroll}
-                        maxRows={2}
-                        style={{ width: "100%" }}
+                        fullWidth
+                        error={!!errors.message}
                         sx={{
-                          width: "100%",
-                          "& .MuiInputBase-root": {
-                            overflowY: "auto",
-                            maxHeight: "4.5em",
-                          },
-                          "& .MuiInputBase-input": {
-                            overflowY: "auto",
-                            resize: "none",
-                            "&::-webkit-scrollbar": {
-                              width: "6px",
-                              display: "block !important",
-                            },
-                            "&::-webkit-scrollbar-thumb": {
-                              background: "#888",
-                              borderRadius: "3px",
-                            },
-                            "&::-webkit-scrollbar-thumb:hover": {
-                              background: "#555",
-                            },
+                          '& .MuiInput-root': {
+                            paddingTop: '8px',
                           },
                         }}
                       />
                     )}
                   />
-                </Box>
-                <p className={`${styles.messageError} ${errors.message?.type === 'required' ? 'visible' : ''}`}>
-                  El mensaje es requerido
-                </p>
+                  <p className={`${styles.messageError} ${errors.message ? styles.visible : ''}`}>
+                    {errors.message?.message as string}
+                  </p>
+                </div>
               </div>
 
+              {/* Submit Button */}
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Button 
+                  type='submit' 
+                  size='large' 
+                  variant="contained" 
+                  fullWidth
+                  sx={{
+                    background: 'linear-gradient(135deg, rgba(0, 255, 249, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%)',
+                    border: '1px solid rgba(0, 255, 249, 0.3)',
+                    color: '#00fff9',
+                    fontSize: '1rem',
+                    padding: '14px 32px',
+                    fontWeight: 600,
+                    borderRadius: '12px',
+                    backdropFilter: 'blur(10px)',
+                    textTransform: 'none',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      background: 'linear-gradient(135deg, rgba(0, 255, 249, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%)',
+                      border: '1px solid rgba(0, 255, 249, 0.5)',
+                      boxShadow: '0 10px 30px rgba(0, 255, 249, 0.3)',
+                    },
+                  }}
+                >
+                  Enviar mensaje
+                </Button>
+              </motion.div>
             </ThemeProvider>
-            <Button type='submit' size='large' variant="contained" endIcon={<SendIcon />} sx={{
-              background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
-              border: '2px solid transparent',
-              color: '#1a1a2a',
-              marginTop: '30px',
-              width: { xs: '200px',sm: '300px', lg: '350px'},
-              fontSize: { xs: '16px',sm: '20px'},
-              padding: { xs: '10px',sm: '14px'},
-              fontWeight: 700,
-              borderRadius: '12px',
-              boxShadow: '0 10px 25px rgba(251, 191, 36, 0.3)',
-              transition: 'all 0.3s ease',
-              '&:hover': {
-                background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
-                transform: 'translateY(-3px)',
-                boxShadow: '0 15px 35px rgba(251, 191, 36, 0.4)',
-              },
-              '&:active': {
-                transform: 'translateY(-1px)',
-              }
-            }}>
-              Enviar
-            </Button>
-          </form>
-
-        </div>
-        <Footer />
+          </motion.form>
+        </motion.div>
       </div>
-
+      <Footer />
     </div>
-  );
-};
+  )
+}
 
 export default Contact
