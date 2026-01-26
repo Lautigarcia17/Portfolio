@@ -5,9 +5,11 @@ import { Project } from '../../../types/project'
 
 function MyWork() {
     const containerVariants = {
-        hidden: {},
+        hidden: { opacity: 0 },
         visible: {
+            opacity: 1,
             transition: {
+                duration: 0.3,
                 staggerChildren: 0.15,
                 delayChildren: 0.2
             }
@@ -15,8 +17,9 @@ function MyWork() {
     }
 
     const cardVariants = {
-        hidden: { y: 60, scale: 0.9 },
+        hidden: { opacity: 0, y: 60, scale: 0.9 },
         visible: {
+            opacity: 1,
             y: 0,
             scale: 1,
             transition: {

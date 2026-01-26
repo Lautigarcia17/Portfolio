@@ -13,35 +13,46 @@ function NavBar() {
     useEffect(() => {
         if (!isHomePage) return;
 
-        const handleScroll = () => {
-            const sections = ['welcome', 'about', 'work', 'contact'];
-            const scrollPosition = window.scrollY + 200;
-
-            for (const sectionId of sections) {
-                const element = document.getElementById(sectionId);
-                if (element) {
-                    const { offsetTop, offsetHeight } = element;
-                    if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-                        setActiveSection(sectionId);
-                        break;
-                    }
-                }
-            }
+        const observerOptions = {
+            root: null,
+            rootMargin: '-50% 0px -50% 0px',
+            threshold: 0
         };
 
-        window.addEventListener('scroll', handleScroll);
-        handleScroll();
-        
-        return () => window.removeEventListener('scroll', handleScroll);
+        const observerCallback = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        const sections = ['welcome', 'about', 'work', 'contact'];
+        sections.forEach((sectionId) => {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                observer.observe(element);
+            }
+        });
+
+        return () => {
+            sections.forEach((sectionId) => {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    observer.unobserve(element);
+                }
+            });
+        };
     }, [isHomePage]);
 
     const scrollToSection = (sectionId: string) => {
         const element = document.getElementById(sectionId);
         if (element) {
-            const offsetTop = element.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
         }
     };

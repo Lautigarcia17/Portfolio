@@ -1,4 +1,13 @@
-html, body {
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+body {
     height: 100%;
     width: 100%;
     margin: 0;
@@ -7,14 +16,15 @@ html, body {
     scrollbar-width: thin;
     scrollbar-color: var(--color-primary) var(--color-bg-secondary);
     overflow-x: hidden;
+    overflow-y: auto;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 #root {
     width: 100%;
     min-height: 100%;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+    overflow: visible;
 }
 
 *, *::before, *::after {
