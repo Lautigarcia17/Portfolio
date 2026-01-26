@@ -273,11 +273,56 @@
         grid-template-columns: 1fr;
         gap: var(--spacing-3xl);
     }
+
+    .form {
+        padding: var(--spacing-2xl);
+        gap: var(--spacing-xl);
+    }
+
+    .inputs {
+        gap: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    .containerPositionContact {
+        padding: var(--spacing-3xl) var(--spacing-xl);
+    }
+
+    .contentContact {
+        gap: var(--spacing-2xl);
+    }
+
+    .contactGrid {
+        gap: var(--spacing-2xl);
+    }
+
+    .form {
+        padding: var(--spacing-xl);
+        gap: var(--spacing-lg);
+    }
+
+    .formTitle {
+        font-size: 1.25rem;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .inputs {
+        gap: var(--spacing-md);
+    }
 }
 
 @media (max-width: 576px) {
     .containerPositionContact {
-        padding: var(--spacing-3xl) var(--spacing-lg);
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+
+    .contentContact {
+        gap: var(--spacing-xl);
+    }
+
+    .header {
+        gap: var(--spacing-md);
     }
 
     .titleHeader {
@@ -288,12 +333,27 @@
         font-size: 1rem;
     }
 
+    .contactGrid {
+        gap: var(--spacing-xl);
+    }
+
     .form {
-        padding: var(--spacing-2xl) var(--spacing-xl);
+        padding: var(--spacing-lg);
+        gap: var(--spacing-md);
+    }
+
+    .formTitle {
+        font-size: 1.125rem;
+        margin-bottom: 0;
+    }
+
+    .inputs {
+        gap: var(--spacing-sm);
     }
 
     .infoCard {
-        padding: var(--spacing-lg);
+        padding: var(--spacing-md);
+        gap: var(--spacing-md);
     }
 
     .iconWrapper {
@@ -304,5 +364,9 @@
     .iconWrapper svg {
         width: 20px;
         height: 20px;
+    }
+
+    .infoValue {
+        font-size: 0.9rem;
     }
 }
