@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react';
 import styles from './SectionLayout.module.css';
 import WelcomeSection from './WelcomeSection/WelcomeSection';
 import AboutMe from './AboutMe/AboutMe';
-import Contact from './Contact/Contact';
+
 import { Toaster } from 'react-hot-toast';
 import MyWork from './MyWork/MyWork';
+import Contact from './Contact/Contact';
 
 
 function SectionLayout() {
@@ -62,10 +63,7 @@ function SectionLayout() {
             <motion.section
                 id="about"
                 className={styles.section}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={sectionVariants}
+                initial={false}
             >
                 <AboutMe />
             </motion.section>
@@ -81,10 +79,7 @@ function SectionLayout() {
             <motion.section
                 id="contact"
                 className={styles.section}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={sectionVariants}
+                initial={false}
             >
                 <Contact />
             </motion.section>
