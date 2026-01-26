@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useMemo } from 'react'
 import { useLanguage } from '../../../hooks/useLanguage'
 import styles from './AboutMe.module.css'
 import { FaReact, FaAngular, FaNodeJs, FaGitAlt, FaBootstrap, FaHtml5, FaCss3Alt } from 'react-icons/fa'
@@ -11,55 +12,58 @@ import { RiToolsFill } from 'react-icons/ri'
 function AboutMe() {
     const { translations } = useLanguage();
 
-const skills = [
-    {
-        category: translations.about.skills.frontend,
-        icon: <FaReact />,
-        color: 'cyan',
-        items: [
-            { name: 'React', icon: <FaReact color="#61DAFB" /> },
-            { name: 'Angular', icon: <FaAngular color="#DD0031" /> },
-            { name: 'TypeScript', icon: <SiTypescript color="#3178C6" /> },
-            { name: 'Ionic', icon: <SiIonic color="#3880FF" /> },
-            { name: 'HTML5', icon: <FaHtml5 color="#E34F26" /> },
-            { name: 'CSS3', icon: <FaCss3Alt color="#1572B6" /> }
-        ]
-    },
-    {
-        category: translations.about.skills.backend,
-        icon: <BiServer />,
-        color: 'purple',
-        items: [
-            { name: 'Node.js', icon: <FaNodeJs color="#339933" /> },
-            { name: 'Express', icon: <SiExpress color="#ffffff" /> },
-            { name: 'Firebase', icon: <TbBrandFirebase color="#FFCA28" /> },
-          { name: 'C#', icon: <TbBrandCSharp color="#512BD4" /> },
-        ]
-    },
-    {
-        category: translations.about.skills.database,
-        icon: <BiData />,
-        color: 'pink',
-        items: [
-            { name: 'MongoDB', icon: <SiMongodb color="#47A248" /> },
-            { name: 'MySQL', icon: <SiMysql color="#4479A1" /> },
-            { name: 'Firestore', icon: <TbBrandFirebase color="#FFCA28" /> }
-        ]
-    },
-    {
-        category: translations.about.skills.tools,
-        icon: <RiToolsFill />,
-        color: 'cyan',
-        items: [
-            { name: 'Git', icon: <FaGitAlt color="#F05032" /> },
-            { name: 'Bootstrap', icon: <FaBootstrap color="#7952B3" /> },
-            { name: 'Material UI', icon: <SiMui color="#007FFF" /> },
-            { name: 'VS Code', icon: <VscCode color="#007ACC" /> }
-        ]
-    }
-]
+    const skills = useMemo(() => {
+        if (!translations?.about?.skills) return [];
+        return [
+            {
+                category: translations.about.skills.frontend,
+                icon: <FaReact />,
+                color: 'cyan',
+                items: [
+                    { name: 'React', icon: <FaReact color="#61DAFB" /> },
+                    { name: 'Angular', icon: <FaAngular color="#DD0031" /> },
+                    { name: 'TypeScript', icon: <SiTypescript color="#3178C6" /> },
+                    { name: 'Ionic', icon: <SiIonic color="#3880FF" /> },
+                    { name: 'HTML5', icon: <FaHtml5 color="#E34F26" /> },
+                    { name: 'CSS3', icon: <FaCss3Alt color="#1572B6" /> }
+                ]
+            },
+            {
+                category: translations.about.skills.backend,
+                icon: <BiServer />,
+                color: 'purple',
+                items: [
+                    { name: 'Node.js', icon: <FaNodeJs color="#339933" /> },
+                    { name: 'Express', icon: <SiExpress color="#ffffff" /> },
+                    { name: 'Firebase', icon: <TbBrandFirebase color="#FFCA28" /> },
+                    { name: 'C#', icon: <TbBrandCSharp color="#512BD4" /> },
+                ]
+            },
+            {
+                category: translations.about.skills.database,
+                icon: <BiData />,
+                color: 'pink',
+                items: [
+                    { name: 'MongoDB', icon: <SiMongodb color="#47A248" /> },
+                    { name: 'MySQL', icon: <SiMysql color="#4479A1" /> },
+                    { name: 'Firestore', icon: <TbBrandFirebase color="#FFCA28" /> }
+                ]
+            },
+            {
+                category: translations.about.skills.tools,
+                icon: <RiToolsFill />,
+                color: 'cyan',
+                items: [
+                    { name: 'Git', icon: <FaGitAlt color="#F05032" /> },
+                    { name: 'Bootstrap', icon: <FaBootstrap color="#7952B3" /> },
+                    { name: 'Material UI', icon: <SiMui color="#007FFF" /> },
+                    { name: 'VS Code', icon: <VscCode color="#007ACC" /> }
+                ]
+            }
+        ];
+    }, [translations]);
 
-const journey = [
+    const journey = useMemo(() => [
     {
         year: '2021',
         title: translations.about.journey.year2021.title,
@@ -80,7 +84,8 @@ const journey = [
         title: translations.about.journey.year2024.title,
         description: translations.about.journey.year2024.description
     }
-]
+], [translations]);
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -150,7 +155,7 @@ const journey = [
                 <motion.div className={styles.skillsGrid} variants={itemVariants}>
                     {skills.map((skill, index) => (
                         <motion.div
-                            key={skill.category}
+                            key={`skill-${index}`}
                             className={`${styles.skillCard} ${styles[skill.color]}`}
                             variants={cardVariants}
                             whileHover={{ y: -8, transition: { duration: 0.3 } }}
@@ -161,18 +166,15 @@ const journey = [
                                 <h3>{skill.category}</h3>
                             </div>
                             <div className={styles.skillItems}>
-                                {skill.items.map((item, i) => (
-                                    <motion.span
+                                {skill.items.map((item) => (
+                                    <span
                                         key={item.name}
                                         className={styles.skillTag}
-                                        initial={{ opacity: 0, x: -10 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: index * 0.1 + i * 0.05 }}
                                         title={item.name}
                                     >
                                         <span className={styles.skillTagIcon}>{item.icon}</span>
                                         <span className={styles.skillTagName}>{item.name}</span>
-                                    </motion.span>
+                                    </span>
                                 ))}
                             </div>
                         </motion.div>

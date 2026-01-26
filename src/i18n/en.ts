@@ -55,20 +55,20 @@ export const en: Translations = {
     },
     journey: {
       year2021: {
-        title: 'UTN: National Technological University',
-        description: 'Started my academic training in programming, acquiring solid foundations in development'
+        title: 'Self-taught',
+        description: 'Started studying on my own, focusing on the fundamentals of programming and web development.'
       },
       year2022: {
-        title: 'Modern Frameworks',
-        description: 'Mastered React, Angular and Node.js, creating complete full-stack applications'
+        title: 'UTN: National Technological University – Programming Technician',
+        description: 'Started my academic training in programming, acquiring solid foundations in development'
       },
       year2023: {
-        title: 'Professional Development',
-        description: 'Deepened my knowledge in advanced technologies and agile development methodologies'
+        title: 'Technology Mastery',
+        description: 'Mastered React, Angular, and Node.js, building complete full-stack applications, and deepened my knowledge in advanced technologies and agile development methodologies.'
       },
       year2024: {
-        title: 'Real Projects',
-        description: 'Developed multiple personal and professional projects with real impact'
+        title: 'Real-World Projects',
+        description: 'Worked on real-world projects, applying skills in practical and professional environments.'
       }
     },
     journeyTitle: 'My Journey',

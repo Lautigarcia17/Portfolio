@@ -53,20 +53,20 @@ export const es = {
     },
     journey: {
       year2021: {
+        title: 'Autodidacta',
+        description: 'Comencé a estudiar por mi cuenta, enfocándome en las bases de la programación y el desarrollo web.'
+      },
+      year2022: {
         title: 'UTN: Tecnicatura en Programación',
         description: 'Inicié mi formación académica en programación, adquiriendo bases sólidas en desarrollo'
       },
-      year2022: {
-        title: 'Frameworks Modernos',
-        description: 'Dominé React, Angular y Node.js, creando aplicaciones full-stack completas'
-      },
       year2023: {
-        title: 'Desarrollo Profesional',
-        description: 'Profundicé en tecnologías avanzadas y metodologías ágiles de desarrollo'
+        title: 'Dominio de Tecnologías',
+        description: 'Dominé React, Angular y Node.js, creando aplicaciones full-stack completas, y profundicé en tecnologías avanzadas y metodologías ágiles de desarrollo.'
       },
       year2024: {
         title: 'Proyectos Reales',
-        description: 'Desarrollé múltiples proyectos personales y profesionales con impacto real'
+        description: 'Desarrollo de proyectos reales, aplicando conocimientos en entornos prácticos y profesionales.'
       }
     },
     journeyTitle: 'Mi Trayectoria',
