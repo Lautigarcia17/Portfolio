@@ -174,8 +174,8 @@
 @media (max-width: 992px) {
     .navbar {
         top: 1.5rem;
-        width: calc(100% - 3rem);
-        padding: 0.875rem 1.5rem;
+        width: calc(100% - 2rem);
+        padding: 0.75rem 1.25rem;
     }
     
     .logo {
@@ -189,12 +189,12 @@
     }
     
     .navButton {
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 0.75rem;
         font-size: 0.75rem;
     }
     
     .navLabel {
-        display: inline;
+        display: none;
     }
     
     .navIcon {
@@ -202,20 +202,42 @@
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
     .navbar {
-        top: 1rem;
-        width: calc(100% - 2rem);
-        padding: 0.75rem 1rem;
-    }
-    
-    .logo {
-        font-size: 1.125rem;
-        padding: 0.25rem 0.5rem;
+        top: 1.25rem;
+        width: calc(100% - 1.75rem);
     }
     
     .navButton {
         padding: 0.5rem 0.625rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        top: 1rem;
+        width: calc(100% - 1.5rem);
+        padding: 0.625rem 0.875rem;
+    }
+    
+    .logo {
+        font-size: 1rem;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .navMenu {
+        gap: 0.125rem;
+        padding: 0.25rem;
+    }
+    
+    .navButton {
+        padding: 0.5rem;
+        min-width: 40px;
+        justify-content: center;
+    }
+    
+    .navLabel {
+        display: none;
     }
     
     .navIcon {

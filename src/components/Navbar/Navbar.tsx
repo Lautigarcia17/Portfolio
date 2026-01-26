@@ -58,10 +58,10 @@ function NavBar() {
     };
 
     const sections = [
-        { id: 'welcome', label: 'HOME', icon: '◆' },
-        { id: 'about', label: 'ABOUT', icon: '◇' },
+        { id: 'welcome', label: 'HOME', icon: '◈' },
+        { id: 'about', label: 'ABOUT', icon: '◈' },
         { id: 'work', label: 'WORK', icon: '◈' },
-        { id: 'contact', label: 'CONTACT', icon: '◉' }
+        { id: 'contact', label: 'CONTACT', icon: '◈' }
     ];
 
     return (
