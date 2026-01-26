@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useLanguage } from '../../../hooks/useLanguage'
 import styles from './AboutMe.module.css'
 import { FaReact, FaAngular, FaNodeJs, FaGitAlt, FaBootstrap, FaHtml5, FaCss3Alt } from 'react-icons/fa'
 import { SiTypescript, SiIonic, SiExpress, SiMongodb, SiMysql, SiMui } from 'react-icons/si'
@@ -7,9 +8,12 @@ import { VscCode } from 'react-icons/vsc'
 import { BiServer, BiData } from 'react-icons/bi'
 import { RiToolsFill } from 'react-icons/ri'
 
+function AboutMe() {
+    const { translations } = useLanguage();
+
 const skills = [
     {
-        category: 'Frontend',
+        category: translations.about.skills.frontend,
         icon: <FaReact />,
         color: 'cyan',
         items: [
@@ -22,7 +26,7 @@ const skills = [
         ]
     },
     {
-        category: 'Backend',
+        category: translations.about.skills.backend,
         icon: <BiServer />,
         color: 'purple',
         items: [
@@ -33,7 +37,7 @@ const skills = [
         ]
     },
     {
-        category: 'Database',
+        category: translations.about.skills.database,
         icon: <BiData />,
         color: 'pink',
         items: [
@@ -43,7 +47,7 @@ const skills = [
         ]
     },
     {
-        category: 'Tools',
+        category: translations.about.skills.tools,
         icon: <RiToolsFill />,
         color: 'cyan',
         items: [
@@ -58,27 +62,25 @@ const skills = [
 const journey = [
     {
         year: '2021',
-        title: 'Tecnicatura en Programación',
-        description: 'Inicié mi formación académica en programación, adquiriendo bases sólidas en desarrollo'
+        title: translations.about.journey.year2021.title,
+        description: translations.about.journey.year2021.description
     },
     {
         year: '2022',
-        title: 'Frameworks Modernos',
-        description: 'Dominé React, Angular y Node.js, creando aplicaciones full-stack completas'
+        title: translations.about.journey.year2022.title,
+        description: translations.about.journey.year2022.description
     },
     {
         year: '2023',
-        title: 'Desarrollo Profesional',
-        description: 'Profundicé en tecnologías avanzadas y metodologías ágiles de desarrollo'
+        title: translations.about.journey.year2023.title,
+        description: translations.about.journey.year2023.description
     },
     {
         year: '2024',
-        title: 'Proyectos Reales',
-        description: 'Desarrollé múltiples proyectos personales y profesionales con impacto real'
+        title: translations.about.journey.year2024.title,
+        description: translations.about.journey.year2024.description
     }
 ]
-
-function AboutMe() {
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -133,16 +135,14 @@ function AboutMe() {
                 <motion.div className={styles.headerSection} variants={itemVariants}>
                     <div className={styles.badge}>
                         <span className={styles.badgeDot}></span>
-                        <span>SOBRE MÍ</span>
+                        <span>{translations.about.title.toUpperCase()}</span>
                     </div>
                     <h2 className={styles.mainTitle}>
-                        Transformando ideas en{' '}
-                        <span className={styles.titleGradient}>experiencias digitales</span>
+                        {translations.about.subtitle}{' '}
+                        <span className={styles.titleGradient}></span>
                     </h2>
                     <p className={styles.description}>
-                        Desarrollador Full-Stack apasionado por crear soluciones web innovadoras. 
-                        Con formación en la Universidad Tecnológica Nacional, combino conocimiento técnico 
-                        con creatividad para construir aplicaciones que realmente marquen la diferencia.
+                        {translations.about.intro}
                     </p>
                 </motion.div>
 
@@ -181,7 +181,7 @@ function AboutMe() {
 
                 {/* Journey Timeline */}
                 <motion.div className={styles.journeySection} variants={itemVariants}>
-                    <h3 className={styles.journeyTitle}>Mi Trayectoria</h3>
+                    <h3 className={styles.journeyTitle}>{translations.about.journeyTitle}</h3>
                     <div className={styles.timeline}>
                         {journey.map((item, index) => (
                             <motion.div
@@ -216,7 +216,7 @@ function AboutMe() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <span>Trabajemos juntos</span>
+                        <span>{translations.about.cta}</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <path d="M5 12h14M12 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>

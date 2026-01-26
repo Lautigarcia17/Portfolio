@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
+import { useLanguage } from '../../../hooks/useLanguage';
 import styles from './WelcomeSection.module.css';
 import { Me } from '../../../assets/index';
 
 
 function WelcomeSection() {
+    const { translations } = useLanguage();
     const handleRedirect = (url: string) => {
         window.open(url, '_blank');
     };
@@ -80,7 +82,7 @@ function WelcomeSection() {
                             transition={{ delay: 0.3 }}
                         >
                             <span className={styles.badgeDot} />
-                            <span>FULL-STACK DEVELOPER</span>
+                            <span>{translations.welcome.badge}</span>
                         </motion.div>
 
                         <motion.h1
@@ -100,8 +102,7 @@ function WelcomeSection() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.6, duration: 0.8 }}
                         >
-                            Crafting immersive digital experiences through cutting-edge
-                            technologies and creative design solutions.
+                            {translations.welcome.description}
                         </motion.p>
 
                         {/* CTA Buttons */}
@@ -117,7 +118,7 @@ function WelcomeSection() {
                                 whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 255, 249, 0.5)' }}
                                 whileTap={{ scale: 0.95 }}
                             >
-                                <span>View Projects</span>
+                                <span>{translations.welcome.cta.primary}</span>
                                 <svg className={styles.ctaIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                     <path d="M5 12h14M12 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
@@ -129,7 +130,7 @@ function WelcomeSection() {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
-                                <span>Get In Touch</span>
+                                <span>{translations.welcome.cta.secondary}</span>
                             </motion.button>
                         </motion.div>
 
@@ -244,7 +245,7 @@ function WelcomeSection() {
                     }}
                     onClick={() => scrollToSection('about')}
                 >
-                    <span>Explore More</span>
+                    <span>{translations.welcome.scroll}</span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                         <path d="M12 5v14M5 12l7 7 7-7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>

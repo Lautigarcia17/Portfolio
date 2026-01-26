@@ -1,10 +1,12 @@
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
+import { useLanguage } from '../../hooks/useLanguage';
 import styles from './Navbar.module.css'
 
 function NavBar() {
     const location = useLocation();
+    const { language, toggleLanguage, translations } = useLanguage();
     const [hoveredSection, setHoveredSection] = useState<string | null>(null);
     const [activeSection, setActiveSection] = useState('welcome');
     
@@ -58,10 +60,10 @@ function NavBar() {
     };
 
     const sections = [
-        { id: 'welcome', label: 'HOME', icon: '◈' },
-        { id: 'about', label: 'ABOUT', icon: '◈' },
-        { id: 'work', label: 'WORK', icon: '◈' },
-        { id: 'contact', label: 'CONTACT', icon: '◈' }
+        { id: 'welcome', label: translations.navbar.home.toUpperCase(), icon: '◈' },
+        { id: 'about', label: translations.navbar.about.toUpperCase(), icon: '◈' },
+        { id: 'work', label: translations.navbar.work.toUpperCase(), icon: '◈' },
+        { id: 'contact', label: translations.navbar.contact.toUpperCase(), icon: '◈' }
     ];
 
     return (
@@ -134,6 +136,28 @@ function NavBar() {
                             </motion.button>
                         );
                     })}
+
+                    {/* Language Toggle */}
+                    <motion.button
+                        className={styles.langToggle}
+                        onClick={toggleLanguage}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        title={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+                    >
+                        <span className={styles.langText}>{language === 'es' ? 'ES' : 'EN'}</span>
+                        <motion.div
+                            className={styles.langGlow}
+                            animate={{
+                                opacity: [0.5, 1, 0.5]
+                            }}
+                            transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                        />
+                    </motion.button>
                 </nav>
             )}
 

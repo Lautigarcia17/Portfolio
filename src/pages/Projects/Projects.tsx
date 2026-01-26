@@ -1,3 +1,4 @@
+import { useLanguage } from '../../hooks/useLanguage';
 import Footer from '../../components/Footer/Footer';
 import ProjectItem from '../../components/ProjectItem/ProjectItem';
 import { Project } from '../../types/project';
@@ -7,6 +8,7 @@ import styles from './Projects.module.css'
 
 
 function Projects() {
+    const { translations } = useLanguage();
 
     const arrayProjects: Project[] = projects;
 
@@ -15,8 +17,8 @@ function Projects() {
             <div className={styles.containerProjects}>
                 <div className={styles.contentProjects}>
                     <div className={styles.headerProjects}>
-                        <h1 className={styles.titleHeader}> Mis Proyectos </h1>
-                        <h2 className={styles.subtitleHeader}>Experiencia construida a través de cada línea de código.</h2>
+                        <h1 className={styles.titleHeader}>{translations.projects.title}</h1>
+                        <h2 className={styles.subtitleHeader}>{translations.projects.subtitle}</h2>
                     </div>
 
                     <div className={styles.projects}>

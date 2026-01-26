@@ -6,8 +6,10 @@ interface ProjectIcon {
 export interface Project{
     title: string,
     text: string,
+    textEn: string,
     image: string,
-    status:string,
+    status: string,
+    statusEn: string,
     icons: ProjectIcon[],
     github: string,
     video?: string,

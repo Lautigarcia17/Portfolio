@@ -1,10 +1,11 @@
-
+import { useLanguage } from '../../hooks/useLanguage'
 import styles from './Footer.module.css'
 
 
 
 
 function Footer() {
+    const { translations, language } = useLanguage();
     const currentDate = new Date();
 
     const handleRedirect = (url: string) => {
@@ -30,7 +31,7 @@ function Footer() {
            
 
             <div>
-                <p className={styles.message}>Gracias por pasarte por aquí.</p>
+                <p className={styles.message}>{language === 'es' ? 'Gracias por pasarte por aquí.' : 'Thanks for stopping by.'}</p>
 
             </div>
          

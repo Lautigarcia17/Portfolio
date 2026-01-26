@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import emailjs from '@emailjs/browser'
+import { useLanguage } from '../../../hooks/useLanguage'
 import styles from './Contact.module.css'
 import { Controller, useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast'
@@ -9,32 +10,33 @@ import { Button } from '@mui/material'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import Footer from '../../../components/Footer/Footer'
 
+function Contact() {
+    const { translations } = useLanguage();
+    const form: any = useRef(null)
+    const { formState: { errors }, reset, handleSubmit, control } = useForm({
+        mode: 'onSubmit'
+    })
+
 const contactInfo = [
     {
         icon: 'mail',
-        title: 'Email',
+        title: translations.contact.channels.email,
         value: 'lautaronhgarcia@gmail.com',
         link: 'mailto:lautaronhgarcia@gmail.com'
     },
     {
         icon: 'linkedin',
-        title: 'LinkedIn',
+        title: translations.contact.channels.linkedin,
         value: '/lautarongarcia',
         link: 'https://www.linkedin.com/in/lautarongarcia/'
     },
     {
         icon: 'github',
-        title: 'GitHub',
+        title: translations.contact.channels.github,
         value: '/Lautigarcia17',
         link: 'https://github.com/Lautigarcia17'
     }
 ]
-
-function Contact() {
-    const form: any = useRef(null)
-    const { formState: { errors }, reset, handleSubmit, control } = useForm({
-        mode: 'onSubmit'
-    })
 
     const sendEmail = () => {
         emailjs
@@ -43,7 +45,7 @@ function Contact() {
             })
             .then(
                 () => {
-                    toast.success('¡Mensaje enviado con éxito!', {
+                    toast.success(translations.contact.form.success, {
                         position: 'top-right',
                         style: {
                             background: 'rgba(26, 26, 39, 0.95)',
@@ -55,7 +57,7 @@ function Contact() {
                     reset()
                 },
                 (error) => {
-                    toast.error('Error al enviar el mensaje', { position: 'top-right' })
+                    toast.error(translations.contact.form.error, { position: 'top-right' })
                     console.log('FAILED...', error.text)
                 },
             )
@@ -139,14 +141,14 @@ function Contact() {
                     <motion.div className={styles.header} variants={itemVariants}>
                         <div className={styles.badge}>
                             <span className={styles.badgeDot}></span>
-                            <span>CONTACTO</span>
+                            <span>{translations.contact.title.toUpperCase()}</span>
                         </div>
                         <h2 className={styles.titleHeader}>
-                            Construyamos algo{' '}
-                            <span className={styles.titleGradient}>increíble juntos</span>
+                            {translations.contact.subtitle}{' '}
+                            <span className={styles.titleGradient}></span>
                         </h2>
                         <p className={styles.subtitleHeader}>
-                            ¿Tienes un proyecto en mente? Me encantaría conocer tu idea y ayudarte a hacerla realidad.
+                            {translations.contact.description}
                         </p>
                     </motion.div>
 
@@ -154,7 +156,7 @@ function Contact() {
                     <div className={styles.contactGrid}>
                         {/* Contact Info Cards */}
                         <motion.div className={styles.infoSection} variants={itemVariants}>
-                            <h3 className={styles.infoTitle}>Información de contacto</h3>
+                            <h3 className={styles.infoTitle}>{translations.contact.contactInfo}</h3>
                             <div className={styles.infoCards}>
                                 {contactInfo.map((info, index) => (
                                     <motion.a
@@ -203,7 +205,7 @@ function Contact() {
                             onSubmit={handleSubmit(sendEmail)}
                             variants={itemVariants}
                         >
-                            <h3 className={styles.formTitle}>Envíame un mensaje</h3>
+                            <h3 className={styles.formTitle}>{translations.contact.formTitle}</h3>
                             <ThemeProvider theme={theme}>
                                 <div className={styles.inputs}>
                                     {/* Name Input */}
@@ -213,16 +215,16 @@ function Contact() {
                                             control={control}
                                             defaultValue=""
                                             rules={{
-                                                required: "El nombre es requerido",
+                                                required: translations.contact.form.name,
                                                 pattern: {
                                                     value: /^[A-Za-zÀ-ÿ\s]+$/,
-                                                    message: "Solo letras y espacios",
+                                                    message: translations.contact.form.name,
                                                 },
                                             }}
                                             render={({ field }) => (
                                                 <TextField
                                                     {...field}
-                                                    label="Nombre completo"
+                                                    label={translations.contact.form.name}
                                                     variant="standard"
                                                     autoComplete="off"
                                                     fullWidth
@@ -242,16 +244,16 @@ function Contact() {
                                             control={control}
                                             defaultValue=""
                                             rules={{
-                                                required: "El correo es requerido",
+                                                required: translations.contact.form.email,
                                                 pattern: {
                                                     value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                                                    message: "Correo inválido"
+                                                    message: translations.contact.form.email
                                                 },
                                             }}
                                             render={({ field }) => (
                                                 <TextField
                                                     {...field}
-                                                    label="Correo electrónico"
+                                                    label={translations.contact.form.email}
                                                     variant="standard"
                                                     autoComplete="off"
                                                     fullWidth
@@ -271,16 +273,16 @@ function Contact() {
                                             control={control}
                                             defaultValue=""
                                             rules={{
-                                                required: "El mensaje es requerido",
+                                                required: translations.contact.form.message,
                                                 minLength: {
                                                     value: 10,
-                                                    message: "Mínimo 10 caracteres"
+                                                    message: translations.contact.form.message
                                                 }
                                             }}
                                             render={({ field }) => (
                                                 <TextField
                                                     {...field}
-                                                    label="Mensaje"
+                                                    label={translations.contact.form.message}
                                                     multiline
                                                     rows={4}
                                                     variant="standard"
@@ -329,7 +331,7 @@ function Contact() {
                                             },
                                         }}
                                     >
-                                        Enviar mensaje
+                                        {translations.contact.form.send}
                                     </Button>
                                 </motion.div>
                             </ThemeProvider>

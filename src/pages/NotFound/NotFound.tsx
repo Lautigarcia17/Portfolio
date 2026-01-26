@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../../hooks/useLanguage'
 import styles from './NotFound.module.css'
 
 
 
 function NotFound() {
+    const { translations } = useLanguage();
 
     return (
         <>
@@ -11,8 +13,8 @@ function NotFound() {
                 <div className={styles.contentNotFound}>
                     <div className={styles.textNotFound}>
 
-                        <h1>Esta página no está disponible.</h1>
-                        <h2>Es posible que el enlace que seleccionaste no funcione o que se haya eliminado la página. <Link to='/' className={styles.linkToBack}>Volver al portafolio</Link></h2>
+                        <h1>{translations.notFound.title}</h1>
+                        <h2>{translations.notFound.message} <Link to='/' className={styles.linkToBack}>{translations.notFound.backToHome}</Link></h2>
                     </div>
                 </div>
             </div>
