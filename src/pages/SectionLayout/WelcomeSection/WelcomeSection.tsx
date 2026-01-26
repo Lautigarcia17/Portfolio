@@ -89,9 +89,9 @@ function WelcomeSection() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4, duration: 0.8 }}
                         >
-                            Lautaro
+                            Lautaro Nahuel
                             <br />
-                            <span className={styles.titleGradient}>García</span>
+                            <span className={styles.titleGradient}>Garcia</span>
                         </motion.h1>
 
                         <motion.p

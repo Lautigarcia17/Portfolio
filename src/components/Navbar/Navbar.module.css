@@ -1,6 +1,6 @@
 .navbar {
     position: fixed;
-    top: 2rem;
+    top: 3rem;
     left: 50%;
     transform: translateX(-50%);
     max-width: 1200px;
@@ -194,7 +194,7 @@
     }
     
     .navLabel {
-        display: none;
+        display: inline;
     }
     
     .navIcon {
