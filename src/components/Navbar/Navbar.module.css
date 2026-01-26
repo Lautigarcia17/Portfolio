@@ -164,40 +164,69 @@
 /* Language Toggle */
 .langToggle {
     position: relative;
-    background: rgba(0, 255, 249, 0.1);
-    border: 1px solid rgba(0, 255, 249, 0.3);
-    padding: 0.625rem 1rem;
+    background: rgba(19, 19, 26, 0.8);
+    border: 1px solid rgba(0, 255, 249, 0.4);
+    padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 0.5rem;
     cursor: pointer;
     color: var(--color-primary);
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     border-radius: var(--radius-full);
     transition: all var(--timing-fast) var(--ease-smooth);
     overflow: hidden;
-    min-width: 52px;
+    backdrop-filter: blur(10px);
 }
 
 .langToggle:hover {
     background: rgba(0, 255, 249, 0.15);
-    border-color: rgba(0, 255, 249, 0.5);
+    border-color: rgba(0, 255, 249, 0.6);
     box-shadow: 0 0 20px rgba(0, 255, 249, 0.3);
-    transform: scale(1.05);
 }
 
-.langText {
+.langIcon {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2;
+    color: var(--color-primary);
     position: relative;
     z-index: 2;
+}
+
+.langOptions {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    position: relative;
+    z-index: 2;
+}
+
+.langOption {
     font-family: 'Space Grotesk', monospace;
+    transition: all var(--timing-fast) var(--ease-smooth);
+    opacity: 0.5;
+    font-size: 0.8125rem;
+}
+
+.langOption.active {
+    opacity: 1;
+    color: var(--color-primary);
+    font-weight: 800;
+    text-shadow: 0 0 10px rgba(0, 255, 249, 0.8);
+}
+
+.langDivider {
+    opacity: 0.3;
+    margin: 0 0.125rem;
 }
 
 .langGlow {
     position: absolute;
     inset: -4px;
-    background: radial-gradient(circle at center, rgba(0, 255, 249, 0.2) 0%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(0, 255, 249, 0.15) 0%, transparent 70%);
     pointer-events: none;
     border-radius: inherit;
 }
