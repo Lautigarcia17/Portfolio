@@ -4,10 +4,22 @@ import { useLanguage } from '../../../hooks/useLanguage'
 import styles from './MyWork.module.css'
 import { projects } from '../../../utilities/projects'
 import { Project } from '../../../types/project'
+import ModalVideo from '../../../components/ModalVideo/ModalVideo'
 
 function MyWork() {
     const { language, translations } = useLanguage();
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+    const [showVideo, setShowVideo] = useState(false)
+    const [currentVideo, setCurrentVideo] = useState<string | null>(null)
+
+    const handleVideo = (video?: string) => {
+        if (video) {
+            setCurrentVideo(video)
+            setShowVideo(true)
+        } else {
+            setShowVideo(false)
+        }
+    }
 
     // Bmovies as featured (index 1 in array)
     const featuredProject = projects[1] // Bmovies
@@ -168,6 +180,17 @@ function MyWork() {
                                                     </svg>
                                                 </motion.a>
                                             )}
+                                            {project.video && (
+                                                <motion.button
+                                                    className={styles.iconBtn}
+                                                    whileHover={{ scale: 1.1 }}
+                                                    onClick={(e) => { e.stopPropagation(); handleVideo(project.video) }}
+                                                >
+                                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M8 5v14l11-7z"/>
+                                                    </svg>
+                                                </motion.button>
+                                            )}
                                             {project.page && (
                                                 <motion.a
                                                     href={project.page}
@@ -208,6 +231,8 @@ function MyWork() {
                     </div>
                 </motion.div>
             </motion.div>
+
+            <ModalVideo show={showVideo} handleModalShow={() => handleVideo()} video={currentVideo} />
         </div>
     )
 }

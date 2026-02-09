@@ -1,5 +1,4 @@
 import { Modal } from "react-bootstrap";
-import ReactPlayer from "react-player";
 
 function ModalVideo ({ show, handleModalShow, video }: { show: boolean, handleModalShow: () => void, video : any}) {
 
@@ -7,7 +6,14 @@ function ModalVideo ({ show, handleModalShow, video }: { show: boolean, handleMo
     <>
 
       <Modal show={show} onHide={handleModalShow} centered >
-        <ReactPlayer url={video} playing controls loop muted/>  
+        <video 
+          src={video} 
+          controls 
+          autoPlay 
+          loop 
+          muted 
+          style={{ width: '100%', height: 'auto' }}
+        />
       </Modal>
     </>
   );

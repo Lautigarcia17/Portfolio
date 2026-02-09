@@ -9,7 +9,6 @@ export default function ProjectItem({ project }: { project: Project }) {
   const [showVideo, setShowVideo] = useState(false);
   const [video, setVideo] = useState<string | null>(null);
 
-
   const handleRedirect = (url: string) => {
     window.open(url);
   }

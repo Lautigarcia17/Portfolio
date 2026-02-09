@@ -396,6 +396,8 @@
     justify-content: center;
     transition: all 0.3s ease;
     text-decoration: none;
+    cursor: pointer;
+    padding: 0;
 }
 
 .iconBtn:hover {

@@ -1,7 +1,7 @@
 ﻿import { Bmovies, GameRoom, Clinic, Airline, AirlineVideo, GeneralaVideo, Generala, Restaurapp, Portafolio, VeloShop } from '../assets/index'
 import { Project } from '../types/project'
-import { FaReact, FaAngular, FaNodeJs, FaHtml5, FaCss3Alt } from 'react-icons/fa'
-import { SiTypescript, SiExpress, SiMui, SiSupabase, SiIonic, SiSass } from 'react-icons/si'
+import { FaReact, FaAngular, FaNodeJs, FaHtml5, FaCss3Alt, FaDatabase } from 'react-icons/fa'
+import { SiTypescript, SiExpress, SiMui, SiSupabase, SiIonic, SiSass, SiDotnet } from 'react-icons/si'
 import { TbBrandCSharp, TbBrandFirebase } from 'react-icons/tb'
 
 export const projects: Project[] = [
@@ -119,14 +119,12 @@ export const projects: Project[] = [
         status: "",
         statusEn: "",
         icons: [
-            { name: 'Angular', icon: <FaAngular color="#DD0031" /> },
-            { name: 'TypeScript', icon: <SiTypescript color="#3178C6" /> },
-            { name: 'HTML5', icon: <FaHtml5 color="#E34F26" /> },
-            { name: 'CSS', icon: <FaCss3Alt color="#1572B6" /> },
-            { name: 'Firebase', icon: <TbBrandFirebase color="#FFCA28" /> },
+            { name: 'C#', icon: <TbBrandCSharp color="#512BD4" /> },
+            { name: '.NET', icon: <SiDotnet color="#512BD4" /> },
+            { name: 'SQL', icon: <FaDatabase color="#F29111" /> },
         ],
         github: "https://github.com/Lautigarcia17/PrimerParcial",
-        page: "https://pp-labo4-3b6ac.web.app/home",
+        page: "",
         video: GeneralaVideo
     },
     {
@@ -138,8 +136,8 @@ export const projects: Project[] = [
         statusEn: "",
         icons: [
             { name: 'C#', icon: <TbBrandCSharp color="#512BD4" /> },
-            { name: 'HTML5', icon: <FaHtml5 color="#E34F26" /> },
-            { name: 'CSS', icon: <FaCss3Alt color="#1572B6" /> },
+            { name: '.NET', icon: <SiDotnet color="#512BD4" /> },
+            { name: 'SQL', icon: <FaDatabase color="#F29111" /> },
         ],
         github: "https://github.com/Lautigarcia17/SegundoParcial",
         page: "",
